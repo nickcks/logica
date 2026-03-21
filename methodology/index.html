@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Methodology — Logica</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FAFAF8;--surface:#FFFFFF;--surface-alt:#F4F3EF;--text:#1A1A18;--text-secondary:#6B6B63;--text-tertiary:#9C9C94;--border:#E5E4DF;--border-light:#EEEDE9;--radius:8px;--radius-lg:12px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+body.zh{font-family:'DM Sans','Noto Sans TC',system-ui,sans-serif}
+a{color:inherit}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+header{padding:24px 0 0;border-bottom:1px solid var(--border)}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px}
+.logo{font-size:14px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;color:var(--text-tertiary)}.logo a{text-decoration:none}
+.header-right{display:flex;align-items:center}
+nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-left:24px}nav a:hover{color:var(--text)}
+.lang-toggle{display:inline-flex;align-items:center;margin-left:20px;border-left:1px solid var(--border);padding-left:16px}
+.lang-btn{font-size:12px;color:var(--text-tertiary);background:none;border:none;cursor:pointer;padding:2px 6px;font-family:inherit;transition:color .15s}.lang-btn:hover{color:var(--text)}.lang-btn.active{color:var(--text);font-weight:500}
+.lang-sep{font-size:12px;color:var(--border);margin:0 2px}
+.content{padding:80px 0;max-width:560px}
+.content h1{font-size:32px;font-weight:700;letter-spacing:-.5px;margin-bottom:16px}
+.content p{font-size:16px;color:var(--text-secondary);line-height:1.7;margin-bottom:12px}
+.content .back{display:inline-block;margin-top:20px;font-size:14px;color:var(--text-secondary);text-decoration:underline;text-underline-offset:2px}
+footer{border-top:1px solid var(--border);padding:32px 0;text-align:center}
+footer p{font-size:13px;color:var(--text-tertiary)}footer a{color:var(--text-secondary)}
+</style>
+</head>
+<body>
+<header><div class="container header-inner"><div class="logo"><a href="..">Logica</a></div><div class="header-right"><nav><a href="../#tools">Tools</a><a href="./">Method</a><a href="https://github.com/nickcks/logica" target="_blank">GitHub</a></nav><div class="lang-toggle"><button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button><span class="lang-sep">|</span><button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button></div></div></div></header>
+<div class="container content">
+<h1 data-i="title">Methodology</h1>
+<p data-i="p1">Behind every Logica tool is a system for turning domain expertise into structured decision infrastructure. This section will document how the tools are built — the analytical operating system, the decomposition process, and the design principles.</p>
+<p data-i="p2">Coming soon. In the meantime, explore the tools to see the methodology in action.</p>
+<a class="back" href="../#tools" data-i="back">Browse the tools</a>
+</div>
+<footer><div class="container"><p>Nick Chang · Strategy consultant, Mastercard Data & Services · <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank">LinkedIn</a> · <a href="https://github.com/nickcks/logica" target="_blank">GitHub</a></p></div></footer>
+<script>
+const T={
+title:{en:'Methodology',zh:'方法論'},
+p1:{en:'Behind every Logica tool is a system for turning domain expertise into structured decision infrastructure. This section will document how the tools are built — the analytical operating system, the decomposition process, and the design principles.',zh:'每個 Logica 工具背後，是一套將領域專業轉化為結構化決策基礎設施的系統。本頁面將記錄工具的建構方式——分析作業系統、解構流程與設計原則。'},
+p2:{en:'Coming soon. In the meantime, explore the tools to see the methodology in action.',zh:'即將推出。在此之前，歡迎探索工具，親身體驗方法論的實踐。'},
+back:{en:'Browse the tools',zh:'瀏覽工具'}
+};
+let lang='en';
+function setLang(l){
+  lang=l;
+  document.body.classList.toggle('zh',l==='zh');
+  document.getElementById('btn-en').classList.toggle('active',l==='en');
+  document.getElementById('btn-zh').classList.toggle('active',l==='zh');
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const k=el.getAttribute('data-i');
+    if(T[k]&&T[k][l]) el.innerHTML=T[k][l];
+  });
+}
+</script>
+</body>
+</html>
