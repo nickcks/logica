@@ -268,6 +268,6 @@ Note: This is a portfolio-level triage tool using observable proxies, not a full
 
 ## About the Author
 
-**Nick Chang** — Strategy consultant at Mastercard Data & Services. I build decision systems that turn complex industry knowledge into actionable tools. Currently focused on issuer economics, card profitability optimization, and payment ecosystem strategy across Asia-Pacific and Latin American markets.
+**Nick Chang** — Strategy consultant · Payments & financial services. I build decision systems that turn complex industry knowledge into actionable tools. Currently focused on issuer economics, card profitability optimization, and payment ecosystem strategy across Asia-Pacific and Latin American markets.
 
 [View more decision systems →](https://nickcks.github.io/logica/)

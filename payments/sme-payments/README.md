@@ -132,4 +132,4 @@ The core thesis — that SME cards must function as operating system interfaces 
 
 *Source: Industry frameworks, public SME payments benchmarks, author experience across Asia Pacific markets.*
 
-*Nick Chang · Strategy consultant, Mastercard Data & Services*
+*Nick Chang · Strategy consultant · Payments & financial services*

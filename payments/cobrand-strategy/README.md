@@ -181,4 +181,4 @@ This framework operationalizes a decision that most issuers make intuitively —
 
 ---
 
-*Built by Nick Chang · Strategy consultant, Mastercard Data & Services · [Logica](https://nickcks.github.io/logica/)*
+*Built by Nick Chang · Strategy consultant · Payments & financial services · [Logica](https://nickcks.github.io/logica/)*
