@@ -1,0 +1,5 @@
+# Internal process docs (not for public GitHub)
+_internal/
+
+# macOS
+.DS_Store
