@@ -1,48 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TPTWKRCW');</script>
+<!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Methodology — Logica</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<meta name="description" content="How Logica tools are built — a repeatable process for turning dense domain knowledge into decision systems anyone can operate.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FAFAF8;--surface:#FFFFFF;--surface-alt:#F4F3EF;--text:#1A1A18;--text-secondary:#6B6B63;--text-tertiary:#9C9C94;--border:#E5E4DF;--border-light:#EEEDE9;--radius:8px;--radius-lg:12px}
-body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+:root{
+  --bg:#FAFAF8;
+  --surface:#FFFFFF;
+  --surface-alt:#F5F4F0;
+  --text:#1A1A18;
+  --text-secondary:#5C5C56;
+  --text-tertiary:#9C9C94;
+  --text-muted:#B5B5AD;
+  --accent:#7A7A6C;
+  --border:#E2E1DC;
+  --border-light:#EEEDE9;
+  --border-hover:#B8B8B0;
+  --radius:8px;
+  --radius-lg:12px;
+  --mono:'DM Mono',monospace;
+  --sans:'DM Sans',system-ui,sans-serif;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 body.zh{font-family:'DM Sans','Noto Sans TC',system-ui,sans-serif}
 a{color:inherit}
-.container{max-width:1120px;margin:0 auto;padding:0 24px}
-header{padding:24px 0 0;border-bottom:1px solid var(--border)}
-.header-inner{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px}
-.logo{font-size:14px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;color:var(--text-tertiary)}.logo a{text-decoration:none}
+.container{max-width:1080px;margin:0 auto;padding:0 28px}
+
+/* ── Header ── */
+header{padding:20px 0 0}
+.header-inner{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.logo{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent)}.logo a{text-decoration:none}
 .header-right{display:flex;align-items:center}
-nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-left:24px}nav a:hover{color:var(--text)}
-.lang-toggle{display:inline-flex;align-items:center;margin-left:20px;border-left:1px solid var(--border);padding-left:16px}
-.lang-btn{font-size:12px;color:var(--text-tertiary);background:none;border:none;cursor:pointer;padding:2px 6px;font-family:inherit;transition:color .15s}.lang-btn:hover{color:var(--text)}.lang-btn.active{color:var(--text);font-weight:500}
+nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-left:28px;letter-spacing:.2px;transition:color .15s}nav a:hover{color:var(--text)}
+.lang-toggle{display:inline-flex;align-items:center;margin-left:24px;border-left:1px solid var(--border);padding-left:20px}
+.lang-btn{font-size:12px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:2px 6px;font-family:var(--mono);letter-spacing:.5px;transition:color .15s}.lang-btn:hover{color:var(--text-secondary)}.lang-btn.active{color:var(--text);font-weight:500}
 .lang-sep{font-size:12px;color:var(--border);margin:0 2px}
-.content{padding:80px 0;max-width:560px}
-.content h1{font-size:32px;font-weight:700;letter-spacing:-.5px;margin-bottom:16px}
-.content p{font-size:16px;color:var(--text-secondary);line-height:1.7;margin-bottom:12px}
-.content .back{display:inline-block;margin-top:20px;font-size:14px;color:var(--text-secondary);text-decoration:underline;text-underline-offset:2px}
-footer{border-top:1px solid var(--border);padding:32px 0;text-align:center}
-footer p{font-size:13px;color:var(--text-tertiary)}footer a{color:var(--text-secondary)}
+
+/* ── Hero ── */
+.hero{padding:80px 0 64px;max-width:640px}
+.hero-super{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.hero h1{font-size:44px;font-weight:700;line-height:1.1;letter-spacing:-1.2px;margin-bottom:24px}
+.hero p{font-size:17px;color:var(--text-secondary);line-height:1.7;max-width:560px}
+
+/* ── Section shared ── */
+.section-rule{border:none;border-top:1px solid var(--border);margin-bottom:16px}
+.section-label{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:32px}
+
+/* ── Process ── */
+.process-section{padding:0 0 72px}
+.process-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.process-step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px}
+.step-num{font-family:var(--mono);font-size:42px;font-weight:400;color:var(--border);line-height:1;margin-bottom:14px;letter-spacing:-1px}
+.step-name{font-size:18px;font-weight:700;letter-spacing:-.2px;margin-bottom:10px}
+.step-what{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:14px}
+.step-output{font-size:13px;color:var(--text-tertiary);line-height:1.6;margin-bottom:14px;padding-top:12px;border-top:1px solid var(--border-light)}
+.step-output strong{color:var(--text-secondary);font-weight:500}
+.step-proof{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-family:var(--mono);color:var(--accent);letter-spacing:.3px;text-decoration:none;padding:4px 12px;border-radius:20px;border:1px solid var(--border-light);transition:border-color .15s}
+.step-proof:hover{border-color:var(--border-hover)}
+
+/* ── Perspectives ── */
+.perspectives-section{padding:0 0 72px}
+.perspectives-intro{font-size:15px;color:var(--text-secondary);line-height:1.7;max-width:600px;margin-bottom:32px}
+.perspectives-internal{font-size:13px;color:var(--text-tertiary);line-height:1.6;max-width:600px;margin-bottom:36px;font-style:italic}
+.cluster-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.cluster-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px 24px;transition:border-color .25s}
+.cluster-card:hover{border-color:var(--border-hover)}
+.cluster-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.cluster-label{font-family:var(--mono);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.cluster-question{font-size:16px;font-weight:700;line-height:1.35;letter-spacing:-.2px;margin-bottom:10px}
+.cluster-desc{font-size:14px;color:var(--text-secondary);line-height:1.65;margin-bottom:14px}
+.cluster-tool{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-family:var(--mono);color:var(--accent);letter-spacing:.3px;text-decoration:none;padding:4px 12px;border-radius:20px;border:1px solid var(--border-light);transition:border-color .15s}
+.cluster-tool:hover{border-color:var(--border-hover)}
+
+/* ── Principles ── */
+.principles-section{padding:0 0 72px}
+.principles-list{max-width:640px}
+.principle{padding:20px 0;border-bottom:1px solid var(--border-light)}
+.principle:first-child{border-top:1px solid var(--border-light)}
+.principle-num{font-family:var(--mono);font-size:12px;color:var(--text-muted);letter-spacing:.5px;margin-bottom:4px}
+.principle-text{font-size:15px;color:var(--text);line-height:1.6;font-weight:500}
+.principle-detail{font-size:13.5px;color:var(--text-secondary);line-height:1.6;margin-top:4px}
+
+/* ── Transfer ── */
+.transfer-section{padding:0 0 72px}
+.transfer-text{font-size:15px;color:var(--text-secondary);line-height:1.7;max-width:600px}
+.transfer-back{display:inline-block;margin-top:20px;font-size:14px;color:var(--text-secondary);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color .15s}
+.transfer-back:hover{border-color:var(--text-secondary)}
+
+/* ── Footer ── */
+footer{border-top:1px solid var(--border);padding:40px 0}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+.footer-author{font-size:13px;color:var(--text-tertiary)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{font-size:13px;color:var(--text-tertiary);text-decoration:none;transition:color .15s}.footer-links a:hover{color:var(--text-secondary)}
+
+/* ── Responsive ── */
+@media(max-width:860px){
+  .hero{padding:56px 0 48px}
+  .hero h1{font-size:34px;letter-spacing:-1px}
+  .process-grid{grid-template-columns:1fr}
+  .cluster-grid{grid-template-columns:1fr}
+  .cluster-card.featured{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;gap:12px;text-align:center}
+}
+@media(max-width:560px){
+  .hero h1{font-size:28px}
+  .hero p{font-size:16px}
+}
 </style>
 </head>
 <body>
-<header><div class="container header-inner"><div class="logo"><a href="..">Logica</a></div><div class="header-right"><nav><a href="../#tools">Tools</a><a href="./">Method</a><a href="https://github.com/nickcks/logica" target="_blank">GitHub</a></nav><div class="lang-toggle"><button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button><span class="lang-sep">|</span><button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button></div></div></div></header>
-<div class="container content">
-<h1 data-i="title">Methodology</h1>
-<p data-i="p1">Behind every Logica tool is a system for turning domain expertise into structured decision infrastructure. This section will document how the tools are built — the analytical operating system, the decomposition process, and the design principles.</p>
-<p data-i="p2">Coming soon. In the meantime, explore the tools to see the methodology in action.</p>
-<a class="back" href="../#tools" data-i="back">Browse the tools</a>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPTWKRCW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header>
+<div class="container header-inner">
+<div class="logo"><a href="..">Logica</a></div>
+<div class="header-right">
+<nav>
+<a href="../#tools">Tools</a>
+<a href="./">Method</a>
+<a href="https://github.com/nickcks/logica" target="_blank">GitHub</a>
+</nav>
+<div class="lang-toggle">
+<button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+<span class="lang-sep">|</span>
+<button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
 </div>
-<footer><div class="container"><p>Nick Chang · Strategy consultant · Payments & financial services · <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank">LinkedIn</a> · <a href="https://github.com/nickcks/logica" target="_blank">GitHub</a></p></div></footer>
+</div>
+</div>
+</header>
+
+<!-- ═══════ 1. HERO ═══════ -->
+<div class="container hero">
+<div class="hero-super" data-i="hero_super">Methodology</div>
+<h1 data-i="hero_title">How these tools are built</h1>
+<p data-i="hero_text">Most analytical work is trapped in decks, frameworks, and expert judgment — hard to reuse, hard to operate, and slow to turn into action. Logica turns that work into systems you can actually run.</p>
+</div>
+
+<!-- ═══════ 2. THE PROCESS ═══════ -->
+<div class="container process-section">
+<hr class="section-rule">
+<span class="section-label" data-i="sec_process">The process</span>
+
+<div class="process-grid">
+
+<div class="process-step">
+<div class="step-num">01</div>
+<div class="step-name" data-i="s1_name">Decompose</div>
+<div class="step-what" data-i="s1_what">Break the domain into its core variables, actors, and failure modes. Map how value flows, where it leaks, and which forces shape outcomes.</div>
+<div class="step-output" data-i="s1_output"><strong>Output:</strong> A structural map of the domain — the components that matter and how they interact.</div>
+<a class="step-proof" href="../payments/issuer-economics/" data-i="s1_proof">See it → Issuer P&L</a>
+</div>
+
+<div class="process-step">
+<div class="step-num">02</div>
+<div class="step-name" data-i="s2_name">Formalize</div>
+<div class="step-what" data-i="s2_what">Convert structural patterns into explicit decision rules. Each rule has a condition, a threshold, and a consequence — pass, warning, or fail.</div>
+<div class="step-output" data-i="s2_output"><strong>Output:</strong> A rule set that turns qualitative judgment into testable, repeatable logic.</div>
+<a class="step-proof" href="../payments/cobrand-strategy/" data-i="s2_proof">See it → Co-Brand</a>
+</div>
+
+<div class="process-step">
+<div class="step-num">03</div>
+<div class="step-name" data-i="s3_name">Calibrate</div>
+<div class="step-what" data-i="s3_what">Ground each rule in real industry conditions. Set thresholds using public benchmarks, adjust for regional variation, and stress-test edge cases with preset scenarios.</div>
+<div class="step-output" data-i="s3_output"><strong>Output:</strong> Thresholds and scenarios tuned to how the market actually behaves — not textbook assumptions.</div>
+<a class="step-proof" href="../payments/portfolio-conversion/" data-i="s3_proof">See it → Conversion</a>
+</div>
+
+<div class="process-step">
+<div class="step-num">04</div>
+<div class="step-name" data-i="s4_name">Ship</div>
+<div class="step-what" data-i="s4_what">Build the system into an interface someone can operate without context. Inputs they can adjust, rules they can trace, outputs they can act on — all legible in under three minutes.</div>
+<div class="step-output" data-i="s4_output"><strong>Output:</strong> An interactive tool that compresses weeks of analytical work into something you run in minutes.</div>
+<a class="step-proof" href="../payments/sme-payments/" data-i="s4_proof">See it → SME Payments</a>
+</div>
+
+</div>
+</div>
+
+<!-- ═══════ 3. ANALYTICAL PERSPECTIVES ═══════ -->
+<div class="container perspectives-section">
+<hr class="section-rule">
+<span class="section-label" data-i="sec_perspectives">Analytical perspectives behind the tools</span>
+
+<p class="perspectives-intro" data-i="persp_intro">Every domain has structural forces that shape outcomes. The question is whether you see them systematically or catch them ad hoc. Each Logica tool is built on a structured set of analytical perspectives — ways of looking at a domain that surface different kinds of insight.</p>
+<p class="perspectives-internal" data-i="persp_internal">Internally, this analytical operating system is organized as Meta Logic OS — a set of structured perspectives used to decompose complexity into usable decision systems.</p>
+
+<div class="cluster-grid">
+
+<!-- Featured: Structure — fuller treatment -->
+<div class="cluster-card featured">
+<div>
+<div class="cluster-label" data-i="c1_label">Structure</div>
+<div class="cluster-question" data-i="c1_q">What are the core components, and where does value leak?</div>
+<div class="cluster-desc" data-i="c1_desc">Before you can diagnose anything, you need to see the machine. Structural analysis decomposes a domain into its fundamental components — revenue lines, cost drivers, flow paths — and maps how they interact. Most strategic errors start here: people optimize a component without seeing how it connects to the rest of the system.</div>
+</div>
+<div>
+<div class="cluster-desc" data-i="c1_example">In credit card issuer economics, the P&amp;L looks simple until you decompose it into seven forces: transaction mix, revolving behavior, fee structure, reward costs, risk appetite, acquisition cost, and portfolio lifecycle stage. Each force pulls in a different direction. The Issuer P&amp;L tool maps all seven and diagnoses where the portfolio is creating or destroying value.</div>
+<a class="cluster-tool" href="../payments/issuer-economics/" data-i="c1_tool">Tool 01 → Issuer P&L</a>
+</div>
+</div>
+
+<!-- Featured: Readiness — fuller treatment -->
+<div class="cluster-card featured">
+<div>
+<div class="cluster-label" data-i="c2_label">Readiness &amp; transition</div>
+<div class="cluster-question" data-i="c2_q">What must be true before a system change creates value rather than destroys it?</div>
+<div class="cluster-desc" data-i="c2_desc">Change projects fail not because the destination is wrong, but because the preconditions weren't met. Readiness analysis identifies the hard prerequisites — operational capacity, organizational alignment, risk buffers, timing constraints — and tests whether they're actually in place before the switch is flipped.</div>
+</div>
+<div>
+<div class="cluster-desc" data-i="c2_example">A card portfolio conversion looks like a technical migration until you realize it's an organizational stress test. The Conversion tool checks eight dimensions — from IT infrastructure and PMO maturity to regulatory clearance and post-migration activation — and computes whether the timeline has any buffer left. Most conversions that fail were never ready to begin with.</div>
+<a class="cluster-tool" href="../payments/portfolio-conversion/" data-i="c2_tool">Tool 03 → Conversion</a>
+</div>
+</div>
+
+<!-- Compact: Power & Incentives -->
+<div class="cluster-card">
+<div class="cluster-label" data-i="c3_label">Power &amp; incentives</div>
+<div class="cluster-question" data-i="c3_q">Who captures value, and how does control shift across the system?</div>
+<div class="cluster-desc" data-i="c3_desc">In any multi-player system, margins don't just compress — they migrate. Power analysis tracks where value concentrates, which players have leverage, and what structural shifts are redistributing economics. In acquiring, the question isn't whether margins are thin — it's whether the business controls enough of the value chain to survive when they get thinner.</div>
+<a class="cluster-tool" href="../payments/acquirer-playbook/" data-i="c3_tool">Tool 04 → Acquiring</a>
+</div>
+
+<!-- Compact: Product-market architecture -->
+<div class="cluster-card">
+<div class="cluster-label" data-i="c4_label">Product-market architecture</div>
+<div class="cluster-question" data-i="c4_q">Does the product architecture match how the market actually behaves?</div>
+<div class="cluster-desc" data-i="c4_desc">A product can have every feature and still miss the market. Architecture analysis tests whether the product's structure — what it bundles, how it engages, what makes it stick — aligns with the buyer's actual workflow and decision patterns. In SME payments, the gap between "payment card" and "operating system" is the gap between commodity and defensibility.</div>
+<a class="cluster-tool" href="../payments/sme-payments/" data-i="c4_tool">Tool 05 → SME Payments</a>
+</div>
+
+</div>
+</div>
+
+<!-- ═══════ 4. DESIGN PRINCIPLES ═══════ -->
+<div class="container principles-section">
+<hr class="section-rule">
+<span class="section-label" data-i="sec_principles">Design principles</span>
+
+<div class="principles-list">
+
+<div class="principle">
+<div class="principle-num">01</div>
+<div class="principle-text" data-i="p1_text">Explicit inputs, not hidden assumptions</div>
+<div class="principle-detail" data-i="p1_detail">Every parameter the system uses is visible and adjustable. If a judgment call drives the output, the user should be the one making it.</div>
+</div>
+
+<div class="principle">
+<div class="principle-num">02</div>
+<div class="principle-text" data-i="p2_text">Rules, not scores</div>
+<div class="principle-detail" data-i="p2_detail">Each tool uses named decision rules with clear thresholds — not a blended score that obscures what's actually driving the result. You can trace every output back to the rule that produced it.</div>
+</div>
+
+<div class="principle">
+<div class="principle-num">03</div>
+<div class="principle-text" data-i="p3_text">Every input must change an output</div>
+<div class="principle-detail" data-i="p3_detail">No decorative parameters. If an input exists, it must affect at least one decision rule. If it doesn't change the diagnosis, it doesn't belong in the tool.</div>
+</div>
+
+<div class="principle">
+<div class="principle-num">04</div>
+<div class="principle-text" data-i="p4_text">Proxies are acknowledged, not hidden</div>
+<div class="principle-detail" data-i="p4_detail">Where direct measurement isn't possible, tools use proxy indicators — and say so. All thresholds carry hedging language and are informed by publicly available industry benchmarks.</div>
+</div>
+
+<div class="principle">
+<div class="principle-num">05</div>
+<div class="principle-text" data-i="p5_text">Legible in three minutes</div>
+<div class="principle-detail" data-i="p5_detail">Someone who has never seen the tool before should understand what it does, what it asks, and what it tells them within a single sitting. If it requires a training session, the design has failed.</div>
+</div>
+
+</div>
+</div>
+
+<!-- ═══════ 5. WHY IT TRANSFERS ═══════ -->
+<div class="container transfer-section">
+<hr class="section-rule">
+<span class="section-label" data-i="sec_transfer">Beyond payments</span>
+
+<p class="transfer-text" data-i="transfer_text">Payments is the first domain. The same process — decompose, formalize, calibrate, ship — is designed to work wherever complexity can be broken into structures, rules, and decisions. Each new domain is proof the system transfers.</p>
+<a class="transfer-back" href="../#tools" data-i="transfer_back">← Browse the tools</a>
+</div>
+
+<footer>
+<div class="container footer-inner">
+<span class="footer-author">Nick Chang · Strategy consultant · Payments &amp; financial services</span>
+<div class="footer-links">
+<a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank">LinkedIn</a>
+<a href="https://github.com/nickcks/logica" target="_blank">GitHub</a>
+</div>
+</div>
+</footer>
+
 <script>
 const T={
-title:{en:'Methodology',zh:'方法論'},
-p1:{en:'Behind every Logica tool is a system for turning domain expertise into structured decision infrastructure. This section will document how the tools are built — the analytical operating system, the decomposition process, and the design principles.',zh:'每個 Logica 工具背後，是一套將領域專業轉化為結構化決策基礎設施的系統。本頁面將記錄工具的建構方式——分析作業系統、解構流程與設計原則。'},
-p2:{en:'Coming soon. In the meantime, explore the tools to see the methodology in action.',zh:'即將推出。在此之前，歡迎探索工具，親身體驗方法論的實踐。'},
-back:{en:'Browse the tools',zh:'瀏覽工具'}
+hero_super:{en:'Methodology',zh:'方法論'},
+hero_title:{en:'How these tools are built',zh:'這些工具是怎麼建的'},
+hero_text:{en:'Most analytical work is trapped in decks, frameworks, and expert judgment — hard to reuse, hard to operate, and slow to turn into action. Logica turns that work into systems you can actually run.',zh:'多數分析工作困在簡報、框架和專家判斷裡——難以複用、難以操作、從洞見到行動的路太長。Logica 把這些工作轉化為你真正能操作的系統。'},
+sec_process:{en:'The process',zh:'流程'},
+s1_name:{en:'Decompose',zh:'解構'},
+s1_what:{en:'Break the domain into its core variables, actors, and failure modes. Map how value flows, where it leaks, and which forces shape outcomes.',zh:'將領域拆解為核心變數、行為者與失敗模式。繪製價值的流向、滲漏點，以及塑造結果的力量。'},
+s1_output:{en:'<strong>Output:</strong> A structural map of the domain — the components that matter and how they interact.',zh:'<strong>產出：</strong>領域的結構地圖——關鍵元件及其互動關係。'},
+s1_proof:{en:'See it → Issuer P&L',zh:'實例 → 發卡 P&L'},
+s2_name:{en:'Formalize',zh:'形式化'},
+s2_what:{en:'Convert structural patterns into explicit decision rules. Each rule has a condition, a threshold, and a consequence — pass, warning, or fail.',zh:'將結構性規律轉化為明確的決策規則。每條規則有一個條件、一個閾值和一個結果——通過、警告或失敗。'},
+s2_output:{en:'<strong>Output:</strong> A rule set that turns qualitative judgment into testable, repeatable logic.',zh:'<strong>產出：</strong>一組規則，將定性判斷轉化為可測試、可重複的邏輯。'},
+s2_proof:{en:'See it → Co-Brand',zh:'實例 → 聯名卡'},
+s3_name:{en:'Calibrate',zh:'校準'},
+s3_what:{en:'Ground each rule in real industry conditions. Set thresholds using public benchmarks, adjust for regional variation, and stress-test edge cases with preset scenarios.',zh:'用真實行業條件校準每條規則。以公開基準設定閾值，調整區域差異，並以預設場景壓力測試邊界。'},
+s3_output:{en:'<strong>Output:</strong> Thresholds and scenarios tuned to how the market actually behaves — not textbook assumptions.',zh:'<strong>產出：</strong>根據市場實際表現校準的閾值與場景——而非教科書假設。'},
+s3_proof:{en:'See it → Conversion',zh:'實例 → 轉換'},
+s4_name:{en:'Ship',zh:'交付'},
+s4_what:{en:'Build the system into an interface someone can operate without context. Inputs they can adjust, rules they can trace, outputs they can act on — all legible in under three minutes.',zh:'將系統建構為無需背景知識即可操作的介面。可調整的輸入、可追溯的規則、可行動的產出——三分鐘內全部讀懂。'},
+s4_output:{en:'<strong>Output:</strong> An interactive tool that compresses weeks of analytical work into something you run in minutes.',zh:'<strong>產出：</strong>互動式工具，將數週分析工作壓縮為幾分鐘就能執行的系統。'},
+s4_proof:{en:'See it → SME Payments',zh:'實例 → 中小企業支付'},
+sec_perspectives:{en:'Analytical perspectives behind the tools',zh:'工具背後的分析視角'},
+persp_intro:{en:'Every domain has structural forces that shape outcomes. The question is whether you see them systematically or catch them ad hoc. Each Logica tool is built on a structured set of analytical perspectives — ways of looking at a domain that surface different kinds of insight.',zh:'每個領域都有塑造結果的結構性力量。問題在於你是系統性地辨識它們，還是碰巧才注意到。每個 Logica 工具都建立在一組結構化的分析視角上——對領域的不同切入方式，揭示不同類型的洞見。'},
+persp_internal:{en:'Internally, this analytical operating system is organized as Meta Logic OS — a set of structured perspectives used to decompose complexity into usable decision systems.',zh:'在內部，這套分析作業系統被組織為 Meta Logic OS——一組用於將複雜性分解為可用決策系統的結構化視角。'},
+c1_label:{en:'Structure',zh:'結構'},
+c1_q:{en:'What are the core components, and where does value leak?',zh:'核心組件是什麼？價值從哪裡流失？'},
+c1_desc:{en:'Before you can diagnose anything, you need to see the machine. Structural analysis decomposes a domain into its fundamental components — revenue lines, cost drivers, flow paths — and maps how they interact. Most strategic errors start here: people optimize a component without seeing how it connects to the rest of the system.',zh:'在診斷任何問題之前，你需要先看清這台機器。結構分析將領域拆解為基本組件——收入線、成本驅動因素、流動路徑——並繪製它們的互動方式。多數策略錯誤始於此處：人們優化單一組件，卻沒看到它如何與系統其他部分相連。'},
+c1_example:{en:'In credit card issuer economics, the P&L looks simple until you decompose it into seven forces: transaction mix, revolving behavior, fee structure, reward costs, risk appetite, acquisition cost, and portfolio lifecycle stage. Each force pulls in a different direction. The Issuer P&L tool maps all seven and diagnoses where the portfolio is creating or destroying value.',zh:'在信用卡發卡經濟中，P&L 看似簡單，直到你將它拆解為七股力量：交易結構、循環信貸行為、費率結構、回饋成本、風險偏好、獲客成本與組合生命週期。每股力量朝不同方向拉扯。發卡 P&L 工具將七者全部繪製，診斷組合的價值創造與毀損位置。'},
+c1_tool:{en:'Tool 01 → Issuer P&L',zh:'工具 01 → 發卡 P&L'},
+c2_label:{en:'Readiness & transition',zh:'準備度與轉換'},
+c2_q:{en:'What must be true before a system change creates value rather than destroys it?',zh:'在系統變革創造價值而非毀損價值之前，哪些條件必須成立？'},
+c2_desc:{en:'Change projects fail not because the destination is wrong, but because the preconditions weren\'t met. Readiness analysis identifies the hard prerequisites — operational capacity, organizational alignment, risk buffers, timing constraints — and tests whether they\'re actually in place before the switch is flipped.',zh:'變革專案失敗，不是因為目標錯誤，而是因為前置條件不到位。準備度分析辨識硬性前提——營運能力、組織對齊、風險緩衝、時程約束——並在執行前測試這些條件是否真正就位。'},
+c2_example:{en:'A card portfolio conversion looks like a technical migration until you realize it\'s an organizational stress test. The Conversion tool checks eight dimensions — from IT infrastructure and PMO maturity to regulatory clearance and post-migration activation — and computes whether the timeline has any buffer left. Most conversions that fail were never ready to begin with.',zh:'卡片組合轉換看似技術遷移，直到你意識到它是一場組織壓力測試。轉換工具檢查八個維度——從 IT 基礎設施和 PMO 成熟度到監管放行和遷移後活化——並計算時程是否還有緩衝。多數失敗的轉換，從一開始就不具備準備條件。'},
+c2_tool:{en:'Tool 03 → Conversion',zh:'工具 03 → 轉換'},
+c3_label:{en:'Power & incentives',zh:'權力與誘因'},
+c3_q:{en:'Who captures value, and how does control shift across the system?',zh:'誰攫取價值？控制權如何在系統中轉移？'},
+c3_desc:{en:'In any multi-player system, margins don\'t just compress — they migrate. Power analysis tracks where value concentrates, which players have leverage, and what structural shifts are redistributing economics. In acquiring, the question isn\'t whether margins are thin — it\'s whether the business controls enough of the value chain to survive when they get thinner.',zh:'在任何多方博弈的系統中，利潤不只是壓縮——而是遷移。權力分析追蹤價值集中在哪裡、哪些玩家有槓桿、什麼結構性變化正在重新分配經濟。在收單中，問題不是利潤薄不薄——而是當利潤更薄時，這個業務是否控制了足夠多的價值鏈以存活。'},
+c3_tool:{en:'Tool 04 → Acquiring',zh:'工具 04 → 收單'},
+c4_label:{en:'Product-market architecture',zh:'產品-市場架構'},
+c4_q:{en:'Does the product architecture match how the market actually behaves?',zh:'產品架構是否與市場的實際運作方式匹配？'},
+c4_desc:{en:'A product can have every feature and still miss the market. Architecture analysis tests whether the product\'s structure — what it bundles, how it engages, what makes it stick — aligns with the buyer\'s actual workflow and decision patterns. In SME payments, the gap between "payment card" and "operating system" is the gap between commodity and defensibility.',zh:'一個產品可以功能齊全卻仍然錯失市場。架構分析檢驗產品的結構——綁了什麼、如何互動、靠什麼黏住——是否與買方的實際工作流和決策模式吻合。在中小企業支付中，「支付卡」和「營運系統」之間的差距，就是大宗商品與可防禦性之間的差距。'},
+c4_tool:{en:'Tool 05 → SME Payments',zh:'工具 05 → 中小企業支付'},
+sec_principles:{en:'Design principles',zh:'設計原則'},
+p1_text:{en:'Explicit inputs, not hidden assumptions',zh:'明確的輸入，而非隱藏的假設'},
+p1_detail:{en:'Every parameter the system uses is visible and adjustable. If a judgment call drives the output, the user should be the one making it.',zh:'系統使用的每個參數都可見且可調。如果一個判斷會驅動結果，做判斷的人應該是使用者。'},
+p2_text:{en:'Rules, not scores',zh:'規則，而非評分'},
+p2_detail:{en:'Each tool uses named decision rules with clear thresholds — not a blended score that obscures what\'s actually driving the result. You can trace every output back to the rule that produced it.',zh:'每個工具使用具名決策規則與明確閾值——而非模糊結果驅動因素的混合評分。你可以將每個結果追溯回產出它的規則。'},
+p3_text:{en:'Every input must change an output',zh:'每個輸入都必須改變輸出'},
+p3_detail:{en:'No decorative parameters. If an input exists, it must affect at least one decision rule. If it doesn\'t change the diagnosis, it doesn\'t belong in the tool.',zh:'沒有裝飾性參數。如果一個輸入存在，它必須影響至少一條決策規則。如果它不改變診斷結果，它就不該出現在工具中。'},
+p4_text:{en:'Proxies are acknowledged, not hidden',zh:'代理指標被揭露，而非隱藏'},
+p4_detail:{en:'Where direct measurement isn\'t possible, tools use proxy indicators — and say so. All thresholds carry hedging language and are informed by publicly available industry benchmarks.',zh:'當直接衡量不可行時，工具使用代理指標——並明確說明。所有閾值都帶有緩衝語言，並以公開的行業基準為依據。'},
+p5_text:{en:'Legible in three minutes',zh:'三分鐘讀懂'},
+p5_detail:{en:'Someone who has never seen the tool before should understand what it does, what it asks, and what it tells them within a single sitting. If it requires a training session, the design has failed.',zh:'從未見過這個工具的人，應該在一次使用中就能理解它做什麼、問什麼、告訴你什麼。如果需要培訓課程，就是設計失敗。'},
+sec_transfer:{en:'Beyond payments',zh:'不止於支付'},
+transfer_text:{en:'Payments is the first domain. The same process — decompose, formalize, calibrate, ship — is designed to work wherever complexity can be broken into structures, rules, and decisions. Each new domain is proof the system transfers.',zh:'支付是第一個領域。同一套流程——解構、形式化、校準、交付——設計為在任何可以拆解為結構、規則與決策的複雜領域中運作。每個新領域都是系統可遷移的證明。'},
+transfer_back:{en:'← Browse the tools',zh:'← 瀏覽工具'}
 };
 let lang='en';
 function setLang(l){
@@ -56,5 +377,6 @@ function setLang(l){
   });
 }
 </script>
+
 </body>
 </html>
