@@ -24,30 +24,29 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
 .lang-btn{font-size:12px;color:var(--text-tertiary);background:none;border:none;cursor:pointer;padding:2px 6px;font-family:inherit;transition:color .15s}.lang-btn:hover{color:var(--text)}.lang-btn.active{color:var(--text);font-weight:500}
 .lang-sep{font-size:12px;color:var(--border);margin:0 2px}
 
-/* Hero zone — two columns */
-.hero-zone{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:48px 0 40px;align-items:start}
-.hero-primary{}
-.hero-primary h1{font-size:38px;font-weight:700;line-height:1.15;letter-spacing:-.8px}
-.hero-primary .tagline{font-size:17px;color:var(--text-secondary);margin-top:10px;line-height:1.6;max-width:520px}
-.hero-primary .what-i-do{margin-top:20px}
-.hero-primary .wid-label{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:6px}
-.hero-primary .wid-text{font-size:14px;color:var(--text);line-height:1.7;max-width:480px}
-.hero-primary .hero-author{margin-top:14px;font-size:13px;color:var(--text-tertiary)}
-.hero-primary .hero-author a{color:var(--text-secondary);text-decoration:underline;text-underline-offset:2px}
+/* Hero zone — asymmetric two columns */
+.hero-zone{display:grid;grid-template-columns:5fr 3fr;gap:48px;padding:52px 0 40px;align-items:start}
 
-/* Hero context — right column */
-.hero-context{padding-top:6px}
-.hero-context .ctx-label{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:10px}
-.hero-context .ctx-body{border-left:2px solid var(--border);padding-left:20px}
-.hero-context p{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:8px}
-.hero-context p:last-child{margin-bottom:0}
+/* Left: main punch */
+.hero-main h1{font-size:44px;font-weight:700;line-height:1.08;letter-spacing:-1px}
+.hero-main .tagline{font-size:16.5px;color:var(--text-secondary);margin-top:12px;line-height:1.55;max-width:480px}
+.hero-main .hero-author{margin-top:14px;font-size:13px;color:var(--text-tertiary)}
+.hero-main .hero-author a{color:var(--text-secondary);text-decoration:underline;text-underline-offset:2px}
+
+/* Right: supporting context */
+.hero-sidebar{padding-top:6px}
+.hero-sidebar .sidebar-block{margin-bottom:20px}
+.hero-sidebar .sidebar-block:last-child{margin-bottom:0}
+.sidebar-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:6px}
+.hero-sidebar p{font-size:12.5px;color:var(--text-secondary);line-height:1.55;margin-bottom:5px}
+.hero-sidebar p:last-of-type{margin-bottom:0}
 
 /* Tools */
 .section{padding:0 0 48px}
-.section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:20px;padding-top:32px;border-top:1px solid var(--border)}
+.section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:20px;padding-top:28px;border-top:1px solid var(--border)}
 .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-decoration:none;display:block;transition:border-color .15s,box-shadow .15s}
-.tool-card:hover{border-color:var(--text-tertiary);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-decoration:none;display:block;transition:border-color .2s,box-shadow .2s,transform .2s}
+.tool-card:hover{border-color:#B8B8B0;box-shadow:0 2px 12px rgba(0,0,0,.05);transform:translateY(-1px)}
 .tool-card .tool-number{font-family:'DM Mono',monospace;font-size:11px;color:var(--text-tertiary);margin-bottom:8px}
 .tool-card h3{font-size:17px;font-weight:700;line-height:1.3;margin-bottom:8px;letter-spacing:-.2px}
 .tool-card p{font-size:13px;color:var(--text-secondary);line-height:1.6}
@@ -71,13 +70,15 @@ footer a{color:var(--text-secondary)}
 
 /* Responsive */
 @media(max-width:860px){
-  .hero-zone{grid-template-columns:1fr;gap:24px;padding:36px 0 32px}
-  .hero-context{padding-top:0}
-  .hero-context .ctx-body{border-left:2px solid var(--border);padding-left:16px}
-  .hero-primary h1{font-size:32px}
-  .hero-primary .tagline{font-size:16px}
+  .hero-zone{grid-template-columns:1fr;gap:28px;padding:36px 0 32px}
+  .hero-main h1{font-size:34px}
+  .hero-main .tagline{font-size:15.5px;max-width:none}
+  .hero-sidebar{padding-top:0;display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .hero-sidebar .sidebar-block{margin-bottom:0}
 }
-@media(max-width:680px){
+@media(max-width:560px){
+  .hero-sidebar{grid-template-columns:1fr}
+  .hero-sidebar .sidebar-block:first-child{margin-bottom:0}
   .tools-grid{grid-template-columns:1fr}
   .roadmap{flex-direction:column}
 }
@@ -104,18 +105,18 @@ footer a{color:var(--text-secondary)}
 </header>
 
 <div class="container hero-zone">
-<div class="hero-primary">
+<div class="hero-main">
 <h1 data-i="hero_title">Decision systems for complex domains</h1>
 <p class="tagline" data-i="hero_tagline">Interactive tools that turn dense domain knowledge into structured, navigable systems — so anyone can see clearly and act decisively from day one.</p>
-<div class="what-i-do">
-<div class="wid-label" data-i="wid_label">What I do</div>
-<p class="wid-text" data-i="wid_text">I build interactive decision systems from dense domain knowledge. Each tool compresses weeks of analytical work into something you can run in minutes.</p>
-</div>
 <p class="hero-author" data-i="hero_author">Built by <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank">Nick Chang</a> · Strategy consultant · Payments & financial services</p>
 </div>
-<div class="hero-context">
-<div class="ctx-label" data-i="about_title">What this is</div>
-<div class="ctx-body">
+<div class="hero-sidebar">
+<div class="sidebar-block">
+<div class="sidebar-label" data-i="wid_label">What I do</div>
+<p data-i="wid_text">I build interactive decision systems from dense domain knowledge. Each tool compresses weeks of analytical work into something you can run in minutes.</p>
+</div>
+<div class="sidebar-block">
+<div class="sidebar-label" data-i="about_title">What this is</div>
 <p data-i="about_p1">Logica is a portfolio of interactive decision systems. Each tool tackles a complex problem — the kind that usually lives inside decks, frameworks, or weeks of consulting analysis — and turns it into a system you can actually run.</p>
 <p data-i="about_p2">Every tool follows the same logic: explicit inputs, structured rules, and clear outputs. The format varies, but the principle stays the same: encode analytical judgment into something anyone can operate.</p>
 </div>
@@ -128,36 +129,36 @@ footer a{color:var(--text-secondary)}
 
 <a class="tool-card" href="payments/issuer-economics/">
 <div class="tool-number">01</div>
-<h3 data-i="t1_title">Issuer P&L Diagnostic</h3>
-<p data-i="t1_desc">7 rules to identify where a credit card portfolio is creating or destroying value. Decomposes issuer economics into transaction mix, customer behavior, and risk — then diagnoses the highest-leverage intervention.</p>
+<h3 data-i="t1_title">Issuer P&L</h3>
+<p data-i="t1_desc">Where is this card portfolio making — or losing — money? Diagnoses the economics of a credit card book across transaction mix, customer behavior, and risk.</p>
 <div class="tool-meta"><span class="tool-tag" data-i="t1_tag1">7 rules</span><span class="tool-tag" data-i="t1_tag2">Issuer economics</span></div>
 </a>
 
 <a class="tool-card" href="payments/cobrand-strategy/">
 <div class="tool-number">02</div>
-<h3 data-i="t2_title">Co-Brand Partnership Decision System</h3>
-<p data-i="t2_desc">8 rules to evaluate whether a co-brand card partnership will create value. Tests partner reach, deal economics, product design, and contract structure against proven failure modes.</p>
+<h3 data-i="t2_title">Co-Brand</h3>
+<p data-i="t2_desc">Will this partnership actually create value — or just burn acquisition spend? Tests partner reach, deal economics, and contract structure against proven co-brand failure modes.</p>
 <div class="tool-meta"><span class="tool-tag" data-i="t2_tag1">8 rules</span><span class="tool-tag" data-i="t2_tag2">Partnership strategy</span></div>
 </a>
 
 <a class="tool-card" href="payments/portfolio-conversion/">
 <div class="tool-number">03</div>
-<h3 data-i="t3_title">Portfolio Conversion Readiness</h3>
-<p data-i="t3_desc">8 rules to assess whether an issuer is ready to execute a portfolio conversion — network switch, product upgrade, or M&A migration. Evaluates scale, operational readiness, and post-conversion risk.</p>
+<h3 data-i="t3_title">Conversion</h3>
+<p data-i="t3_desc">Is the portfolio ready to migrate — or will the switch destroy more value than it creates? Assesses readiness for network switches, product upgrades, and M&A migrations.</p>
 <div class="tool-meta"><span class="tool-tag" data-i="t3_tag1">8 rules</span><span class="tool-tag" data-i="t3_tag2">Conversion readiness</span></div>
 </a>
 
 <a class="tool-card" href="payments/acquirer-playbook/">
 <div class="tool-number">04</div>
-<h3 data-i="t4_title">Acquiring Strategy Diagnostic</h3>
-<p data-i="t4_desc">9 rules across economics, distribution, and strategic position to diagnose whether an acquirer's business model is sustainable. Decomposes the thin-margin acquiring value chain into controllable levers.</p>
+<h3 data-i="t4_title">Acquiring</h3>
+<p data-i="t4_desc">Can this acquiring business survive margin compression — or is the model structurally broken? Diagnoses economics, distribution, and strategic position across the value chain.</p>
 <div class="tool-meta"><span class="tool-tag" data-i="t4_tag1">9 rules</span><span class="tool-tag" data-i="t4_tag2">Acquiring economics</span></div>
 </a>
 
 <a class="tool-card" href="payments/sme-payments/">
 <div class="tool-number">05</div>
-<h3 data-i="t5_title">SME Payments Strategy Diagnostic</h3>
-<p data-i="t5_desc">9 rules to evaluate whether an SME payments strategy treats the card as a business operating system — not just a payment instrument. Tests product architecture, go-to-market, and operational stickiness.</p>
+<h3 data-i="t5_title">SME Payments</h3>
+<p data-i="t5_desc">Is the SME card a real operating system — or just a payment instrument dressed up? Tests whether product architecture, go-to-market, and stickiness hold up under scrutiny.</p>
 <div class="tool-meta"><span class="tool-tag" data-i="t5_tag1">9 rules</span><span class="tool-tag" data-i="t5_tag2">SME payments</span></div>
 </a>
 
@@ -198,11 +199,11 @@ about_title:{en:'What this is',zh:'這是什麼'},
 about_p1:{en:'Logica is a portfolio of interactive decision systems. Each tool tackles a complex problem — the kind that usually lives inside decks, frameworks, or weeks of consulting analysis — and turns it into a system you can actually run.',zh:'Logica 是一組互動式決策系統作品集。每個工具處理一個複雜問題——通常深埋在簡報、框架或數週的顧問分析中——將它轉化為你可以直接操作的系統。'},
 about_p2:{en:'Every tool follows the same logic: explicit inputs, structured rules, and clear outputs. The format varies, but the principle stays the same: encode analytical judgment into something anyone can operate.',zh:'每個工具遵循相同邏輯：明確的輸入、結構化的規則、清晰的產出。格式不同，原則不變：將分析判斷力編碼成任何人都能操作的系統。'},
 sec_payments:{en:'Current systems · Payments',zh:'現有系統 · 支付'},
-t1_title:{en:'Issuer P&L Diagnostic',zh:'發卡機構 P&L 診斷'},t1_desc:{en:'7 rules to identify where a credit card portfolio is creating or destroying value. Decomposes issuer economics into transaction mix, customer behavior, and risk — then diagnoses the highest-leverage intervention.',zh:'7 條規則診斷信用卡組合的價值創造與毀損來源。將發卡經濟拆解為交易結構、客戶行為與風險——找出最高槓桿的介入點。'},t1_tag1:{en:'7 rules',zh:'7 條規則'},t1_tag2:{en:'Issuer economics',zh:'發卡經濟'},
-t2_title:{en:'Co-Brand Partnership Decision System',zh:'聯名卡合作決策系統'},t2_desc:{en:'8 rules to evaluate whether a co-brand card partnership will create value. Tests partner reach, deal economics, product design, and contract structure against proven failure modes.',zh:'8 條規則評估聯名卡合作是否創造價值。以已驗證的失敗模式檢驗合作方規模、交易經濟、產品設計與合約結構。'},t2_tag1:{en:'8 rules',zh:'8 條規則'},t2_tag2:{en:'Partnership strategy',zh:'合作策略'},
-t3_title:{en:'Portfolio Conversion Readiness',zh:'卡片組合轉換準備度診斷'},t3_desc:{en:'8 rules to assess whether an issuer is ready to execute a portfolio conversion — network switch, product upgrade, or M&A migration. Evaluates scale, operational readiness, and post-conversion risk.',zh:'8 條規則評估發卡機構是否準備好執行卡組合轉換——網路轉換、產品升級或併購遷移。評估規模、營運準備度與轉換後風險。'},t3_tag1:{en:'8 rules',zh:'8 條規則'},t3_tag2:{en:'Conversion readiness',zh:'轉換準備度'},
-t4_title:{en:'Acquiring Strategy Diagnostic',zh:'收單策略診斷'},t4_desc:{en:'9 rules across economics, distribution, and strategic position to diagnose whether an acquirer\'s business model is sustainable. Decomposes the thin-margin acquiring value chain into controllable levers.',zh:'9 條規則橫跨經濟、通路與策略定位，診斷收單機構的商業模式是否可持續。將薄利的收單價值鏈拆解為可控槓桿。'},t4_tag1:{en:'9 rules',zh:'9 條規則'},t4_tag2:{en:'Acquiring economics',zh:'收單經濟'},
-t5_title:{en:'SME Payments Strategy Diagnostic',zh:'中小企業支付策略診斷'},t5_desc:{en:'9 rules to evaluate whether an SME payments strategy treats the card as a business operating system — not just a payment instrument. Tests product architecture, go-to-market, and operational stickiness.',zh:'9 條規則評估中小企業支付策略是否將卡片視為營運系統——而非僅是支付工具。檢驗產品架構、市場進入策略與營運黏著度。'},t5_tag1:{en:'9 rules',zh:'9 條規則'},t5_tag2:{en:'SME payments',zh:'中小企業支付'},
+t1_title:{en:'Issuer P&L',zh:'發卡 P&L'},t1_desc:{en:'Where is this card portfolio making — or losing — money? Diagnoses the economics of a credit card book across transaction mix, customer behavior, and risk.',zh:'這張卡組合的錢從哪裡賺、從哪裡漏？橫跨交易結構、客戶行為與風險，診斷發卡經濟的價值創造與毀損。'},t1_tag1:{en:'7 rules',zh:'7 條規則'},t1_tag2:{en:'Issuer economics',zh:'發卡經濟'},
+t2_title:{en:'Co-Brand',zh:'聯名卡'},t2_desc:{en:'Will this partnership actually create value — or just burn acquisition spend? Tests partner reach, deal economics, and contract structure against proven co-brand failure modes.',zh:'這個合作真的創造價值——還是只在燒獲客預算？以已驗證的聯名卡失敗模式，檢驗合作方規模、交易經濟與合約結構。'},t2_tag1:{en:'8 rules',zh:'8 條規則'},t2_tag2:{en:'Partnership strategy',zh:'合作策略'},
+t3_title:{en:'Conversion',zh:'轉換'},t3_desc:{en:'Is the portfolio ready to migrate — or will the switch destroy more value than it creates? Assesses readiness for network switches, product upgrades, and M&A migrations.',zh:'卡組合準備好遷移了嗎——還是轉換會毀掉更多價值？評估網路轉換、產品升級與併購遷移的準備度。'},t3_tag1:{en:'8 rules',zh:'8 條規則'},t3_tag2:{en:'Conversion readiness',zh:'轉換準備度'},
+t4_title:{en:'Acquiring',zh:'收單'},t4_desc:{en:'Can this acquiring business survive margin compression — or is the model structurally broken? Diagnoses economics, distribution, and strategic position across the value chain.',zh:'這個收單業務撐得過利潤壓縮嗎——還是模式本身就有結構性問題？診斷價值鏈上的經濟、通路與策略定位。'},t4_tag1:{en:'9 rules',zh:'9 條規則'},t4_tag2:{en:'Acquiring economics',zh:'收單經濟'},
+t5_title:{en:'SME Payments',zh:'中小企業支付'},t5_desc:{en:'Is the SME card a real operating system — or just a payment instrument dressed up? Tests whether product architecture, go-to-market, and stickiness hold up under scrutiny.',zh:'中小企業卡是真正的營運系統——還是披著外衣的支付工具？檢驗產品架構、市場策略與黏著度是否經得起檢視。'},t5_tag1:{en:'9 rules',zh:'9 條規則'},t5_tag2:{en:'SME payments',zh:'中小企業支付'},
 next_title:{en:'What\'s next',zh:'下一步'},
 next_desc:{en:'Payments is the first domain. The methodology extends beyond it. Behind the tools is a repeatable system for turning domain expertise into decision infrastructure — each new tool is proof that the same system works wherever complexity lives.',zh:'支付是第一個領域。方法論不止於此。工具背後是一套可重複的系統，將領域專業轉化為決策基礎設施——每個新工具都是證明：同一套系統在任何複雜領域都能運作。'},
 ph3_title:{en:'Methodology',zh:'方法論'},ph3_desc:{en:'How these tools are built — the analytical operating system behind the diagnostics.',zh:'這些工具如何建構——診斷背後的分析作業系統。'},
