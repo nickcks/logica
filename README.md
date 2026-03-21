@@ -1,38 +1,38 @@
 # Logica
 
-**Decision systems for complex industries.**
+**Decision systems for complex domains.**
 
-Interactive diagnostic tools that decompose industry knowledge into structured inputs, explicit rules, and actionable outputs.
+Interactive tools that turn dense domain knowledge into structured, navigable systems — so anyone can see clearly and act decisively from day one.
 
 **→ [View the live site](https://nickcks.github.io/logica/)**
 
 ---
 
-## Payments tools
+## Payments
 
-| # | Tool | Rules | What it diagnoses |
-|---|------|-------|-------------------|
-| 01 | [Issuer P&L Diagnostic](https://nickcks.github.io/logica/payments/issuer-economics/) | 7 | Where a credit card portfolio is creating or destroying value |
-| 02 | [Co-Brand Partnership](https://nickcks.github.io/logica/payments/cobrand-strategy/) | 8 | Whether a co-brand card partnership will create value |
-| 03 | [Portfolio Conversion Readiness](https://nickcks.github.io/logica/payments/portfolio-conversion/) | 8 | Whether an issuer is ready to execute a portfolio conversion |
-| 04 | [Acquiring Strategy](https://nickcks.github.io/logica/payments/acquirer-playbook/) | 9 | Whether an acquirer's business model is sustainable |
-| 05 | [SME Payments Strategy](https://nickcks.github.io/logica/payments/sme-payments/) | 9 | Whether an SME strategy treats the card as an operating system |
+The first domain. Five diagnostic tools covering the core economics of card payments — from issuer P&L to SME strategy.
 
-## How the tools work
+| # | Tool | What it answers |
+|---|------|-----------------|
+| 01 | [Issuer P&L](https://nickcks.github.io/logica/payments/issuer-economics/) | Where is this card portfolio making — or losing — money? |
+| 02 | [Co-Brand](https://nickcks.github.io/logica/payments/cobrand-strategy/) | Will this partnership actually create value — or just burn acquisition spend? |
+| 03 | [Conversion](https://nickcks.github.io/logica/payments/portfolio-conversion/) | Is the portfolio ready to migrate — or will the switch destroy more value than it creates? |
+| 04 | [Acquiring](https://nickcks.github.io/logica/payments/acquirer-playbook/) | Can this acquiring business survive margin compression — or is the model structurally broken? |
+| 05 | [SME Payments](https://nickcks.github.io/logica/payments/sme-payments/) | Is the SME card a real operating system — or just a payment instrument dressed up? |
 
-Every tool follows the same architecture:
+Each tool takes a problem that usually lives inside consulting decks and analyst models — and turns it into a system you can actually run. Explicit inputs, structured rules, clear outputs. Preset scenarios let you load real market archetypes and compare how structural context changes the strategy.
 
-1. **Inputs** — the parameters a decision-maker controls (sliders, selectors)
-2. **Rules** — IF/THEN logic with concrete thresholds, each testing a specific failure mode
-3. **Output** — diagnostic verdict, prioritized actions, rule-by-rule breakdown
+All tools are bilingual (English + 中文) and self-contained single-file HTML.
 
-Preset scenarios let you load real market archetypes and see how the same framework produces different strategies depending on structural context.
+## Methodology
 
-All tools are bilingual (English + 中文), self-contained single-file HTML with no external dependencies, and designed to work on desktop and mobile.
+**→ [How the tools are built](https://nickcks.github.io/logica/methodology/)**
+
+Behind these tools is a repeatable system for turning domain expertise into decision infrastructure. The methodology page explains the process, the analytical operating system, and why it extends beyond payments.
 
 ## About
 
-Built by [Nick Chang](https://www.linkedin.com/in/nick-kaihsiangchang/) — strategy consultant · payments & financial services. Payments is the first domain. The methodology is domain-agnostic.
+Built by [Nick Chang](https://www.linkedin.com/in/nick-kaihsiangchang/) — strategy consultant, payments & financial services. 8+ years across issuer economics, acquiring strategy, commercial card, and embedded finance. Payments is the proof. The methodology is domain-agnostic.
 
 ## License
 
