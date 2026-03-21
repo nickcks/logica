@@ -32,7 +32,7 @@ All tools are bilingual (English + 中文), self-contained single-file HTML with
 
 ## About
 
-Built by [Nick Chang](https://www.linkedin.com/in/nick-kaihsiangchang/) — strategy consultant at Mastercard Data & Services. Payments is the first vertical. The methodology is domain-agnostic.
+Built by [Nick Chang](https://www.linkedin.com/in/nick-kaihsiangchang/) — strategy consultant · payments & financial services. Payments is the first domain. The methodology is domain-agnostic.
 
 ## License
 

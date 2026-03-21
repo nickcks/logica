@@ -220,4 +220,4 @@ The tool operationalizes a decision that most issuers make through committee con
 
 *Sources: Industry conversion readiness frameworks, publicly available case study patterns, author experience across Asia Pacific, Middle East, and European payment markets.*
 
-*Nick Chang · Strategy consultant, Mastercard Data & Services*
+*Nick Chang · Strategy consultant · Payments & financial services*
