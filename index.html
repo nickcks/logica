@@ -13,6 +13,8 @@ body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(-
 body.zh{font-family:'DM Sans','Noto Sans TC',system-ui,sans-serif}
 a{color:inherit}
 .container{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* Header */
 header{padding:24px 0 0;border-bottom:1px solid var(--border)}
 .header-inner{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px}
 .logo{font-family:'DM Sans',system-ui,sans-serif;font-size:14px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;color:var(--text-tertiary)}.logo a{text-decoration:none}
@@ -21,19 +23,29 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
 .lang-toggle{display:inline-flex;align-items:center;margin-left:20px;border-left:1px solid var(--border);padding-left:16px}
 .lang-btn{font-size:12px;color:var(--text-tertiary);background:none;border:none;cursor:pointer;padding:2px 6px;font-family:inherit;transition:color .15s}.lang-btn:hover{color:var(--text)}.lang-btn.active{color:var(--text);font-weight:500}
 .lang-sep{font-size:12px;color:var(--border);margin:0 2px}
-.hero{padding:64px 0 20px;max-width:720px}
-.hero h1{font-size:40px;font-weight:700;line-height:1.15;letter-spacing:-.8px}
-.hero .tagline{font-size:18px;color:var(--text-secondary);margin-top:12px;line-height:1.6;max-width:600px}
-.what-i-do{max-width:720px;padding:20px 0 12px}
-.what-i-do h2{font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:8px}
-.what-i-do p{font-size:15px;color:var(--text);line-height:1.7;max-width:600px}
-.hero-author{padding:8px 0 40px;max-width:720px}
-.hero-author p{font-size:14px;color:var(--text-tertiary)}
-.hero-author a{color:var(--text-secondary);text-decoration:underline;text-underline-offset:2px}
-.section{padding:40px 0}
-.section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:24px}
+
+/* Hero zone — two columns */
+.hero-zone{display:grid;grid-template-columns:1fr 1fr;gap:48px;padding:48px 0 40px;align-items:start}
+.hero-primary{}
+.hero-primary h1{font-size:38px;font-weight:700;line-height:1.15;letter-spacing:-.8px}
+.hero-primary .tagline{font-size:17px;color:var(--text-secondary);margin-top:10px;line-height:1.6;max-width:520px}
+.hero-primary .what-i-do{margin-top:20px}
+.hero-primary .wid-label{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:6px}
+.hero-primary .wid-text{font-size:14px;color:var(--text);line-height:1.7;max-width:480px}
+.hero-primary .hero-author{margin-top:14px;font-size:13px;color:var(--text-tertiary)}
+.hero-primary .hero-author a{color:var(--text-secondary);text-decoration:underline;text-underline-offset:2px}
+
+/* Hero context — right column */
+.hero-context{padding-top:6px}
+.hero-context .ctx-label{font-size:12px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:10px}
+.hero-context .ctx-body{border-left:2px solid var(--border);padding-left:20px}
+.hero-context p{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:8px}
+.hero-context p:last-child{margin-bottom:0}
+
+/* Tools */
+.section{padding:0 0 48px}
+.section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:20px;padding-top:32px;border-top:1px solid var(--border)}
 .tools-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-@media(max-width:680px){.tools-grid{grid-template-columns:1fr}}
 .tool-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px;text-decoration:none;display:block;transition:border-color .15s,box-shadow .15s}
 .tool-card:hover{border-color:var(--text-tertiary);box-shadow:0 2px 8px rgba(0,0,0,.04)}
 .tool-card .tool-number{font-family:'DM Mono',monospace;font-size:11px;color:var(--text-tertiary);margin-bottom:8px}
@@ -41,11 +53,8 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
 .tool-card p{font-size:13px;color:var(--text-secondary);line-height:1.6}
 .tool-card .tool-meta{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
 .tool-card .tool-tag{font-size:11px;padding:2px 8px;border-radius:12px;border:1px solid var(--border-light);color:var(--text-tertiary)}
-.about{padding:48px 0 32px;border-top:1px solid var(--border)}
-.about-inner{max-width:640px}
-.about h2{font-size:20px;font-weight:700;margin-bottom:12px;letter-spacing:-.3px}
-.about p{font-size:14px;color:var(--text-secondary);line-height:1.7;margin-bottom:10px}
-.about .signal-note{font-size:13px;color:var(--text-tertiary);margin-top:16px;padding:12px 14px;background:var(--surface-alt);border-radius:var(--radius);line-height:1.6}
+
+/* What's next */
 .coming{padding:32px 0 48px;border-top:1px solid var(--border)}
 .coming h2{font-size:20px;font-weight:700;margin-bottom:12px;letter-spacing:-.3px}
 .coming p{font-size:14px;color:var(--text-secondary);line-height:1.7}
@@ -54,9 +63,24 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
 .roadmap-item .phase-label{font-family:'DM Mono',monospace;font-size:11px;color:var(--text-tertiary);margin-bottom:6px}
 .roadmap-item .phase-title{font-weight:700;margin-bottom:4px}
 .roadmap-item .phase-desc{color:var(--text-secondary);line-height:1.5}
+
+/* Footer */
 footer{border-top:1px solid var(--border);padding:32px 0;text-align:center}
 footer p{font-size:13px;color:var(--text-tertiary)}
 footer a{color:var(--text-secondary)}
+
+/* Responsive */
+@media(max-width:860px){
+  .hero-zone{grid-template-columns:1fr;gap:24px;padding:36px 0 32px}
+  .hero-context{padding-top:0}
+  .hero-context .ctx-body{border-left:2px solid var(--border);padding-left:16px}
+  .hero-primary h1{font-size:32px}
+  .hero-primary .tagline{font-size:16px}
+}
+@media(max-width:680px){
+  .tools-grid{grid-template-columns:1fr}
+  .roadmap{flex-direction:column}
+}
 </style>
 </head>
 <body>
@@ -79,18 +103,23 @@ footer a{color:var(--text-secondary)}
 </div>
 </header>
 
-<div class="container hero">
+<div class="container hero-zone">
+<div class="hero-primary">
 <h1 data-i="hero_title">Decision systems for complex domains</h1>
 <p class="tagline" data-i="hero_tagline">Interactive tools that turn dense domain knowledge into structured, navigable systems — so anyone can see clearly and act decisively from day one.</p>
+<div class="what-i-do">
+<div class="wid-label" data-i="wid_label">What I do</div>
+<p class="wid-text" data-i="wid_text">I build interactive decision systems from dense domain knowledge. Each tool compresses weeks of analytical work into something you can run in minutes.</p>
 </div>
-
-<div class="container what-i-do">
-<h2 data-i="wid_label">What I do</h2>
-<p data-i="wid_text">I build interactive decision systems from dense domain knowledge. Each tool compresses weeks of analytical work into something you can run in minutes.</p>
+<p class="hero-author" data-i="hero_author">Built by <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank">Nick Chang</a> · Strategy consultant · Payments & financial services</p>
 </div>
-
-<div class="container hero-author">
-<p data-i="hero_author">Built by <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank">Nick Chang</a> · Strategy consultant · Payments & financial services</p>
+<div class="hero-context">
+<div class="ctx-label" data-i="about_title">What this is</div>
+<div class="ctx-body">
+<p data-i="about_p1">Logica is a portfolio of interactive decision systems. Each tool tackles a complex problem — the kind that usually lives inside decks, frameworks, or weeks of consulting analysis — and turns it into a system you can actually run.</p>
+<p data-i="about_p2">Every tool follows the same logic: explicit inputs, structured rules, and clear outputs. The format varies, but the principle stays the same: encode analytical judgment into something anyone can operate.</p>
+</div>
+</div>
 </div>
 
 <div class="container section" id="tools">
@@ -135,18 +164,9 @@ footer a{color:var(--text-secondary)}
 </div>
 </div>
 
-<div class="container about">
-<div class="about-inner">
-<h2 data-i="about_title">What this is</h2>
-<p data-i="about_p1">Logica is a portfolio of interactive decision systems. Each tool tackles a complex problem — the kind that usually lives inside decks, frameworks, or weeks of consulting analysis — and turns it into a system you can actually run.</p>
-<p data-i="about_p2">Every tool follows the same logic: explicit inputs, structured rules, and clear outputs. Some produce diagnostic verdicts with prioritized actions. Others surface the structural patterns hidden inside complex systems. The format varies, but the principle stays the same: encode analytical judgment into something anyone can operate.</p>
-<div class="signal-note" data-i="about_signal">Payments is the first domain. The methodology extends beyond it. Each new tool is proof that the same system works wherever complexity lives.</div>
-</div>
-</div>
-
 <div class="container coming">
 <h2 data-i="next_title">What's next</h2>
-<p data-i="next_desc">The tools are the visible layer. Behind them is a repeatable system for turning domain expertise into decision infrastructure. More domains coming soon.</p>
+<p data-i="next_desc">Payments is the first domain. The methodology extends beyond it. Behind the tools is a repeatable system for turning domain expertise into decision infrastructure — each new tool is proof that the same system works wherever complexity lives.</p>
 <div class="roadmap">
 <div class="roadmap-item">
 <div class="phase-label">Phase 3</div>
@@ -174,18 +194,17 @@ hero_tagline:{en:'Interactive tools that turn dense domain knowledge into struct
 wid_label:{en:'What I do',zh:'我做什麼'},
 wid_text:{en:'I build interactive decision systems from dense domain knowledge. Each tool compresses weeks of analytical work into something you can run in minutes.',zh:'我將密集的領域知識建構為互動式決策系統。每個工具把數週的分析工作壓縮成幾分鐘內就能執行的結構。'},
 hero_author:{en:'Built by <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank">Nick Chang</a> · Strategy consultant · Payments & financial services',zh:'<a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank">Nick Chang（張凱翔）</a> · 策略顧問 · 支付與金融服務'},
+about_title:{en:'What this is',zh:'這是什麼'},
+about_p1:{en:'Logica is a portfolio of interactive decision systems. Each tool tackles a complex problem — the kind that usually lives inside decks, frameworks, or weeks of consulting analysis — and turns it into a system you can actually run.',zh:'Logica 是一組互動式決策系統作品集。每個工具處理一個複雜問題——通常深埋在簡報、框架或數週的顧問分析中——將它轉化為你可以直接操作的系統。'},
+about_p2:{en:'Every tool follows the same logic: explicit inputs, structured rules, and clear outputs. The format varies, but the principle stays the same: encode analytical judgment into something anyone can operate.',zh:'每個工具遵循相同邏輯：明確的輸入、結構化的規則、清晰的產出。格式不同，原則不變：將分析判斷力編碼成任何人都能操作的系統。'},
 sec_payments:{en:'Current systems · Payments',zh:'現有系統 · 支付'},
 t1_title:{en:'Issuer P&L Diagnostic',zh:'發卡機構 P&L 診斷'},t1_desc:{en:'7 rules to identify where a credit card portfolio is creating or destroying value. Decomposes issuer economics into transaction mix, customer behavior, and risk — then diagnoses the highest-leverage intervention.',zh:'7 條規則診斷信用卡組合的價值創造與毀損來源。將發卡經濟拆解為交易結構、客戶行為與風險——找出最高槓桿的介入點。'},t1_tag1:{en:'7 rules',zh:'7 條規則'},t1_tag2:{en:'Issuer economics',zh:'發卡經濟'},
 t2_title:{en:'Co-Brand Partnership Decision System',zh:'聯名卡合作決策系統'},t2_desc:{en:'8 rules to evaluate whether a co-brand card partnership will create value. Tests partner reach, deal economics, product design, and contract structure against proven failure modes.',zh:'8 條規則評估聯名卡合作是否創造價值。以已驗證的失敗模式檢驗合作方規模、交易經濟、產品設計與合約結構。'},t2_tag1:{en:'8 rules',zh:'8 條規則'},t2_tag2:{en:'Partnership strategy',zh:'合作策略'},
 t3_title:{en:'Portfolio Conversion Readiness',zh:'卡片組合轉換準備度診斷'},t3_desc:{en:'8 rules to assess whether an issuer is ready to execute a portfolio conversion — network switch, product upgrade, or M&A migration. Evaluates scale, operational readiness, and post-conversion risk.',zh:'8 條規則評估發卡機構是否準備好執行卡組合轉換——網路轉換、產品升級或併購遷移。評估規模、營運準備度與轉換後風險。'},t3_tag1:{en:'8 rules',zh:'8 條規則'},t3_tag2:{en:'Conversion readiness',zh:'轉換準備度'},
 t4_title:{en:'Acquiring Strategy Diagnostic',zh:'收單策略診斷'},t4_desc:{en:'9 rules across economics, distribution, and strategic position to diagnose whether an acquirer\'s business model is sustainable. Decomposes the thin-margin acquiring value chain into controllable levers.',zh:'9 條規則橫跨經濟、通路與策略定位，診斷收單機構的商業模式是否可持續。將薄利的收單價值鏈拆解為可控槓桿。'},t4_tag1:{en:'9 rules',zh:'9 條規則'},t4_tag2:{en:'Acquiring economics',zh:'收單經濟'},
 t5_title:{en:'SME Payments Strategy Diagnostic',zh:'中小企業支付策略診斷'},t5_desc:{en:'9 rules to evaluate whether an SME payments strategy treats the card as a business operating system — not just a payment instrument. Tests product architecture, go-to-market, and operational stickiness.',zh:'9 條規則評估中小企業支付策略是否將卡片視為營運系統——而非僅是支付工具。檢驗產品架構、市場進入策略與營運黏著度。'},t5_tag1:{en:'9 rules',zh:'9 條規則'},t5_tag2:{en:'SME payments',zh:'中小企業支付'},
-about_title:{en:'What this is',zh:'這是什麼'},
-about_p1:{en:'Logica is a portfolio of interactive decision systems. Each tool tackles a complex problem — the kind that usually lives inside decks, frameworks, or weeks of consulting analysis — and turns it into a system you can actually run.',zh:'Logica 是一組互動式決策系統作品集。每個工具處理一個複雜問題——通常深埋在簡報、框架或數週的顧問分析中——將它轉化為你可以直接操作的系統。'},
-about_p2:{en:'Every tool follows the same logic: explicit inputs, structured rules, and clear outputs. Some produce diagnostic verdicts with prioritized actions. Others surface the structural patterns hidden inside complex systems. The format varies, but the principle stays the same: encode analytical judgment into something anyone can operate.',zh:'每個工具遵循相同邏輯：明確的輸入、結構化的規則、清晰的產出。有些產出診斷結論與優先行動建議，有些揭示隱藏在複雜系統中的結構性規律。格式不同，原則不變：將分析判斷力編碼成任何人都能操作的系統。'},
-about_signal:{en:'Payments is the first domain. The methodology extends beyond it. Each new tool is proof that the same system works wherever complexity lives.',zh:'支付是第一個領域。方法論不止於此。每個新工具都是證明：同一套系統在任何複雜領域都能運作。'},
 next_title:{en:'What\'s next',zh:'下一步'},
-next_desc:{en:'The tools are the visible layer. Behind them is a repeatable system for turning domain expertise into decision infrastructure. More domains coming soon.',zh:'工具是可見的表層。背後是一套可重複的系統，將領域專業轉化為決策基礎設施。更多領域即將推出。'},
+next_desc:{en:'Payments is the first domain. The methodology extends beyond it. Behind the tools is a repeatable system for turning domain expertise into decision infrastructure — each new tool is proof that the same system works wherever complexity lives.',zh:'支付是第一個領域。方法論不止於此。工具背後是一套可重複的系統，將領域專業轉化為決策基礎設施——每個新工具都是證明：同一套系統在任何複雜領域都能運作。'},
 ph3_title:{en:'Methodology',zh:'方法論'},ph3_desc:{en:'How these tools are built — the analytical operating system behind the diagnostics.',zh:'這些工具如何建構——診斷背後的分析作業系統。'},
 ph4_title:{en:'New domains',zh:'新領域'},ph4_desc:{en:'Applying the same methodology beyond payments — proving the system, not just the domain.',zh:'將同一套方法論應用於支付以外——驗證的是系統，不只是領域。'}
 };
