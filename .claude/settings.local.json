@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -v 'padding:[0-9]*px$')"
+    ]
+  }
+}

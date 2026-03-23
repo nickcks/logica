@@ -27,6 +27,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="twitter:image" content="https://nickcks.github.io/logica/assets/img/og-methodology.png">
 <title>Methodology — Logica</title>
 <meta name="description" content="How Logica tools are built — a repeatable process for turning dense domain knowledge into decision systems anyone can operate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -36,9 +38,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --surface-alt:#F5F4F0;
   --text:#1A1A18;
   --text-secondary:#5C5C56;
-  --text-tertiary:#9C9C94;
-  --text-muted:#B5B5AD;
-  --accent:#7A7A6C;
+  --text-tertiary:#787870;
+  --text-muted:#8E8E86;
+  --accent:#6B6B5E;
   --border:#E2E1DC;
   --border-light:#EEEDE9;
   --border-hover:#B8B8B0;
@@ -54,9 +56,9 @@ a{color:inherit}
 
 /* ── Header ── */
 header{padding:20px 0 0}
-.header-inner{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--border)}
 .logo{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent)}.logo a{text-decoration:none}
-.header-right{display:flex;align-items:center}
+.header-right{display:flex;align-items:center;margin-left:auto}
 nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-left:28px;letter-spacing:.2px;transition:color .15s}nav a:hover{color:var(--text)}
 .lang-toggle{display:inline-flex;align-items:center;margin-left:24px;border-left:1px solid var(--border);padding-left:20px}
 .lang-btn{font-size:12px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:6px 10px;font-family:var(--mono);letter-spacing:.5px;transition:color .15s}.lang-btn:hover{color:var(--text-secondary)}.lang-btn.active{color:var(--text);font-weight:500}
@@ -64,7 +66,7 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
 .menu-toggle{display:none;background:none;border:none;font-size:22px;line-height:1;color:var(--text-secondary);cursor:pointer;padding:8px 4px}
 
 /* ── Hero ── */
-.hero{padding:80px 0 64px;max-width:640px}
+.hero{padding-top:80px;padding-bottom:64px;max-width:640px}
 .hero-super{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
 .hero h1{font-size:44px;font-weight:700;line-height:1.1;letter-spacing:-1.2px;margin-bottom:24px}
 .hero p{font-size:17px;color:var(--text-secondary);line-height:1.7;max-width:560px}
@@ -123,7 +125,7 @@ footer{border-top:1px solid var(--border);padding:40px 0}
 
 /* ── Responsive ── */
 @media(max-width:860px){
-  .hero{padding:56px 0 48px}
+  .hero{padding-top:56px;padding-bottom:48px}
   .hero h1{font-size:34px;letter-spacing:-1px}
   .process-grid{grid-template-columns:1fr}
   .cluster-grid{grid-template-columns:1fr}
@@ -132,7 +134,7 @@ footer{border-top:1px solid var(--border);padding:40px 0}
 }
 @media(max-width:560px){
   .container{padding:0 20px}
-  .hero{padding:48px 0 40px}
+  .hero{padding-top:48px;padding-bottom:40px}
   .hero h1{font-size:28px}
   .hero p{font-size:16px}
   .process-step{padding:24px 20px}
@@ -144,17 +146,18 @@ footer{border-top:1px solid var(--border);padding:40px 0}
   .principle{padding:16px 0}
   .footer-inner{flex-direction:column;gap:12px;align-items:flex-start}
   .menu-toggle{display:flex;align-items:center}
-  .header-right{display:none;width:100%;flex-direction:column;align-items:flex-start;padding-top:16px;margin-top:12px;border-top:1px solid var(--border-light)}
+  .header-right{display:none;width:100%;flex-direction:column;align-items:flex-start;padding-top:16px;margin-top:12px;border-top:1px solid var(--border-light);order:10}
   .header-right.open{display:flex}
   .header-right nav{display:flex;flex-direction:column;width:100%}
   .header-right nav a{margin-left:0;padding:10px 0;font-size:14px;border-bottom:1px solid var(--border-light)}
-  .header-right .lang-toggle{border-left:none;margin-left:0;padding:10px 0 0}
+  .lang-toggle{margin-left:auto;border-left:none;padding-left:0}
   .header-inner{flex-wrap:wrap}
 }
 @media(max-width:400px){
   .container{padding:0 16px}
   .hero h1{font-size:24px}
 }
+a:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:2px}button:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:4px}select:focus-visible{outline:2px solid var(--text);outline-offset:1px}input[type=range]:focus-visible{outline:2px solid var(--text);outline-offset:4px;border-radius:4px}.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999;font-size:14px;padding:12px 24px;background:var(--text);color:var(--bg);text-decoration:none;border-radius:0 0 var(--radius) 0}.skip-link:focus{position:fixed;left:0;top:0;width:auto;height:auto;overflow:visible}
 </style>
 </head>
 <body>
@@ -163,25 +166,28 @@ footer{border-top:1px solid var(--border);padding:40px 0}
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
+<a href="#main" class="skip-link">Skip to main content</a>
+
 <header>
 <div class="container header-inner">
 <div class="logo"><a href="..">Logica</a></div>
-<button class="menu-toggle" onclick="document.querySelector('.header-right').classList.toggle('open');this.textContent=this.textContent==='☰'?'✕':'☰'" aria-label="Menu">☰</button>
 <div class="header-right">
 <nav>
 <a href="../#tools">Tools</a>
 <a href="./">Method</a>
-<a href="https://github.com/nickcks/logica" target="_blank">GitHub</a>
+<a href="https://github.com/nickcks/logica" target="_blank" rel="noopener noreferrer">GitHub</a>
 </nav>
+</div>
 <div class="lang-toggle">
 <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
 <span class="lang-sep">|</span>
 <button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
 </div>
-</div>
+<button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="var h=document.querySelector('.header-right');h.classList.toggle('open');var o=h.classList.contains('open');this.textContent=o?'✕':'☰';this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Menu')">☰</button>
 </div>
 </header>
 
+<main id="main">
 <!-- ═══════ 1. HERO ═══════ -->
 <div class="container hero">
 <div class="hero-super" data-i="hero_super">Methodology</div>
@@ -335,12 +341,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="transfer-back" href="../#tools" data-i="transfer_back">← Browse the tools</a>
 </div>
 
+</main>
+
 <footer>
 <div class="container footer-inner">
 <span class="footer-author">Nick Chang · Strategy consultant · Payments &amp; financial services</span>
 <div class="footer-links">
-<a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank">LinkedIn</a>
-<a href="https://github.com/nickcks/logica" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+<a href="https://github.com/nickcks/logica" target="_blank" rel="noopener noreferrer">GitHub</a>
 </div>
 </div>
 </footer>
@@ -404,7 +412,7 @@ transfer_text:{en:'Payments is the first domain. The same process — decompose,
 transfer_back:{en:'← Browse the tools',zh:'← 瀏覽工具'}
 };
 let lang='en';
-function setLang(l){
+function setLang(l){document.documentElement.lang=l==='zh'?'zh-Hant':'en';
   lang=l;
   document.body.classList.toggle('zh',l==='zh');
   document.getElementById('btn-en').classList.toggle('active',l==='en');
