@@ -10,6 +10,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/logica/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/logica/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/logica/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/logica/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nickcks.github.io/logica/methodology/">
+<meta property="og:title" content="How these systems are built — Logica">
+<meta property="og:description" content="The methodology behind turning domain expertise into interactive decision tools.">
+<meta property="og:image" content="https://nickcks.github.io/logica/assets/img/og-methodology.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How these systems are built — Logica">
+<meta name="twitter:description" content="The methodology behind turning domain expertise into interactive decision tools.">
+<meta name="twitter:image" content="https://nickcks.github.io/logica/assets/img/og-methodology.png">
 <title>Methodology — Logica</title>
 <meta name="description" content="How Logica tools are built — a repeatable process for turning dense domain knowledge into decision systems anyone can operate.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -44,8 +59,9 @@ header{padding:20px 0 0}
 .header-right{display:flex;align-items:center}
 nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-left:28px;letter-spacing:.2px;transition:color .15s}nav a:hover{color:var(--text)}
 .lang-toggle{display:inline-flex;align-items:center;margin-left:24px;border-left:1px solid var(--border);padding-left:20px}
-.lang-btn{font-size:12px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:2px 6px;font-family:var(--mono);letter-spacing:.5px;transition:color .15s}.lang-btn:hover{color:var(--text-secondary)}.lang-btn.active{color:var(--text);font-weight:500}
+.lang-btn{font-size:12px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:6px 10px;font-family:var(--mono);letter-spacing:.5px;transition:color .15s}.lang-btn:hover{color:var(--text-secondary)}.lang-btn.active{color:var(--text);font-weight:500}
 .lang-sep{font-size:12px;color:var(--border);margin:0 2px}
+.menu-toggle{display:none;background:none;border:none;font-size:22px;line-height:1;color:var(--text-secondary);cursor:pointer;padding:8px 4px}
 
 /* ── Hero ── */
 .hero{padding:80px 0 64px;max-width:640px}
@@ -58,7 +74,7 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
 .section-label{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:32px}
 
 /* ── Process ── */
-.process-section{padding:0 0 72px}
+.process-section{padding-bottom:72px}
 .process-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 .process-step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px 28px}
 .step-num{font-family:var(--mono);font-size:42px;font-weight:400;color:var(--border);line-height:1;margin-bottom:14px;letter-spacing:-1px}
@@ -70,7 +86,7 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
 .step-proof:hover{border-color:var(--border-hover)}
 
 /* ── Perspectives ── */
-.perspectives-section{padding:0 0 72px}
+.perspectives-section{padding-bottom:72px}
 .perspectives-intro{font-size:15px;color:var(--text-secondary);line-height:1.7;max-width:600px;margin-bottom:32px}
 .perspectives-internal{font-size:13px;color:var(--text-tertiary);line-height:1.6;max-width:600px;margin-bottom:36px;font-style:italic}
 .cluster-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -84,7 +100,7 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
 .cluster-tool:hover{border-color:var(--border-hover)}
 
 /* ── Principles ── */
-.principles-section{padding:0 0 72px}
+.principles-section{padding-bottom:72px}
 .principles-list{max-width:640px}
 .principle{padding:20px 0;border-bottom:1px solid var(--border-light)}
 .principle:first-child{border-top:1px solid var(--border-light)}
@@ -93,7 +109,7 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
 .principle-detail{font-size:13.5px;color:var(--text-secondary);line-height:1.6;margin-top:4px}
 
 /* ── Transfer ── */
-.transfer-section{padding:0 0 72px}
+.transfer-section{padding-bottom:72px}
 .transfer-text{font-size:15px;color:var(--text-secondary);line-height:1.7;max-width:600px}
 .transfer-back{display:inline-block;margin-top:20px;font-size:14px;color:var(--text-secondary);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color .15s}
 .transfer-back:hover{border-color:var(--text-secondary)}
@@ -112,11 +128,32 @@ footer{border-top:1px solid var(--border);padding:40px 0}
   .process-grid{grid-template-columns:1fr}
   .cluster-grid{grid-template-columns:1fr}
   .cluster-card.featured{grid-template-columns:1fr}
-  .footer-inner{flex-direction:column;gap:12px;text-align:center}
+  .footer-inner{flex-direction:column;gap:12px;align-items:flex-start}
 }
 @media(max-width:560px){
+  .container{padding:0 20px}
+  .hero{padding:48px 0 40px}
   .hero h1{font-size:28px}
   .hero p{font-size:16px}
+  .process-step{padding:24px 20px}
+  .step-num{font-size:32px}
+  .step-name{font-size:16px}
+  .cluster-card{padding:24px 20px}
+  .cluster-question{font-size:15px}
+  .principles-list{max-width:100%}
+  .principle{padding:16px 0}
+  .footer-inner{flex-direction:column;gap:12px;align-items:flex-start}
+  .menu-toggle{display:flex;align-items:center}
+  .header-right{display:none;width:100%;flex-direction:column;align-items:flex-start;padding-top:16px;margin-top:12px;border-top:1px solid var(--border-light)}
+  .header-right.open{display:flex}
+  .header-right nav{display:flex;flex-direction:column;width:100%}
+  .header-right nav a{margin-left:0;padding:10px 0;font-size:14px;border-bottom:1px solid var(--border-light)}
+  .header-right .lang-toggle{border-left:none;margin-left:0;padding:10px 0 0}
+  .header-inner{flex-wrap:wrap}
+}
+@media(max-width:400px){
+  .container{padding:0 16px}
+  .hero h1{font-size:24px}
 }
 </style>
 </head>
@@ -129,6 +166,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <header>
 <div class="container header-inner">
 <div class="logo"><a href="..">Logica</a></div>
+<button class="menu-toggle" onclick="document.querySelector('.header-right').classList.toggle('open');this.textContent=this.textContent==='☰'?'✕':'☰'" aria-label="Menu">☰</button>
 <div class="header-right">
 <nav>
 <a href="../#tools">Tools</a>
