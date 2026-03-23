@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TPTWKRCW');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/logica/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/logica/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/logica/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/logica/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nickcks.github.io/logica/platforms/marketplace-launch/">
+<meta property="og:title" content="Marketplace Launch Readiness Diagnostic — Logica">
+<meta property="og:description" content="9 diagnostic rules to evaluate whether a new marketplace vertical is ready to launch — across market viability, supply economics, and execution readiness.">
+<meta property="og:image" content="https://nickcks.github.io/logica/assets/img/og-marketplace-launch.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Marketplace Launch Readiness Diagnostic — Logica">
+<meta name="twitter:description" content="9 diagnostic rules to evaluate whether a new marketplace vertical is ready to launch — across market viability, supply economics, and execution readiness.">
+<meta name="twitter:image" content="https://nickcks.github.io/logica/assets/img/og-marketplace-launch.png">
+<title>Marketplace Launch Readiness Diagnostic — Logica</title>
+<meta name="description" content="9 diagnostic rules to evaluate marketplace launch readiness across market viability, supply economics, and execution readiness — with structured Go / Conditional / Not Ready verdicts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FAFAF8;--surface:#FFFFFF;--surface-alt:#F5F4F0;--text:#1A1A18;--text-secondary:#5C5C56;--text-tertiary:#787870;--border:#E2E1DC;--border-light:#EEEDE9;--accent:#6B6B5E;--text-muted:#8E8E86;--border-hover:#B8B8B0;--mono:'DM Mono',monospace;--sans:'DM Sans',system-ui,sans-serif;--pass:#1B7D46;--pass-bg:#EEFBF3;--pass-border:#C6F0D5;--warn:#8A6D0B;--warn-bg:#FFF9E6;--warn-border:#FFE680;--fail:#B91C1C;--fail-bg:#FEF2F2;--fail-border:#FECACA;--radius:8px;--radius-lg:12px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+body.zh{font-family:'DM Sans','Noto Sans TC',system-ui,sans-serif}
+a{color:inherit}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+header{padding:24px 0 0;border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;padding-bottom:20px}
+.logo{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent)}.logo a{text-decoration:none}
+.header-right{display:flex;align-items:center;margin-left:auto}
+nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-left:24px}nav a:hover{color:var(--text)}
+.lang-toggle{display:inline-flex;align-items:center;margin-left:20px;border-left:1px solid var(--border);padding-left:16px}
+.lang-btn{font-size:12px;color:var(--text-tertiary);background:none;border:none;cursor:pointer;padding:6px 10px;font-family:inherit;transition:color .15s}.lang-btn:hover{color:var(--text)}.lang-btn.active{color:var(--text);font-weight:500}
+.lang-sep{font-size:12px;color:var(--border);margin:0 2px}
+.menu-toggle{display:none;background:none;border:none;font-size:22px;line-height:1;color:var(--text-secondary);cursor:pointer;padding:8px 4px}
+.hero{padding-top:36px;padding-bottom:28px}
+.hero h1{font-size:32px;font-weight:700;line-height:1.2;max-width:680px;letter-spacing:-.5px}
+.hero p{font-size:16px;color:var(--text-secondary);margin-top:8px;max-width:600px}
+.hero-meta{display:flex;gap:8px;margin-top:14px;font-size:12px;flex-wrap:wrap}
+.hero-meta span{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;border:1px solid var(--border);color:var(--text-tertiary)}
+.main-grid{display:grid;grid-template-columns:1fr 380px;gap:32px;padding-top:28px;padding-bottom:80px;align-items:start}
+@media(max-width:1080px){
+  .main-grid{grid-template-columns:1fr;gap:24px;padding-top:20px;padding-bottom:60px}
+  .tool-panel{position:static}
+}
+@media(max-width:860px){
+  .footer-inner{flex-direction:column;gap:12px;align-items:flex-start}
+}
+@media(max-width:600px){
+  .container{padding:0 20px}
+  .hero{padding-top:32px;padding-bottom:20px}
+  .hero h1{font-size:26px;letter-spacing:-.3px}
+  .hero p{font-size:14px}
+  .hero-meta{gap:6px}
+  .hero-meta span{font-size:11px;padding:2px 8px}
+  .tool-panel{padding:20px 16px 16px}
+  .stat-card .number{font-size:16px}
+  .stat-card{padding:8px 10px}
+  .diagnosis-title{font-size:14px}
+  .diagnosis-detail{font-size:11px}
+  .context-panel h2{font-size:18px}
+  .context-panel h3{font-size:14px}
+  .context-panel p{font-size:13px}
+  .context-panel table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .context-panel th,.context-panel td{padding:5px 8px;font-size:12px}
+  .footer-inner{flex-direction:column;gap:12px;align-items:flex-start}
+  .menu-toggle{display:flex;align-items:center}
+  .header-right{display:none;width:100%;flex-direction:column;align-items:flex-start;padding-top:16px;margin-top:12px;border-top:1px solid var(--border-light);order:10}
+  .header-right.open{display:flex}
+  .header-right nav{display:flex;flex-direction:column;width:100%}
+  .header-right nav a{margin-left:0;padding:10px 0;font-size:14px;border-bottom:1px solid var(--border-light)}
+  .lang-toggle{margin-left:auto;border-left:none;padding-left:0}
+  .header-inner{flex-wrap:wrap}
+}
+@media(max-width:400px){
+  .container{padding:0 16px}
+  .hero h1{font-size:22px}
+  .preset-btn{font-size:11px;padding:6px 12px}
+  .presets{gap:4px}
+  .input-group label{font-size:12px}
+  .stat-card .number{font-size:15px}
+  .stat-card .label{font-size:10px}
+}
+.tool-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 24px 20px;position:sticky;top:24px}
+.tool-panel h2{font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:16px}
+.input-group{margin-bottom:12px}
+.input-group label{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--text-secondary);margin-bottom:6px}
+.input-group .value{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--text);min-width:48px;text-align:right}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;background:var(--border);border-radius:3px;outline:none;touch-action:manipulation}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:var(--text);border-radius:50%;cursor:pointer}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;background:var(--text);border-radius:50%;cursor:pointer;border:0}
+select{font-family:inherit;font-size:13px;padding:6px 10px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);width:100%;cursor:pointer;margin-top:2px}
+.presets{display:flex;gap:6px;margin:16px 0 18px;flex-wrap:wrap}
+.preset-btn{font-family:inherit;font-size:12px;font-weight:500;padding:8px 16px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--text-secondary);cursor:pointer;transition:all .15s}.preset-btn:hover{border-color:var(--text);color:var(--text)}.preset-btn.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.preset-btn.custom-preset{border-style:dashed}
+.summary-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:16px}
+.stat-card{background:var(--surface-alt);border-radius:var(--radius);padding:10px 12px}
+.stat-card .label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:2px}
+.stat-card .number{font-family:'DM Mono',monospace;font-size:20px;font-weight:500}
+.results-section h3{font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:12px}
+.input-section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin:14px 0 8px;padding-top:10px;border-top:1px solid var(--border-light)}.input-section-label:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.diagnosis-block{border-radius:var(--radius);padding:12px 14px;margin-bottom:12px;line-height:1.5}
+.diagnosis-block.status-critical{background:var(--fail-bg);border:1px solid var(--fail-border)}
+.diagnosis-block.status-caution{background:var(--warn-bg);border:1px solid var(--warn-border)}
+.diagnosis-block.status-healthy{background:var(--pass-bg);border:1px solid var(--pass-border)}
+.diagnosis-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.status-critical .diagnosis-label{color:var(--fail)}.status-caution .diagnosis-label{color:var(--warn)}.status-healthy .diagnosis-label{color:var(--pass)}
+.diagnosis-title{font-size:15px;font-weight:700;margin-bottom:6px}
+.diagnosis-detail{font-size:12px;color:var(--text-secondary)}
+.top-actions{background:var(--surface-alt);border-radius:var(--radius);padding:12px 14px;margin-bottom:16px}
+.top-actions h4{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:8px}
+.top-actions ol{margin:0;padding-left:18px;font-size:12px;color:var(--text);line-height:1.7}
+.rule-watch{font-size:12px;color:var(--warn);margin:4px 0 0 26px;line-height:1.5;font-style:italic}
+.rule-card{border-left:3px solid var(--border);padding:8px 12px;margin-bottom:6px;border-radius:0 var(--radius) var(--radius) 0;transition:all .2s}
+.rule-card.pass{background:var(--pass-bg);border-left-color:var(--pass-border)}.rule-card.warn{background:var(--warn-bg);border-left-color:var(--warn-border)}.rule-card.fail{background:var(--fail-bg);border-left-color:var(--fail-border)}
+.rule-header{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.rule-icon{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;flex-shrink:0}
+.rule-card.pass .rule-icon{background:var(--pass)}.rule-card.warn .rule-icon{background:var(--warn)}.rule-card.fail .rule-icon{background:var(--fail)}
+.rule-name{font-size:13px;font-weight:500}
+.rule-desc{font-size:12px;color:var(--text-secondary);line-height:1.5;margin-left:26px}
+.rule-action{font-size:12px;font-weight:500;color:var(--text);margin:6px 0 0 26px;line-height:1.5}
+.pass-guidance{font-size:12px;color:var(--text-tertiary);margin:4px 0 0 26px;line-height:1.5;font-style:italic}
+.context-panel h2{font-size:20px;font-weight:700;margin-bottom:10px;letter-spacing:-.3px}
+.context-panel h3{font-size:15px;font-weight:700;margin:22px 0 10px;letter-spacing:-.2px}
+.context-panel p{font-size:14px;color:var(--text-secondary);margin-bottom:10px;line-height:1.7}
+.context-panel table{width:100%;font-size:13px;border-collapse:collapse;margin:12px 0;table-layout:fixed}
+.context-panel th,.context-panel td{text-align:left;padding:6px 12px;border-bottom:1px solid var(--border-light);vertical-align:top}
+.context-panel th:first-child,.context-panel td:first-child{width:38%}
+.context-panel th{font-weight:500;color:var(--text-tertiary);font-size:11px;text-transform:uppercase;letter-spacing:.5px;border-bottom-color:var(--border)}
+.context-panel td:first-child{font-weight:500;color:var(--text)}.context-panel td{color:var(--text-secondary)}
+.context-panel .callout{background:var(--surface-alt);border-radius:var(--radius);padding:12px 14px;margin:12px 0;font-size:13px;line-height:1.6}
+.context-panel .callout strong{display:block;margin-bottom:4px}
+.rules-summary-table{table-layout:auto}.rules-summary-table th:first-child,.rules-summary-table td:first-child{width:24px;text-align:center;color:var(--text-tertiary);font-weight:400}.rules-summary-table td:nth-child(2){width:auto;white-space:nowrap}
+footer{border-top:1px solid var(--border);padding:40px 0}.footer-inner{display:flex;justify-content:space-between;align-items:center}.footer-author{font-size:13px;color:var(--text-tertiary)}.footer-links{display:flex;gap:20px}.footer-links a{font-size:13px;color:var(--text-tertiary);text-decoration:none;transition:color .15s}.footer-links a:hover{color:var(--text-secondary)}
+a:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:2px}button:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:4px}select:focus-visible{outline:2px solid var(--text);outline-offset:1px}input[type=range]:focus-visible{outline:2px solid var(--text);outline-offset:4px;border-radius:4px}.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999;font-size:14px;padding:12px 24px;background:var(--text);color:var(--bg);text-decoration:none;border-radius:0 0 var(--radius) 0}.skip-link:focus{position:fixed;left:0;top:0;width:auto;height:auto;overflow:visible}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPTWKRCW" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a href="#main" class="skip-link">Skip to main content</a>
+<header>
+<div class="container header-inner">
+<div class="logo"><a href="/logica/">LOGICA</a></div>
+<button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="var r=document.querySelector('.header-right');r.classList.toggle('open');this.setAttribute('aria-expanded',r.classList.contains('open'))">&#9776;</button>
+<div class="header-right">
+<nav>
+<a href="/logica/">Home</a>
+<a href="/logica/methodology/">Methodology</a>
+</nav>
+<div class="lang-toggle">
+<button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+<span class="lang-sep">|</span>
+<button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
+</div>
+</div>
+</div>
+</header>
+<main id="main">
+<div class="container hero">
+<h1 data-i="hero_title">Marketplace Launch Readiness Diagnostic</h1>
+<p data-i="hero_sub">Should you launch this marketplace vertical — and what's the readiness level?</p>
+<div class="hero-meta">
+<span>07</span>
+<span data-i="meta_rules">9 Rules</span>
+<span data-i="meta_layers">3 Layers</span>
+<span data-i="meta_domain">Platform Economics</span>
+</div>
+</div>
+<div class="container main-grid">
+<!-- CONTEXT PANEL -->
+<div class="context-panel">
+<h2 data-i="ctx_what">What This Is</h2>
+<p data-i="ctx_what_p1">A structured diagnostic for marketplace launch decisions. Most teams evaluate demand, supply, and regulatory barriers in isolation — this tool integrates them into a single readiness assessment with explicit pass/warn/fail thresholds.</p>
+<p data-i="ctx_what_p2">The framework applies to any two-sided platform: ride-hailing, food delivery, logistics, or emerging verticals. Nine rules across three layers — Market Viability, Supply & Unit Economics, and Execution Readiness — produce a structured go/no-go verdict with specific actions for each gap.</p>
+
+<h3 data-i="ctx_framework">Framework</h3>
+<table class="rules-summary-table">
+<thead><tr><th></th><th data-i="th_rule">Rule</th><th data-i="th_tests">Tests</th></tr></thead>
+<tbody>
+<tr><td>1</td><td data-i="rs_r1n">Market Scale Floor</td><td data-i="rs_r1t">Addressable population threshold</td></tr>
+<tr><td>2</td><td data-i="rs_r2n">Demand Density</td><td data-i="rs_r2t">Geographic demand concentration</td></tr>
+<tr><td>3</td><td data-i="rs_r3n">Displacement Difficulty</td><td data-i="rs_r3t">Alternative solution coverage</td></tr>
+<tr><td>4</td><td data-i="rs_r4n">Supply Sufficiency</td><td data-i="rs_r4t">Available provider pool depth</td></tr>
+<tr><td>5</td><td data-i="rs_r5n">Provider Economics</td><td data-i="rs_r5t">Earnings vs. opportunity cost</td></tr>
+<tr><td>6</td><td data-i="rs_r6n">Liquidity Timeline</td><td data-i="rs_r6t">Months to minimum viable liquidity</td></tr>
+<tr><td>7</td><td data-i="rs_r7n">Regulatory Risk</td><td data-i="rs_r7t">Legal framework + government partnership</td></tr>
+<tr><td>8</td><td data-i="rs_r8n">Platform Leverage</td><td data-i="rs_r8t">Infrastructure reuse potential</td></tr>
+<tr><td>9</td><td data-i="rs_r9n">Competitive Defensibility</td><td data-i="rs_r9t">Timing × moat composite</td></tr>
+</tbody>
+</table>
+
+<h3 data-i="ctx_fail_h">How Marketplace Verticals Fail</h3>
+<p data-i="ctx_fail_p">Four structural failure modes, each detected by specific rule combinations: Economics Trap (provider economics + liquidity timeline both fail — the flywheel never engages), Regulatory Blocker (viable market but regulation blocks entry), Saturated Late (fully-served market + late entry with no structural opening), and No Market (below scale and density — not viable for on-demand).</p>
+
+<h3 data-i="ctx_rules_h">Decision Rules Summary</h3>
+<table>
+<thead><tr><th data-i="th_tier">Tier</th><th data-i="th_condition">Condition</th></tr></thead>
+<tbody>
+<tr><td style="color:var(--pass);font-weight:500" data-i="tier_ready">Launch Ready</td><td data-i="tier_ready_c">0 fails, 0–1 warnings</td></tr>
+<tr><td style="color:var(--pass);font-weight:500" data-i="tier_cond">Conditional Go</td><td data-i="tier_cond_c">0 fails, 2–3 warnings</td></tr>
+<tr><td style="color:var(--warn);font-weight:500" data-i="tier_gaps">Significant Gaps</td><td data-i="tier_gaps_c">1 fail OR 4+ warnings</td></tr>
+<tr><td style="color:var(--fail);font-weight:500" data-i="tier_not">Not Ready</td><td data-i="tier_not_c">2+ fails</td></tr>
+</tbody>
+</table>
+<div class="callout">
+<strong data-i="special_h">Special Diagnoses</strong>
+<span data-i="special_p">Economics Trap (R5 + R6 both fail) · Regulatory Blocker (R7 fail, market viable) · Saturated Late (R3 + R9 both fail) · No Market (R1 + R2 both fail)</span>
+</div>
+
+<h3 data-i="ctx_how">How to Use</h3>
+<p data-i="ctx_how_p">Start with a preset scenario to see how the diagnostic works, then adjust inputs to match your specific vertical × market combination. Each input directly affects one or more rules. The diagnosis updates in real time.</p>
+
+<h3 data-i="ctx_cross">Cross-Domain Note</h3>
+<p data-i="ctx_cross_p">This tool applies the same Logica methodology proven across five payments industry tools to a different domain — platform economics. Built entirely from publicly available frameworks and data (a16z, Andrew Chen, NFX, platform earnings disclosures). The structural quality comes from the method, not proprietary industry knowledge.</p>
+
+<h3 data-i="ctx_demo">What This Demonstrates</h3>
+<p data-i="ctx_demo_p">Five payments tools prove domain depth. This tool proves the method transfers. Same diagnostic architecture — decompose a complex decision into testable rules, formalize thresholds, produce actionable verdicts. Different domain. Same quality.</p>
+
+<p style="font-size:12px;color:var(--text-tertiary);margin-top:20px;line-height:1.6" data-i="disclaimer">Disclaimer: Indicative thresholds informed by publicly available marketplace economics research (a16z, Andrew Chen, NFX) and the author's analytical methodology. Actual thresholds vary by market, vertical, and business model. Use as a structured starting point, not definitive criteria.</p>
+</div>
+
+<!-- TOOL PANEL -->
+<div class="tool-panel">
+<h2 data-i="tool_h">Diagnostic</h2>
+
+<div class="input-section-label" data-i="sec_market">Market Viability</div>
+
+<div class="input-group">
+<label><span data-i="l_pop">Addressable population (K)</span><span class="value" id="o-pop">500</span></label>
+<input type="range" id="addressable_pop" min="10" max="5000" value="500" step="10" aria-label="Addressable population in thousands">
+</div>
+<div class="input-group">
+<label><span data-i="l_density">Demand density (1–5)</span><span class="value" id="o-density">3.0</span></label>
+<input type="range" id="demand_density" min="1" max="5" value="3" step="0.5" aria-label="Demand density score from 1 sparse to 5 hyper-dense">
+</div>
+<div class="input-group">
+<label><span data-i="l_alt">Alternative coverage (%)</span><span class="value" id="o-alt">50%</span></label>
+<input type="range" id="alt_coverage" min="0" max="100" value="50" step="5" aria-label="Percentage of use cases served by existing alternatives">
+</div>
+
+<div class="input-section-label" data-i="sec_supply">Supply & Unit Economics</div>
+
+<div class="input-group">
+<label><span data-i="l_supply">Supply pool (K providers)</span><span class="value" id="o-supply">5.0</span></label>
+<input type="range" id="supply_pool" min="0.1" max="100" value="5" step="0.1" aria-label="Available supply pool in thousands of providers">
+</div>
+<div class="input-group">
+<label><span data-i="l_earnings">Earnings ratio (vs. alt)</span><span class="value" id="o-earnings">1.2×</span></label>
+<input type="range" id="earnings_ratio" min="0.5" max="3" value="1.2" step="0.1" aria-label="Provider earnings divided by best local alternative">
+</div>
+<div class="input-group">
+<label><span data-i="l_mvl">Months to min viable liquidity</span><span class="value" id="o-mvl">12</span></label>
+<input type="range" id="months_to_mvl" min="1" max="36" value="12" step="1" aria-label="Estimated months to minimum viable liquidity">
+</div>
+
+<div class="input-section-label" data-i="sec_exec">Execution Readiness</div>
+
+<div class="input-group">
+<label><span data-i="l_reg">Regulatory status</span><span class="value" id="o-reg"></span></label>
+<select id="reg_status" onchange="clearPresetHighlight();update()">
+<option value="clear" data-i="opt_clear">Clear</option>
+<option value="emerging" data-i="opt_emerging" selected>Emerging</option>
+<option value="restrictive" data-i="opt_restrictive">Restrictive</option>
+<option value="hostile" data-i="opt_hostile">Hostile</option>
+</select>
+</div>
+<div class="input-group">
+<label><span data-i="l_gov">Gov. partnership</span><span class="value" id="o-gov"></span></label>
+<select id="gov_partnership" onchange="clearPresetHighlight();update()">
+<option value="none" data-i="opt_none">Not needed</option>
+<option value="helpful" data-i="opt_helpful" selected>Helpful</option>
+<option value="required" data-i="opt_required">Required</option>
+<option value="blocking" data-i="opt_blocking">Blocking</option>
+</select>
+</div>
+<div class="input-group">
+<label><span data-i="l_infra">Infrastructure reuse (%)</span><span class="value" id="o-infra">60%</span></label>
+<input type="range" id="infra_reuse" min="0" max="100" value="60" step="5" aria-label="Percentage of existing platform infrastructure reusable">
+</div>
+<div class="input-group">
+<label><span data-i="l_comp">Competitive position</span><span class="value" id="o-comp"></span></label>
+<select id="competitive_pos" onchange="clearPresetHighlight();update()">
+<option value="first_mover" data-i="opt_first">First Mover</option>
+<option value="early" data-i="opt_early" selected>Early</option>
+<option value="contested" data-i="opt_contested">Contested</option>
+<option value="late" data-i="opt_late">Late</option>
+</select>
+</div>
+
+<div class="presets">
+<button class="preset-btn" id="p-wheel" data-i="p_wheel">Two-Wheel Mobility</button>
+<button class="preset-btn" id="p-elderly" data-i="p_elderly">Elderly Transport</button>
+<button class="preset-btn" id="p-shared" data-i="p_shared">Shared Rides</button>
+<button class="preset-btn" id="p-fnb" data-i="p_fnb">F&B Delivery</button>
+<button class="preset-btn custom-preset" id="p-custom" data-i="p_custom">Custom</button>
+</div>
+
+<div class="summary-row">
+<div class="stat-card"><div class="label" data-i="s_market_l">Market</div><div class="number" id="s-market">—</div></div>
+<div class="stat-card"><div class="label" data-i="s_supply_l">Supply</div><div class="number" id="s-supply">—</div></div>
+<div class="stat-card"><div class="label" data-i="s_exec_l">Execution</div><div class="number" id="s-exec">—</div></div>
+<div class="stat-card"><div class="label" data-i="s_pass_l">Passed</div><div class="number" id="s-pass">—</div></div>
+</div>
+
+<div id="diagnosis-block"></div>
+<div id="top-actions"></div>
+
+<div class="results-section">
+<h3 data-i="results_h">Rule-by-Rule Results</h3>
+<div id="results"></div>
+</div>
+</div>
+</div>
+</main>
+<footer>
+<div class="container footer-inner">
+<div class="footer-author">Nick Chang · Strategy consultant · Payments & financial services</div>
+<div class="footer-links">
+<a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+<a href="https://github.com/nickcks" target="_blank" rel="noopener noreferrer">GitHub</a>
+</div>
+</div>
+</footer>
+<script>
+var lang='en';
+var T={
+hero_title:{en:'Marketplace Launch Readiness Diagnostic',zh:'市場平台上線準備度診斷'},
+hero_sub:{en:'Should you launch this marketplace vertical — and what\'s the readiness level?',zh:'這個垂直領域值得進入嗎——準備度如何？'},
+meta_rules:{en:'9 Rules',zh:'9 條規則'},
+meta_layers:{en:'3 Layers',zh:'3 層架構'},
+meta_domain:{en:'Platform Economics',zh:'平台經濟學'},
+ctx_what:{en:'What This Is',zh:'這是什麼'},
+ctx_what_p1:{en:'A structured diagnostic for marketplace launch decisions. Most teams evaluate demand, supply, and regulatory barriers in isolation — this tool integrates them into a single readiness assessment with explicit pass/warn/fail thresholds.',zh:'一套結構化的市場平台上線決策診斷。多數團隊分別評估需求、供給和監管障礙——本工具將其整合為單一準備度評估，並設定明確的通過/警告/不通過門檻。'},
+ctx_what_p2:{en:'The framework applies to any two-sided platform: ride-hailing, food delivery, logistics, or emerging verticals. Nine rules across three layers — Market Viability, Supply & Unit Economics, and Execution Readiness — produce a structured go/no-go verdict with specific actions for each gap.',zh:'此框架適用於任何雙邊平台：叫車、外送、物流或新興垂直領域。三層架構涵蓋九條規則——市場可行性、供給與單位經濟、執行準備度——產出結構化的進場/不進場判定，並針對每個缺口提供具體行動建議。'},
+ctx_framework:{en:'Framework',zh:'分析框架'},
+th_rule:{en:'Rule',zh:'規則'},th_tests:{en:'Tests',zh:'檢測'},
+rs_r1n:{en:'Market Scale Floor',zh:'市場規模門檻'},rs_r1t:{en:'Addressable population threshold',zh:'目標人口規模'},
+rs_r2n:{en:'Demand Density',zh:'需求密度'},rs_r2t:{en:'Geographic demand concentration',zh:'地理需求集中度'},
+rs_r3n:{en:'Displacement Difficulty',zh:'替代方案飽和度'},rs_r3t:{en:'Alternative solution coverage',zh:'現有替代方案覆蓋率'},
+rs_r4n:{en:'Supply Sufficiency',zh:'供給充足度'},rs_r4t:{en:'Available provider pool depth',zh:'可用供給者池深度'},
+rs_r5n:{en:'Provider Economics',zh:'供給端經濟性'},rs_r5t:{en:'Earnings vs. opportunity cost',zh:'收入 vs. 機會成本'},
+rs_r6n:{en:'Liquidity Timeline',zh:'流動性時程'},rs_r6t:{en:'Months to minimum viable liquidity',zh:'達到最低可行流動性的月數'},
+rs_r7n:{en:'Regulatory Risk',zh:'監管風險'},rs_r7t:{en:'Legal framework + government partnership',zh:'法規框架 + 政府合作需求'},
+rs_r8n:{en:'Platform Leverage',zh:'平台槓桿'},rs_r8t:{en:'Infrastructure reuse potential',zh:'基礎設施復用潛力'},
+rs_r9n:{en:'Competitive Defensibility',zh:'競爭防禦力'},rs_r9t:{en:'Timing × moat composite',zh:'進場時機 × 護城河綜合評估'},
+ctx_fail_h:{en:'How Marketplace Verticals Fail',zh:'市場垂直領域的典型失敗模式'},
+ctx_fail_p:{en:'Four structural failure modes, each detected by specific rule combinations: Economics Trap (provider economics + liquidity timeline both fail — the flywheel never engages), Regulatory Blocker (viable market but regulation blocks entry), Saturated Late (fully-served market + late entry with no structural opening), and No Market (below scale and density — not viable for on-demand).',zh:'四種結構性失敗模式，各由特定規則組合偵測：經濟陷阱（供給端經濟 + 流動性時程同時不通過——飛輪永遠無法啟動）、監管阻斷（市場可行但法規阻擋進入）、飽和遲到（充分服務的市場 + 遲到進入且無結構性缺口）、無市場（規模和密度都不足——不適合即時服務模式）。'},
+ctx_rules_h:{en:'Decision Rules Summary',zh:'決策規則摘要'},
+th_tier:{en:'Tier',zh:'層級'},th_condition:{en:'Condition',zh:'條件'},
+tier_ready:{en:'Launch Ready',zh:'可以進場'},tier_ready_c:{en:'0 fails, 0–1 warnings',zh:'0 項不通過，0–1 項警告'},
+tier_cond:{en:'Conditional Go',zh:'有條件進場'},tier_cond_c:{en:'0 fails, 2–3 warnings',zh:'0 項不通過，2–3 項警告'},
+tier_gaps:{en:'Significant Gaps',zh:'重大缺口'},tier_gaps_c:{en:'1 fail OR 4+ warnings',zh:'1 項不通過 或 4+ 項警告'},
+tier_not:{en:'Not Ready',zh:'尚未就緒'},tier_not_c:{en:'2+ fails',zh:'2+ 項不通過'},
+special_h:{en:'Special Diagnoses',zh:'特殊診斷'},
+special_p:{en:'Economics Trap (R5 + R6 both fail) · Regulatory Blocker (R7 fail, market viable) · Saturated Late (R3 + R9 both fail) · No Market (R1 + R2 both fail)',zh:'經濟陷阱（R5 + R6 同時不通過）· 監管阻斷（R7 不通過，市場本身可行）· 飽和遲到（R3 + R9 同時不通過）· 無市場（R1 + R2 同時不通過）'},
+ctx_how:{en:'How to Use',zh:'使用方法'},
+ctx_how_p:{en:'Start with a preset scenario to see how the diagnostic works, then adjust inputs to match your specific vertical × market combination. Each input directly affects one or more rules. The diagnosis updates in real time.',zh:'先從預設情境開始了解診斷運作方式，再調整參數以匹配你的具體垂直領域和市場。每個輸入直接影響一條或多條規則，診斷結果即時更新。'},
+ctx_cross:{en:'Cross-Domain Note',zh:'跨領域說明'},
+ctx_cross_p:{en:'This tool applies the same Logica methodology proven across five payments industry tools to a different domain — platform economics. Built entirely from publicly available frameworks and data (a16z, Andrew Chen, NFX, platform earnings disclosures). The structural quality comes from the method, not proprietary industry knowledge.',zh:'本工具將經五個支付行業工具驗證的 Logica 方法論應用於不同領域——平台經濟學。完全基於公開框架與數據（a16z、Andrew Chen、NFX、平台財報）構建。結構品質來自方法論，而非專有行業知識。'},
+ctx_demo:{en:'What This Demonstrates',zh:'能力展示'},
+ctx_demo_p:{en:'Five payments tools prove domain depth. This tool proves the method transfers. Same diagnostic architecture — decompose a complex decision into testable rules, formalize thresholds, produce actionable verdicts. Different domain. Same quality.',zh:'五個支付工具證明領域深度。本工具證明方法可遷移。相同的診斷架構——將複雜決策分解為可測試規則、形式化門檻、產出可行動判定。不同領域，相同品質。'},
+disclaimer:{en:'Disclaimer: Indicative thresholds informed by publicly available marketplace economics research (a16z, Andrew Chen, NFX) and the author\'s analytical methodology. Actual thresholds vary by market, vertical, and business model. Use as a structured starting point, not definitive criteria.',zh:'免責聲明：指標性門檻參考公開的市場平台經濟學研究（a16z、Andrew Chen、NFX）與作者的分析方法論。實際門檻因市場、垂直領域和商業模式而異。請作為結構化分析起點，非最終判定標準。'},
+tool_h:{en:'Diagnostic',zh:'診斷工具'},
+sec_market:{en:'Market Viability',zh:'市場可行性'},
+sec_supply:{en:'Supply & Unit Economics',zh:'供給與單位經濟'},
+sec_exec:{en:'Execution Readiness',zh:'執行準備度'},
+l_pop:{en:'Addressable population (K)',zh:'目標人口（千人）'},
+l_density:{en:'Demand density (1–5)',zh:'需求密度（1–5）'},
+l_alt:{en:'Alternative coverage (%)',zh:'替代方案覆蓋率（%）'},
+l_supply:{en:'Supply pool (K providers)',zh:'供給池（千位供給者）'},
+l_earnings:{en:'Earnings ratio (vs. alt)',zh:'收入比（vs. 替代方案）'},
+l_mvl:{en:'Months to min viable liquidity',zh:'達到最低流動性月數'},
+l_reg:{en:'Regulatory status',zh:'監管狀態'},
+l_gov:{en:'Gov. partnership',zh:'政府合作需求'},
+l_infra:{en:'Infrastructure reuse (%)',zh:'基礎設施復用率（%）'},
+l_comp:{en:'Competitive position',zh:'競爭地位'},
+opt_clear:{en:'Clear',zh:'明確'},opt_emerging:{en:'Emerging',zh:'形成中'},opt_restrictive:{en:'Restrictive',zh:'限制性'},opt_hostile:{en:'Hostile',zh:'敵對'},
+opt_none:{en:'Not needed',zh:'不需要'},opt_helpful:{en:'Helpful',zh:'有幫助'},opt_required:{en:'Required',zh:'必需'},opt_blocking:{en:'Blocking',zh:'受阻'},
+opt_first:{en:'First Mover',zh:'先行者'},opt_early:{en:'Early',zh:'早期'},opt_contested:{en:'Contested',zh:'競爭中'},opt_late:{en:'Late',zh:'後進'},
+p_wheel:{en:'Two-Wheel Mobility',zh:'二輪交通'},
+p_elderly:{en:'Elderly Transport',zh:'長者交通'},
+p_shared:{en:'Shared Rides',zh:'共乘'},
+p_fnb:{en:'F&B Delivery',zh:'餐飲外送'},
+p_custom:{en:'Custom',zh:'自訂'},
+s_market_l:{en:'Market',zh:'市場'},
+s_supply_l:{en:'Supply',zh:'供給'},
+s_exec_l:{en:'Execution',zh:'執行'},
+s_pass_l:{en:'Passed',zh:'通過'},
+results_h:{en:'Rule-by-Rule Results',zh:'逐條規則結果'},
+diag_label:{en:'Diagnosis',zh:'診斷結果'},
+actions_label:{en:'Top Recommended Actions',zh:'優先建議行動'}
+};
+
+var regLabels={clear:{en:'Clear',zh:'明確'},emerging:{en:'Emerging',zh:'形成中'},restrictive:{en:'Restrictive',zh:'限制性'},hostile:{en:'Hostile',zh:'敵對'}};
+var govLabels={none:{en:'Not needed',zh:'不需要'},helpful:{en:'Helpful',zh:'有幫助'},required:{en:'Required',zh:'必需'},blocking:{en:'Blocking',zh:'受阻'}};
+var compLabels={first_mover:{en:'First Mover',zh:'先行者'},early:{en:'Early',zh:'早期'},contested:{en:'Contested',zh:'競爭中'},late:{en:'Late',zh:'後進'}};
+
+var ruleT={
+1:{name:{en:'Market Scale Floor',zh:'市場規模門檻'},
+pass:{en:function(d){return 'Addressable population of '+d.addressable_pop+'K exceeds minimum viable scale for dedicated vertical operations.';},zh:function(d){return '目標人口 '+d.addressable_pop+'K 超過獨立垂直營運的最低可行規模。';}},
+warn:{en:function(d){return 'Marginal scale at '+d.addressable_pop+'K — may require bundling with adjacent verticals to justify investment.';},zh:function(d){return '規模邊緣，'+d.addressable_pop+'K——可能需要與相鄰垂直領域捆綁以合理化投資。';}},
+fail:{en:function(d){return 'Below minimum viable scale at '+d.addressable_pop+'K — vertical cannot sustain dedicated operations.';},zh:function(d){return '低於最低可行規模，'+d.addressable_pop+'K——垂直領域無法維持獨立營運。';}},
+action:{en:'Do not invest in standalone vertical; evaluate as a feature within an existing vertical or bundle with adjacent markets.',zh:'不投資獨立垂直領域；評估作為現有垂直功能的一部分或與相鄰市場捆綁。'},
+watch:{en:'Monitor addressable population growth trends; reassess if population reaches 150K threshold.',zh:'監控目標人口成長趨勢；人口達到 150K 門檻時重新評估。'}},
+2:{name:{en:'Demand Density',zh:'需求密度'},
+pass:{en:function(d){return 'Demand density of '+d.demand_density.toFixed(1)+' supports efficient on-demand matching economics.';},zh:function(d){return '需求密度 '+d.demand_density.toFixed(1)+' 支撐高效的即時配對經濟模型。';}},
+warn:{en:function(d){return 'Low density at '+d.demand_density.toFixed(1)+' — requires zone-based launch strategy to concentrate initial supply.';},zh:function(d){return '密度偏低，'+d.demand_density.toFixed(1)+'——需要採用分區上線策略以集中初始供給。';}},
+fail:{en:function(d){return 'Demand too sparse at '+d.demand_density.toFixed(1)+' — deadhead costs will structurally prevent viable unit economics.';},zh:function(d){return '需求過於稀疏，'+d.demand_density.toFixed(1)+'——空駛成本將使單位經濟結構性不可行。';}},
+action:{en:'This market geometry doesn\'t support on-demand models; evaluate scheduled or batch service alternatives.',zh:'此市場地理結構不支持即時模式；評估預約制或批次服務替代方案。'},
+watch:{en:'Track demand density changes as the market develops; reassess when density crosses 2.5.',zh:'追蹤市場發展中的需求密度變化；密度突破 2.5 時重新評估。'}},
+3:{name:{en:'Displacement Difficulty',zh:'替代方案飽和度'},
+pass:{en:function(d){return 'Alternative coverage at '+d.alt_coverage+'% — meaningful unmet demand exists for platform entry.';},zh:function(d){return '替代方案覆蓋率 '+d.alt_coverage+'%——存在有意義的未滿足需求。';}},
+warn:{en:function(d){return 'Well-served market at '+d.alt_coverage+'% coverage — need clear differentiation on price, speed, or experience.';},zh:function(d){return '市場已被充分服務，覆蓋率 '+d.alt_coverage+'%——需要在價格、速度或體驗上明確差異化。';}},
+fail:{en:function(d){return 'Market fully served at '+d.alt_coverage+'% — no structural gap to fill; differentiation must be extreme.';},zh:function(d){return '市場已完全被服務，覆蓋率 '+d.alt_coverage+'%——無結構性缺口可填補。';}},
+action:{en:'Identify micro-segments where existing alternatives genuinely fail (e.g., late-night, accessibility, last-mile).',zh:'找出現有替代方案真正失敗的微細分市場（如深夜、無障礙、最後一哩）。'},
+watch:{en:'Monitor competitive exits or service degradation that could open displacement opportunities.',zh:'監控競爭者退出或服務品質下降，這可能打開替代機會。'}},
+4:{name:{en:'Supply Sufficiency',zh:'供給充足度'},
+pass:{en:function(d){var v=d.supply_pool>=1?Math.round(d.supply_pool)+'K':d.supply_pool.toFixed(1)+'K';return 'Supply pool of '+v+' providers supports minimum viable liquidity.';},zh:function(d){var v=d.supply_pool>=1?Math.round(d.supply_pool)+'K':d.supply_pool.toFixed(1)+'K';return '供給池 '+v+' 供給者支撐最低可行流動性。';}},
+warn:{en:function(d){var v=d.supply_pool>=1?Math.round(d.supply_pool)+'K':d.supply_pool.toFixed(1)+'K';return 'Thin supply at '+v+' providers — requires aggressive recruitment and guaranteed earnings to bootstrap.';},zh:function(d){var v=d.supply_pool>=1?Math.round(d.supply_pool)+'K':d.supply_pool.toFixed(1)+'K';return '供給薄弱，'+v+' 供給者——需要積極招募和保底收入以啟動。';}},
+fail:{en:function(d){var v=d.supply_pool>=1?Math.round(d.supply_pool)+'K':d.supply_pool.toFixed(1)+'K';return 'Critical supply shortage at '+v+' — cannot reach minimum viable liquidity without recruitment breakthrough.';},zh:function(d){var v=d.supply_pool>=1?Math.round(d.supply_pool)+'K':d.supply_pool.toFixed(1)+'K';return '嚴重供給不足，'+v+'——無法在沒有招募突破的情況下達到最低可行流動性。';}},
+action:{en:'Evaluate supply partnerships (fleet operators, existing cooperatives) before committing to organic recruitment.',zh:'在投入自然招募前，評估供給合作夥伴（車隊營運商、現有合作社）。'},
+watch:{en:'Track supply recruitment pipeline weekly; if fill rate stalls below targets, activate partnership contingency.',zh:'每週追蹤供給招募管道；若充填率停滯在目標以下，啟動合作夥伴應急方案。'}},
+5:{name:{en:'Provider Economics',zh:'供給端經濟性'},
+pass:{en:function(d){return 'Earnings ratio of '+d.earnings_ratio.toFixed(1)+'× vs. alternatives — providers earn competitively; retention is sustainable.';},zh:function(d){return '收入比 '+d.earnings_ratio.toFixed(1)+'× vs. 替代方案——供給者收入具競爭力，留存可持續。';}},
+warn:{en:function(d){return 'Marginal provider economics at '+d.earnings_ratio.toFixed(1)+'× — supply retention at risk from competitive alternatives.';},zh:function(d){return '供給端經濟性邊緣，'+d.earnings_ratio.toFixed(1)+'×——供給留存受競爭替代方案威脅。';}},
+fail:{en:function(d){return 'Provider earnings structurally below alternatives at '+d.earnings_ratio.toFixed(1)+'× — supply will not retain without permanent subsidies.';},zh:function(d){return '供給端收入結構性低於替代方案，'+d.earnings_ratio.toFixed(1)+'×——不永久補貼則無法留住供給。';}},
+action:{en:'Restructure take rate, introduce incentive tiers, or redesign service model to improve provider earnings.',zh:'重構抽成比例、引入激勵分層或重新設計服務模式以提高供給端收入。'},
+watch:{en:'Model sensitivity: at what utilization rate does earnings ratio cross 1.0? Is that achievable within 6 months?',zh:'敏感度模型：在什麼利用率下收入比能突破 1.0？6 個月內能達到嗎？'}},
+6:{name:{en:'Liquidity Timeline',zh:'流動性時程'},
+pass:{en:function(d){return d.months_to_mvl+' months to MVL — manageable runway with standard launch planning.';},zh:function(d){return d.months_to_mvl+' 個月達到最低流動性——標準上線規劃可管理的時程。';}},
+warn:{en:function(d){return d.months_to_mvl+' months to MVL — extended timeline requires patient capital and phased milestones.';},zh:function(d){return d.months_to_mvl+' 個月達到最低流動性——較長時程需要耐心資本和分階段里程碑。';}},
+fail:{en:function(d){return d.months_to_mvl+' months to MVL — excessive runway; burn will likely exhaust budget before flywheel engages.';},zh:function(d){return d.months_to_mvl+' 個月達到最低流動性——過長的時程；資金消耗可能在飛輪啟動前耗盡預算。';}},
+action:{en:'Re-evaluate market selection; consider launching in a higher-density adjacent market first to build playbook.',zh:'重新評估市場選擇；考慮先在較高密度的相鄰市場上線以建立操作手冊。'},
+watch:{en:'Design milestones at month 6 and 12 with explicit go/no-go criteria; pre-commit exit conditions.',zh:'在第 6 和第 12 個月設計里程碑，含明確的進/退標準；預先承諾退出條件。'}},
+7:{name:{en:'Regulatory Risk',zh:'監管風險'},
+pass:{en:'Clear or manageable regulatory environment — standard compliance sufficient.',zh:'明確或可管理的監管環境——標準合規即可。'},
+warn_restrictive:{en:'Restrictive environment requiring active government engagement — timeline and outcome uncertain.',zh:'限制性環境需要積極的政府合作——時程和結果存在不確定性。'},
+warn_emerging:{en:'Regulatory framework still forming — first-mover advantage possible but rules may shift.',zh:'監管框架仍在形成中——可能有先行者優勢但規則可能變動。'},
+fail_hostile:{en:'Regulatory environment actively opposes this vertical — launch will face legal and enforcement barriers.',zh:'監管環境積極反對此垂直領域——上線將面臨法律和執法障礙。'},
+fail_blocking:{en:'Requires government partnership that is not forthcoming — structural blocker to market entry.',zh:'需要政府合作但無法取得——進入市場的結構性阻礙。'},
+action_hostile:{en:'Engage policy team for 12+ month regulatory advocacy before any operational investment.',zh:'啟動政策團隊進行 12 個月以上的監管倡議，再進行任何營運投資。'},
+action_blocking:{en:'Redirect to markets or verticals where government partnership is achievable.',zh:'轉向政府合作可行的市場或垂直領域。'},
+action_restrictive:{en:'Map regulatory stakeholders; build compliance roadmap with milestones before launch commitment.',zh:'盤點監管利害關係人；在承諾上線前建立合規路線圖與里程碑。'},
+action_emerging:{en:'Engage early with regulators to shape framework; build flexibility into operations model.',zh:'及早與監管者互動以影響框架制定；在營運模式中建入彈性。'},
+watch:{en:'Track regulatory evolution and trigger events that could change the landscape.',zh:'追蹤監管演變和可能改變局勢的觸發事件。'}},
+8:{name:{en:'Platform Leverage',zh:'平台槓桿'},
+pass:{en:function(d){return d.infra_reuse+'% infrastructure reuse — meaningful platform leverage reduces launch cost and timeline.';},zh:function(d){return d.infra_reuse+'% 基礎設施復用——有意義的平台槓桿降低上線成本和時程。';}},
+warn:{en:function(d){return d.infra_reuse+'% infrastructure reuse — significant new infrastructure required; budget must reflect build complexity.';},zh:function(d){return d.infra_reuse+'% 基礎設施復用——需要大量新基礎設施；預算須反映建設複雜度。';}},
+fail:{en:function(d){return d.infra_reuse+'% infrastructure reuse — near ground-up build; investment approaches new platform launch, not vertical extension.';},zh:function(d){return d.infra_reuse+'% 基礎設施復用——接近從零開始建設；投資規模接近新平台而非垂直延伸。';}},
+action:{en:'Re-evaluate whether this should be a vertical launch or a separate platform/brand; compare build-vs-partner options.',zh:'重新評估這應該是垂直延伸還是獨立平台/品牌；比較自建 vs. 合作選項。'},
+watch:{en:'Identify specific infrastructure gaps and estimate build timeline before committing resources.',zh:'在投入資源前辨識具體基礎設施缺口並估算建設時程。'}},
+9:{name:{en:'Competitive Defensibility',zh:'競爭防禦力'},
+pass:{en:function(d){return 'Favorable competitive position with moat score of '+d._moat.toFixed(1)+'/5 — defensible positioning.';},zh:function(d){return '有利的競爭地位，護城河評分 '+d._moat.toFixed(1)+'/5——可防禦的定位。';}},
+warn_late:{en:function(d){return 'Late entry but moat score of '+d._moat.toFixed(1)+'/5 provides some structural advantage — requires clear wedge strategy.';},zh:function(d){return '後進者但護城河評分 '+d._moat.toFixed(1)+'/5 提供一定結構性優勢——需要明確的楔入策略。';}},
+warn_contested:{en:function(d){return 'Contested market with only '+d.infra_reuse+'% infrastructure reuse — elevated execution risk without platform leverage.';},zh:function(d){return '競爭中的市場僅有 '+d.infra_reuse+'% 基礎設施復用——缺乏平台槓桿導致執行風險升高。';}},
+fail:{en:function(d){return 'Late entry with low moat score of '+d._moat.toFixed(1)+'/5 — market likely winner-take-most with entrenched incumbents.';},zh:function(d){return '後進者且護城河評分偏低，'+d._moat.toFixed(1)+'/5——市場可能已是贏者全拿，既有業者根深蒂固。';}},
+action_fail:{en:'Unless you have a structural advantage incumbents cannot replicate, redirect resources to more defensible opportunities.',zh:'除非你有既有業者無法複製的結構性優勢，否則將資源轉向更具防禦性的機會。'},
+action_late:{en:'Define the specific underserved segment or unmet need you will own before committing to launch.',zh:'在承諾上線前，定義你要佔據的具體未被服務細分市場或未滿足需求。'},
+action_contested:{en:'Accelerate launch timeline to establish liquidity before competitors consolidate market position.',zh:'加速上線時程，在競爭者鞏固市場地位前建立流動性。'},
+watch:{en:'Monitor competitor activity and market share movements monthly.',zh:'每月監控競爭者動態和市占率變動。'}}
+};
+
+var diagT={
+healthy:{en:function(fc,wc){var ps=9-fc-wc;return{title:'Launch Ready',detail:'Conditions support a go decision — all '+ps+' rules passed'+(wc===1?' with one minor warning':'')+'. Proceed to detailed operational planning and launch execution.'};},zh:function(fc,wc){var ps=9-fc-wc;return{title:'可以進場',detail:'條件支持進場決策——全部 '+ps+' 條規則通過'+(wc===1?'，僅一項輕微警告':'')+''+'。可進入詳細營運規劃和上線執行。'};}},
+conditional:{en:function(fc,wc){return{title:'Conditional Go',detail:'No structural barriers, but '+wc+' warning'+(wc>1?'s':'')+' require targeted mitigation before full commitment.'};},zh:function(fc,wc){return{title:'有條件進場',detail:'無結構性障礙，但有 '+wc+' 項警告需在全面投入前進行針對性改善。'};}},
+gaps:{en:function(fc,wc){if(fc>=1)return{title:'Significant Gaps',detail:fc+' structural barrier'+(fc>1?'s':'')+' and '+wc+' warning'+(wc>1?'s':'')+' identified. Address fundamental issues before committing resources.'};return{title:'Significant Gaps',detail:wc+' warnings across multiple dimensions indicate systemic readiness issues. Viable but requires substantial remediation work.'};},zh:function(fc,wc){if(fc>=1)return{title:'重大缺口',detail:'發現 '+fc+' 項結構性障礙和 '+wc+' 項警告。投入資源前需解決根本問題。'};return{title:'重大缺口',detail:'跨多個維度有 '+wc+' 項警告，顯示系統性準備度問題。可行但需大量改善工作。'};}},
+not_ready:{en:function(fc,wc){return{title:'Not Ready',detail:fc+' rules failed'+(wc>0?' with '+wc+' additional warning'+(wc>1?'s':''):'')+'. Fundamental conditions are not met for this vertical × market combination.'};},zh:function(fc,wc){return{title:'尚未就緒',detail:fc+' 條規則不通過'+(wc>0?'，另有 '+wc+' 項警告':'')+''+'。此垂直領域 × 市場組合的基本條件尚未滿足。'};}},
+economics_trap:{en:{title:'Not Ready — Economics Trap',detail:'Provider economics and liquidity timeline both fail — the marketplace flywheel cannot engage. This is the most common failure mode for new verticals: supply cannot be retained profitably long enough for demand to reach critical mass.'},zh:{title:'尚未就緒——經濟陷阱',detail:'供給端經濟性和流動性時程同時不通過——市場飛輪無法啟動。這是新垂直領域最常見的失敗模式：供給無法在需求達到臨界量之前被有利可圖地留住。'}},
+regulatory_blocker:{en:{title:'Not Ready — Regulatory Blocker',detail:'Market fundamentals and provider economics are viable, but the regulatory environment blocks entry. This is purely a policy problem, not a business problem. Monitor regulatory evolution or redirect to more permissive markets.'},zh:{title:'尚未就緒——監管阻斷',detail:'市場基本面和供給端經濟性可行，但監管環境阻擋進入。這純粹是政策問題，而非商業問題。持續追蹤法規演變或轉向更寬鬆的市場。'}},
+saturated_late:{en:{title:'Not Ready — Saturated & Late',detail:'Market is fully served by existing alternatives and platform is entering late with no structural advantage. There is no opening in this market — don\'t force it.'},zh:{title:'尚未就緒——飽和且遲到',detail:'市場已被現有替代方案充分服務，且平台遲到進入又無結構性優勢。此市場沒有缺口——不要勉強。'}},
+no_market:{en:{title:'Not Ready — No Market',detail:'Below minimum viable scale and demand is too sparse for on-demand economics. This is not a timing or execution problem — the market fundamentally does not support this vertical.'},zh:{title:'尚未就緒——無市場',detail:'低於最低可行規模且需求過於稀疏，不適合即時服務經濟。這不是時機或執行問題——市場根本不支持此垂直領域。'}}
+};
+
+var presets={
+wheel:{addressable_pop:2000,demand_density:4.5,alt_coverage:70,supply_pool:30,earnings_ratio:1.3,months_to_mvl:8,reg_status:'restrictive',gov_partnership:'required',infra_reuse:70,competitive_pos:'early'},
+elderly:{addressable_pop:800,demand_density:2,alt_coverage:40,supply_pool:1.5,earnings_ratio:1.1,months_to_mvl:18,reg_status:'emerging',gov_partnership:'helpful',infra_reuse:45,competitive_pos:'first_mover'},
+shared:{addressable_pop:3000,demand_density:3.5,alt_coverage:70,supply_pool:15,earnings_ratio:0.9,months_to_mvl:20,reg_status:'hostile',gov_partnership:'blocking',infra_reuse:55,competitive_pos:'late'},
+fnb:{addressable_pop:1500,demand_density:4,alt_coverage:45,supply_pool:25,earnings_ratio:1.4,months_to_mvl:6,reg_status:'clear',gov_partnership:'none',infra_reuse:85,competitive_pos:'early'}
+};
+
+var sliderIds=['addressable_pop','demand_density','alt_coverage','supply_pool','earnings_ratio','months_to_mvl','infra_reuse'];
+var selectIds=['reg_status','gov_partnership','competitive_pos'];
+var presetKeys=['wheel','elderly','shared','fnb'];
+
+var rules=[
+{id:1,layer:1,test:function(d){if(d.addressable_pop<50)return'fail';if(d.addressable_pop<150)return'warn';return'pass';}},
+{id:2,layer:1,test:function(d){if(d.demand_density<=1.5)return'fail';if(d.demand_density<=2.5)return'warn';return'pass';}},
+{id:3,layer:1,test:function(d){if(d.alt_coverage>85)return'fail';if(d.alt_coverage>65)return'warn';return'pass';}},
+{id:4,layer:2,test:function(d){if(d.supply_pool<0.5)return'fail';if(d.supply_pool<2)return'warn';return'pass';}},
+{id:5,layer:2,test:function(d){if(d.earnings_ratio<0.8)return'fail';if(d.earnings_ratio<1.0)return'warn';return'pass';}},
+{id:6,layer:2,test:function(d){if(d.months_to_mvl>24)return'fail';if(d.months_to_mvl>12)return'warn';return'pass';}},
+{id:7,layer:3,test:function(d){if(d.reg_status==='hostile')return'fail';if(d.reg_status==='restrictive'&&d.gov_partnership==='blocking')return'fail';if(d.reg_status==='restrictive'&&d.gov_partnership==='required')return'warn';if(d.reg_status==='emerging')return'warn';return'pass';}},
+{id:8,layer:3,test:function(d){if(d.infra_reuse<20)return'fail';if(d.infra_reuse<40)return'warn';return'pass';}},
+{id:9,layer:3,test:function(d){if(d.competitive_pos==='late'&&d._moat<3)return'fail';if(d.competitive_pos==='late')return'warn';if(d.competitive_pos==='contested'&&d.infra_reuse<50)return'warn';return'pass';}}
+];
+
+function getData(){
+var d={};
+sliderIds.forEach(function(id){d[id]=parseFloat(document.getElementById(id).value);});
+selectIds.forEach(function(id){d[id]=document.getElementById(id).value;});
+
+// Pre-compute derived values
+var posS={first_mover:2,early:1.5,contested:0.5,late:0}[d.competitive_pos]||0;
+var infraS=(d.infra_reuse/100)*1.5;
+var densityS=(d.demand_density/5)*1.5;
+d._moat=Math.min(5,posS+infraS+densityS);
+
+// Layer scores
+var popN=Math.min(d.addressable_pop/1000,1)*10;
+var denN=(d.demand_density-1)/4*10;
+var altN=(100-d.alt_coverage)/100*10;
+d._marketScore=Math.round((popN*0.3+denN*0.4+altN*0.3)*10)/10;
+
+var supN=Math.min(d.supply_pool/20,1)*10;
+var earnN=Math.min((d.earnings_ratio-0.5)/2,1)*10;
+var mvlN=(36-d.months_to_mvl)/35*10;
+d._supplyScore=Math.round((supN*0.25+earnN*0.4+mvlN*0.35)*10)/10;
+
+var regBase={clear:10,emerging:6,restrictive:3,hostile:0}[d.reg_status]||0;
+var govMod={none:0,helpful:0.5,required:-1.5,blocking:-3}[d.gov_partnership]||0;
+var regClarity=Math.max(0,Math.min(10,regBase+govMod));
+var infraN=d.infra_reuse/10;
+var moatN=d._moat*2;
+d._execScore=Math.round((regClarity*0.35+infraN*0.35+moatN*0.30)*10)/10;
+
+return d;
+}
+
+function setPreset(p){
+sliderIds.forEach(function(id){if(p[id]!==undefined)document.getElementById(id).value=p[id];});
+selectIds.forEach(function(id){if(p[id]!==undefined)document.getElementById(id).value=p[id];});
+update();
+}
+
+function setLang(l){
+document.documentElement.lang=l==='zh'?'zh-Hant':'en';
+lang=l;
+document.body.classList.toggle('zh',l==='zh');
+document.getElementById('btn-en').classList.toggle('active',l==='en');
+document.getElementById('btn-zh').classList.toggle('active',l==='zh');
+document.querySelectorAll('[data-i]').forEach(function(el){
+var k=el.getAttribute('data-i');
+if(T[k]&&T[k][l]){if(el.tagName==='OPTION')el.textContent=T[k][l];else el.textContent=T[k][l];}
+});
+update();
+}
+
+function getDiagKey(fc,wc,results){
+// Special cases FIRST (before generic count)
+var r5=results.find(function(r){return r.id===5;});
+var r6=results.find(function(r){return r.id===6;});
+if(r5&&r5.status==='fail'&&r6&&r6.status==='fail')return'economics_trap';
+
+var r7=results.find(function(r){return r.id===7;});
+var r1=results.find(function(r){return r.id===1;});
+if(r7&&r7.status==='fail'&&r1&&r1.status==='pass'&&r5&&r5.status==='pass')return'regulatory_blocker';
+
+var r3=results.find(function(r){return r.id===3;});
+var r9=results.find(function(r){return r.id===9;});
+if(r3&&r3.status==='fail'&&r9&&r9.status==='fail')return'saturated_late';
+
+var r2=results.find(function(r){return r.id===2;});
+if(r1&&r1.status==='fail'&&r2&&r2.status==='fail')return'no_market';
+
+// Generic count logic
+if(fc>=2)return'not_ready';
+if(fc===1)return'gaps';
+if(wc>=4)return'gaps';
+if(wc>=2)return'conditional';
+return'healthy';
+}
+
+function getRuleAction(id,status,d){
+if(id===7){
+if(status==='fail'){
+if(d.reg_status==='hostile')return ruleT[7].action_hostile[lang];
+return ruleT[7].action_blocking[lang];
+}
+if(status==='warn'){
+if(d.reg_status==='restrictive')return ruleT[7].action_restrictive[lang];
+return ruleT[7].action_emerging[lang];
+}
+}
+if(id===9){
+if(status==='fail')return ruleT[9].action_fail[lang];
+if(status==='warn'){
+if(d.competitive_pos==='late')return ruleT[9].action_late[lang];
+return ruleT[9].action_contested[lang];
+}
+}
+return ruleT[id].action?ruleT[id].action[lang]:'';
+}
+
+function getRuleDesc(id,status,d){
+var rt=ruleT[id];
+if(id===7){
+if(status==='fail'){
+if(d.reg_status==='hostile')return typeof rt.fail_hostile[lang]==='function'?rt.fail_hostile[lang](d):rt.fail_hostile[lang];
+return typeof rt.fail_blocking[lang]==='function'?rt.fail_blocking[lang](d):rt.fail_blocking[lang];
+}
+if(status==='warn'){
+if(d.reg_status==='restrictive')return typeof rt.warn_restrictive[lang]==='function'?rt.warn_restrictive[lang](d):rt.warn_restrictive[lang];
+return typeof rt.warn_emerging[lang]==='function'?rt.warn_emerging[lang](d):rt.warn_emerging[lang];
+}
+var p=rt.pass;
+return typeof p[lang]==='function'?p[lang](d):p[lang];
+}
+if(id===9){
+if(status==='fail'){return typeof rt.fail[lang]==='function'?rt.fail[lang](d):rt.fail[lang];}
+if(status==='warn'){
+if(d.competitive_pos==='late')return typeof rt.warn_late[lang]==='function'?rt.warn_late[lang](d):rt.warn_late[lang];
+return typeof rt.warn_contested[lang]==='function'?rt.warn_contested[lang](d):rt.warn_contested[lang];
+}
+return typeof rt.pass[lang]==='function'?rt.pass[lang](d):rt.pass[lang];
+}
+var fn=rt[status][lang];
+return typeof fn==='function'?fn(d):fn;
+}
+
+function getRuleWatch(id,status){
+if(id===7||id===9)return ruleT[id].watch?ruleT[id].watch[lang]:null;
+return ruleT[id].watch?ruleT[id].watch[lang]:null;
+}
+
+function getLayerWorst(results,layerNum){
+var layerRules=results.filter(function(r){return rules.find(function(x){return x.id===r.id;}).layer===layerNum;});
+var hasFail=layerRules.some(function(r){return r.status==='fail';});
+var hasWarn=layerRules.some(function(r){return r.status==='warn';});
+if(hasFail)return'fail';
+if(hasWarn)return'warn';
+return'pass';
+}
+
+function clearPresetHighlight(){document.querySelectorAll('.preset-btn').forEach(function(b){b.classList.remove('active');});}
+
+function update(){
+var d=getData();
+
+// Update value displays
+document.getElementById('o-pop').textContent=d.addressable_pop>=1000?(d.addressable_pop/1000).toFixed(1)+'M':d.addressable_pop+'K';
+document.getElementById('o-density').textContent=d.demand_density.toFixed(1);
+document.getElementById('o-alt').textContent=d.alt_coverage+'%';
+document.getElementById('o-supply').textContent=d.supply_pool>=1?Math.round(d.supply_pool)+'K':d.supply_pool.toFixed(1)+'K';
+document.getElementById('o-earnings').textContent=d.earnings_ratio.toFixed(1)+'\u00d7';
+document.getElementById('o-mvl').textContent=d.months_to_mvl;
+document.getElementById('o-reg').textContent=(regLabels[d.reg_status]||{})[lang]||d.reg_status;
+document.getElementById('o-gov').textContent=(govLabels[d.gov_partnership]||{})[lang]||d.gov_partnership;
+document.getElementById('o-infra').textContent=d.infra_reuse+'%';
+document.getElementById('o-comp').textContent=(compLabels[d.competitive_pos]||{})[lang]||d.competitive_pos;
+
+// Evaluate rules
+var results=rules.map(function(r){return{id:r.id,status:r.test(d)};});
+var fc=results.filter(function(r){return r.status==='fail';}).length;
+var wc=results.filter(function(r){return r.status==='warn';}).length;
+var pc=results.filter(function(r){return r.status==='pass';}).length;
+
+// Stat cards — color by layer worst status
+var l1w=getLayerWorst(results,1);
+var l2w=getLayerWorst(results,2);
+var l3w=getLayerWorst(results,3);
+
+var colorMap={pass:'var(--pass)',warn:'var(--warn)',fail:'var(--fail)'};
+
+document.getElementById('s-market').textContent=d._marketScore.toFixed(1);
+document.getElementById('s-market').style.color=colorMap[l1w];
+document.getElementById('s-supply').textContent=d._supplyScore.toFixed(1);
+document.getElementById('s-supply').style.color=colorMap[l2w];
+document.getElementById('s-exec').textContent=d._execScore.toFixed(1);
+document.getElementById('s-exec').style.color=colorMap[l3w];
+document.getElementById('s-pass').textContent=pc+'/9';
+document.getElementById('s-pass').style.color=pc>=8?'var(--pass)':pc>=5?'var(--warn)':'var(--fail)';
+
+// Diagnosis
+var dk=getDiagKey(fc,wc,results);
+var dte=diagT[dk];
+var dt;
+if(typeof dte[lang]==='function'){dt=dte[lang](fc,wc);}else{dt=dte[lang];}
+var statusClass=(dk==='not_ready'||dk==='economics_trap'||dk==='regulatory_blocker'||dk==='saturated_late'||dk==='no_market')?'status-critical':dk==='healthy'?'status-healthy':'status-caution';
+document.getElementById('diagnosis-block').innerHTML='<div class="diagnosis-block '+statusClass+'"><div class="diagnosis-label">'+T.diag_label[lang]+'</div><div class="diagnosis-title">'+dt.title+'</div><div class="diagnosis-detail">'+dt.detail+'</div></div>';
+
+// Top actions
+var fa=[],wa=[];
+[1,2,3,4,5,6,7,8,9].forEach(function(id){
+var r=results.find(function(x){return x.id===id;});
+if(r&&r.status==='fail'){fa.push({action:getRuleAction(id,'fail',d),watch:getRuleWatch(id,'fail'),status:'fail'});}
+else if(r&&r.status==='warn'){wa.push({action:getRuleAction(id,'warn',d),watch:getRuleWatch(id,'warn'),status:'warn'});}
+});
+var topActs=fa.length>0?fa:wa;
+topActs=topActs.slice(0,3);
+if(topActs.length>0){
+var html='<h4>'+T.actions_label[lang]+'</h4><ol>';
+topActs.forEach(function(a){
+html+='<li>'+a.action;
+if(a.watch&&a.status==='warn')html+='<div class="rule-watch">\u25B3 '+a.watch+'</div>';
+html+='</li>';
+});
+html+='</ol>';
+document.getElementById('top-actions').innerHTML='<div class="top-actions">'+html+'</div>';
+}else{document.getElementById('top-actions').innerHTML='';}
+
+// Rule-by-rule results
+var rhtml='';
+results.forEach(function(r){
+var rt=ruleT[r.id];
+var name=rt.name[lang];
+var desc=getRuleDesc(r.id,r.status,d);
+var icon=r.status==='pass'?'\u2713':r.status==='warn'?'!':'\u2717';
+rhtml+='<div class="rule-card '+r.status+'"><div class="rule-header"><div class="rule-icon">'+icon+'</div><div class="rule-name">'+name+'</div></div><div class="rule-desc">'+desc+'</div>';
+if(r.status==='fail'||r.status==='warn'){
+rhtml+='<div class="rule-action">\u2192 '+getRuleAction(r.id,r.status,d)+'</div>';
+if(r.status==='warn'){var wt=getRuleWatch(r.id,r.status);if(wt)rhtml+='<div class="rule-watch">\u25B3 '+wt+'</div>';}
+}else{
+var ptxt=getRuleDesc(r.id,'pass',d);
+if(ptxt)rhtml+='<div class="pass-guidance">'+ptxt+'</div>';
+}
+rhtml+='</div>';
+});
+document.getElementById('results').innerHTML=rhtml;
+
+// Auto-detect matching preset
+var matched=false;
+presetKeys.forEach(function(pk){
+var p=presets[pk];
+var match=true;
+sliderIds.forEach(function(id){if(parseFloat(document.getElementById(id).value)!==p[id])match=false;});
+selectIds.forEach(function(id){if(document.getElementById(id).value!==p[id])match=false;});
+if(match){document.getElementById('p-'+pk).classList.add('active');matched=true;}
+});
+if(!matched)document.getElementById('p-custom').classList.add('active');
+}
+
+// Event listeners
+sliderIds.forEach(function(id){document.getElementById(id).addEventListener('input',function(){clearPresetHighlight();update();});});
+selectIds.forEach(function(id){document.getElementById(id).addEventListener('change',function(){clearPresetHighlight();update();});});
+
+document.getElementById('p-wheel').addEventListener('click',function(){clearPresetHighlight();setPreset(presets.wheel);});
+document.getElementById('p-elderly').addEventListener('click',function(){clearPresetHighlight();setPreset(presets.elderly);});
+document.getElementById('p-shared').addEventListener('click',function(){clearPresetHighlight();setPreset(presets.shared);});
+document.getElementById('p-fnb').addEventListener('click',function(){clearPresetHighlight();setPreset(presets.fnb);});
+document.getElementById('p-custom').addEventListener('click',function(){clearPresetHighlight();this.classList.add('active');});
+
+// Initialize
+update();
+</script>
+</body>
+</html>
