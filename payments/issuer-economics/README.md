@@ -33,7 +33,7 @@ This decision system converts issuer economics into a diagnostic with explicit i
 | **Cost of Funds** | Revolving + installment balance × funding rate | Funding Rate, NIM Spread |
 | **Acquisition Cost** | New accounts × CPA (incentives + marketing + channel) | CPA, Payback Period (industry benchmarks suggest $100+ per customer) |
 | **Operations** | Processing, servicing, fraud, compliance, technology | Cost/Active Account |
-| **Network & Scheme Fees** | Assessment fees to Visa/Mastercard on volume | Scheme Fee % of Interchange |
+| **Network & Scheme Fees** | Assessment fees to card networks on volume | Scheme Fee % of Interchange |
 
 ### The P&L Expression
 

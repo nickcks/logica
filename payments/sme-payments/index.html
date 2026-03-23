@@ -10,6 +10,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/logica/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/logica/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/logica/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/logica/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nickcks.github.io/logica/payments/sme-payments/">
+<meta property="og:title" content="SME Payments Strategy Diagnostic — Logica">
+<meta property="og:description" content="Evaluate SME payment product-market fit, operational readiness, and go-to-market strategy.">
+<meta property="og:image" content="https://nickcks.github.io/logica/assets/img/og-sme-payments.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SME Payments Strategy Diagnostic — Logica">
+<meta name="twitter:description" content="Evaluate SME payment product-market fit, operational readiness, and go-to-market strategy.">
+<meta name="twitter:image" content="https://nickcks.github.io/logica/assets/img/og-sme-payments.png">
 <title>SME Payments Strategy Diagnostic — Logica</title>
 <meta name="description" content="9 diagnostic rules to evaluate whether an SME payments strategy is structurally sound — across product architecture, GTM, and operational stickiness.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -26,28 +41,68 @@ header{padding:24px 0 0;border-bottom:1px solid var(--border)}
 .header-right{display:flex;align-items:center}
 nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-left:24px}nav a:hover{color:var(--text)}
 .lang-toggle{display:inline-flex;align-items:center;margin-left:20px;border-left:1px solid var(--border);padding-left:16px}
-.lang-btn{font-size:12px;color:var(--text-tertiary);background:none;border:none;cursor:pointer;padding:2px 6px;font-family:inherit;transition:color .15s}.lang-btn:hover{color:var(--text)}.lang-btn.active{color:var(--text);font-weight:500}
+.lang-btn{font-size:12px;color:var(--text-tertiary);background:none;border:none;cursor:pointer;padding:6px 10px;font-family:inherit;transition:color .15s}.lang-btn:hover{color:var(--text)}.lang-btn.active{color:var(--text);font-weight:500}
 .lang-sep{font-size:12px;color:var(--border);margin:0 2px}
+.menu-toggle{display:none;background:none;border:none;font-size:22px;line-height:1;color:var(--text-secondary);cursor:pointer;padding:8px 4px}
 .hero{padding:36px 0 28px}
 .hero h1{font-size:32px;font-weight:700;line-height:1.2;max-width:680px;letter-spacing:-.5px}
 .hero p{font-size:16px;color:var(--text-secondary);margin-top:8px;max-width:600px}
 .hero-meta{display:flex;gap:8px;margin-top:14px;font-size:12px;flex-wrap:wrap}
 .hero-meta span{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;border:1px solid var(--border);color:var(--text-tertiary)}
 .main-grid{display:grid;grid-template-columns:1fr 380px;gap:32px;padding:28px 0 80px;align-items:start}
-@media(max-width:860px){.main-grid{grid-template-columns:1fr}}
+@media(max-width:860px){
+  .main-grid{grid-template-columns:1fr;gap:24px;padding:20px 0 60px}
+  .tool-panel{position:static}
+  .footer-inner{flex-direction:column;gap:12px;align-items:flex-start}
+}
+@media(max-width:600px){
+  .container{padding:0 20px}
+  .hero{padding:28px 0 20px}
+  .hero h1{font-size:26px;letter-spacing:-.3px}
+  .hero p{font-size:14px}
+  .hero-meta{gap:6px}
+  .hero-meta span{font-size:11px;padding:2px 8px}
+  .tool-panel{padding:20px 16px 16px}
+  .stat-card .number{font-size:16px}
+  .stat-card{padding:8px 10px}
+  .diagnosis-title{font-size:14px}
+  .diagnosis-detail{font-size:11px}
+  .context-panel h2{font-size:18px}
+  .context-panel h3{font-size:14px}
+  .context-panel p{font-size:13px}
+  .context-panel table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .context-panel th,.context-panel td{padding:5px 8px;font-size:12px}
+  .footer-inner{flex-direction:column;gap:12px;align-items:flex-start}
+  .menu-toggle{display:flex;align-items:center}
+  .header-right{display:none;width:100%;flex-direction:column;align-items:flex-start;padding-top:16px;margin-top:12px;border-top:1px solid var(--border-light)}
+  .header-right.open{display:flex}
+  .header-right nav{display:flex;flex-direction:column;width:100%}
+  .header-right nav a{margin-left:0;padding:10px 0;font-size:14px;border-bottom:1px solid var(--border-light)}
+  .header-right .lang-toggle{border-left:none;margin-left:0;padding:10px 0 0}
+  .header-inner{flex-wrap:wrap}
+}
+@media(max-width:400px){
+  .container{padding:0 16px}
+  .hero h1{font-size:22px}
+  .preset-btn{font-size:11px;padding:6px 12px}
+  .presets{gap:4px}
+  .input-group label{font-size:12px}
+  .stat-card .number{font-size:15px}
+  .stat-card .label{font-size:10px}
+}
 .tool-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 24px 20px;position:sticky;top:24px}
 .tool-panel h2{font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:16px}
 .input-group{margin-bottom:12px}
 .input-group label{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--text-secondary);margin-bottom:6px}
 .input-group .value{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--text);min-width:48px;text-align:right}
-input[type=range]{-webkit-appearance:none;width:100%;height:4px;background:var(--border);border-radius:2px;outline:none}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;background:var(--text);border-radius:50%;cursor:pointer}
-input[type=range]::-moz-range-thumb{width:16px;height:16px;background:var(--text);border-radius:50%;cursor:pointer;border:0}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;background:var(--border);border-radius:3px;outline:none;touch-action:manipulation}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:var(--text);border-radius:50%;cursor:pointer}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;background:var(--text);border-radius:50%;cursor:pointer;border:0}
 select{font-family:inherit;font-size:13px;padding:6px 10px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);width:100%;cursor:pointer;margin-top:2px}
 .pill-group{display:flex;gap:4px;margin-top:4px}
-.pill-btn{font-family:inherit;font-size:12px;font-weight:500;padding:4px 12px;border:1px solid var(--border);border-radius:16px;background:var(--surface);color:var(--text-secondary);cursor:pointer;transition:all .15s}.pill-btn:hover{border-color:var(--text);color:var(--text)}.pill-btn.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.pill-btn{font-family:inherit;font-size:12px;font-weight:500;padding:6px 14px;border:1px solid var(--border);border-radius:16px;background:var(--surface);color:var(--text-secondary);cursor:pointer;transition:all .15s}.pill-btn:hover{border-color:var(--text);color:var(--text)}.pill-btn.active{background:var(--text);color:var(--bg);border-color:var(--text)}
 .presets{display:flex;gap:6px;margin:16px 0 18px;flex-wrap:wrap}
-.preset-btn{font-family:inherit;font-size:12px;font-weight:500;padding:6px 14px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--text-secondary);cursor:pointer;transition:all .15s}.preset-btn:hover{border-color:var(--text);color:var(--text)}.preset-btn.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.preset-btn{font-family:inherit;font-size:12px;font-weight:500;padding:8px 16px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--text-secondary);cursor:pointer;transition:all .15s}.preset-btn:hover{border-color:var(--text);color:var(--text)}.preset-btn.active{background:var(--text);color:var(--bg);border-color:var(--text)}
 .summary-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:8px;margin-bottom:16px}
 .stat-card{background:var(--surface-alt);border-radius:var(--radius);padding:10px 12px}
 .stat-card .label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:2px}
@@ -94,7 +149,7 @@ footer{border-top:1px solid var(--border);padding:40px 0}.footer-inner{display:f
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPTWKRCW"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-<header><div class="container header-inner"><div class="logo"><a href="../..">Logica</a></div><div class="header-right"><nav><a href="../../#tools">Tools</a><a href="../../methodology/">Method</a><a href="https://github.com/nickcks/logica" target="_blank">GitHub</a></nav><div class="lang-toggle"><button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button><span class="lang-sep">|</span><button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button></div></div></div></header>
+<header><div class="container header-inner"><div class="logo"><a href="../..">Logica</a></div><button class="menu-toggle" onclick="document.querySelector('.header-right').classList.toggle('open');this.textContent=this.textContent==='☰'?'✕':'☰'" aria-label="Menu">☰</button><div class="header-right"><nav><a href="../../#tools">Tools</a><a href="../../methodology/">Method</a><a href="https://github.com/nickcks/logica" target="_blank">GitHub</a></nav><div class="lang-toggle"><button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button><span class="lang-sep">|</span><button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button></div></div></div></header>
 <div class="container hero"><h1 data-i="title">SME payments strategy diagnostic</h1><p data-i="subtitle">9 decision rules to evaluate whether an SME payments strategy is structurally sound — across product architecture, go-to-market, and operational stickiness.</p><div class="hero-meta"><span data-i="tag1">Decision system</span><span data-i="tag2">SME payments</span><span data-i="tag3">9 diagnostic rules</span><span data-i="tag4">Interactive</span></div></div>
 <div class="container main-grid">
 <div class="context-panel">

@@ -26,10 +26,10 @@ A conversion fails when any one layer is unresolved. The most common failure mod
 
 | Type | Description | Typical complexity |
 |------|-------------|-------------------|
-| **Network switch** | Visa → Mastercard or domestic scheme → international | High — full system reconfiguration |
+| **Network switch** | International scheme A → scheme B, or domestic → international | High — full system reconfiguration |
 | **Product upgrade** | Standard → premium within same scheme | Medium — product and CVP change only |
 | **M&A migration** | Acquired portfolio reissued under buyer's brand | High — brand, system, and product change |
-| **Scheme consolidation** | Multiple schemes → single scheme (e.g., Maestro → Debit Mastercard) | Medium — operational rationalization |
+| **Scheme consolidation** | Multiple schemes → single scheme (e.g., legacy debit → unified debit product) | Medium — operational rationalization |
 
 > **Note:** Conversion type provides context for the complexity profile but does not directly adjust the minimum timeline computation. Timeline minimums are driven by conversion approach (forced vs. opt-in vs. opt-out vs. on-expiry) and portfolio size. High-complexity types (network switch, M&A migration) are more likely to surface warns across IT, logistics, and regulatory dimensions.
 
