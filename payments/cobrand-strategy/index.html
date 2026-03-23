@@ -52,9 +52,11 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
 .hero-meta{display:flex;gap:8px;margin-top:14px;font-size:12px;flex-wrap:wrap}
 .hero-meta span{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;border:1px solid var(--border);color:var(--text-tertiary)}
 .main-grid{display:grid;grid-template-columns:1fr 380px;gap:32px;padding-top:28px;padding-bottom:80px;align-items:start}
-@media(max-width:860px){
+@media(max-width:1080px){
   .main-grid{grid-template-columns:1fr;gap:24px;padding-top:20px;padding-bottom:60px}
   .tool-panel{position:static}
+}
+@media(max-width:860px){
   .footer-inner{flex-direction:column;gap:12px;align-items:flex-start}
 }
 @media(max-width:600px){
