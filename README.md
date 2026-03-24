@@ -1,8 +1,8 @@
 # Logica
 
-**Turning complex industries into decisions you can run.**
+**Turning complex commercial problems into decisions that move the business.**
 
-Strategic diagnostic tools that take the problems consultants and analysts spend weeks diagnosing — and turn them into structured, interactive systems anyone can operate. Each tool compresses deep domain expertise into explicit inputs, testable rules, and actionable outputs.
+Strategic diagnostic tools that take the revenue, cost, and growth problems consultants spend weeks diagnosing — and turn them into structured, interactive systems anyone can operate. Each tool compresses deep domain expertise into explicit inputs, testable rules, and actionable outputs.
 
 **→ [View the live site](https://nickcks.github.io/logica/)**
 
