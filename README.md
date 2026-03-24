@@ -31,7 +31,7 @@ Cross-domain decision systems beyond payments.
 
 | # | Tool | What it answers |
 |---|------|-----------------|
-| 01 | [Marketplace Launch](https://nickcks.github.io/logica/platforms/marketplace-launch/) | Is this vertical ready to launch — or will supply, regulation, and unit economics kill it before liquidity? |
+| 07 | [Marketplace Launch](https://nickcks.github.io/logica/platforms/marketplace-launch/) | Is this vertical ready to launch — or will supply, regulation, and unit economics kill it before liquidity? |
 
 ## Methodology
 
