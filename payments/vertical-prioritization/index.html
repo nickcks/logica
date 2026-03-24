@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TPTWKRCW');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="/logica/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/logica/assets/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/logica/assets/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/logica/assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nickcks.github.io/logica/payments/vertical-prioritization/">
+<meta property="og:title" content="Vertical Market Prioritization Diagnostic — Logica">
+<meta property="og:description" content="Score merchant verticals across five factors on two axes — Opportunity vs. Effort — and classify each into Quick Win, Strategic Bet, Potential Opportunity, or Time Sink.">
+<meta property="og:image" content="https://nickcks.github.io/logica/assets/img/og-vertical-prioritization.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vertical Market Prioritization Diagnostic — Logica">
+<meta name="twitter:description" content="Score merchant verticals across five factors on two axes — Opportunity vs. Effort — and classify each into Quick Win, Strategic Bet, Potential Opportunity, or Time Sink.">
+<meta name="twitter:image" content="https://nickcks.github.io/logica/assets/img/og-vertical-prioritization.png">
+<title>Vertical Market Prioritization Diagnostic — Logica</title>
+<meta name="description" content="10 diagnostic rules to evaluate which merchant verticals an acquirer should target first — scoring Opportunity vs. Effort across five factors with quadrant classification.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#FAFAF8;--surface:#FFFFFF;--surface-alt:#F5F4F0;--text:#1A1A18;--text-secondary:#5C5C56;--text-tertiary:#787870;--border:#E2E1DC;--border-light:#EEEDE9;--accent:#6B6B5E;--text-muted:#8E8E86;--border-hover:#B8B8B0;--mono:'DM Mono',monospace;--sans:'DM Sans',system-ui,sans-serif;--pass:#1B7D46;--pass-bg:#EEFBF3;--pass-border:#C6F0D5;--warn:#8A6D0B;--warn-bg:#FFF9E6;--warn-border:#FFE680;--fail:#B91C1C;--fail-bg:#FEF2F2;--fail-border:#FECACA;--radius:8px;--radius-lg:12px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+body.zh{font-family:'DM Sans','Noto Sans TC',system-ui,sans-serif}
+a{color:inherit}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+header{padding:24px 0 0;border-bottom:1px solid var(--border)}
+.header-inner{display:flex;align-items:center;padding-bottom:20px}
+.logo{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent)}.logo a{text-decoration:none}
+.header-right{display:flex;align-items:center;margin-left:auto}
+nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-left:24px}nav a:hover{color:var(--text)}
+.lang-toggle{display:inline-flex;align-items:center;margin-left:20px;border-left:1px solid var(--border);padding-left:16px}
+.lang-btn{font-size:12px;color:var(--text-tertiary);background:none;border:none;cursor:pointer;padding:6px 10px;font-family:inherit;transition:color .15s}.lang-btn:hover{color:var(--text)}.lang-btn.active{color:var(--text);font-weight:500}
+.lang-sep{font-size:12px;color:var(--border);margin:0 2px}
+.menu-toggle{display:none;background:none;border:none;font-size:22px;line-height:1;color:var(--text-secondary);cursor:pointer;padding:8px 4px}
+.hero{padding-top:36px;padding-bottom:28px}
+.hero h1{font-size:32px;font-weight:700;line-height:1.2;max-width:680px;letter-spacing:-.5px}
+.hero p{font-size:16px;color:var(--text-secondary);margin-top:8px;max-width:600px}
+.hero-meta{display:flex;gap:8px;margin-top:14px;font-size:12px;flex-wrap:wrap}
+.hero-meta span{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;border:1px solid var(--border);color:var(--text-tertiary)}
+.main-grid{display:grid;grid-template-columns:1fr 380px;gap:32px;padding-top:28px;padding-bottom:80px;align-items:start}
+@media(max-width:1080px){
+  .main-grid{grid-template-columns:1fr;gap:24px;padding-top:20px;padding-bottom:60px}
+  .tool-panel{position:static}
+}
+@media(max-width:860px){
+  .footer-inner{flex-direction:column;gap:12px;align-items:flex-start}
+}
+@media(max-width:600px){
+  .container{padding:0 20px}
+  .hero{padding-top:32px;padding-bottom:20px}
+  .hero h1{font-size:26px;letter-spacing:-.3px}
+  .hero p{font-size:14px}
+  .hero-meta{gap:6px}
+  .hero-meta span{font-size:11px;padding:2px 8px}
+  .tool-panel{padding:20px 16px 16px}
+  .stat-card .number{font-size:16px}
+  .stat-card{padding:8px 10px}
+  .diagnosis-title{font-size:14px}
+  .diagnosis-detail{font-size:11px}
+  .context-panel h2{font-size:18px}
+  .context-panel h3{font-size:14px}
+  .context-panel p{font-size:13px}
+  .context-panel table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .context-panel th,.context-panel td{padding:5px 8px;font-size:12px}
+  .footer-inner{flex-direction:column;gap:12px;align-items:flex-start}
+  .menu-toggle{display:flex;align-items:center}
+  .header-right{display:none;width:100%;flex-direction:column;align-items:flex-start;padding-top:16px;margin-top:12px;border-top:1px solid var(--border-light);order:10}
+  .header-right.open{display:flex}
+  .header-right nav{display:flex;flex-direction:column;width:100%}
+  .header-right nav a{margin-left:0;padding:10px 0;font-size:14px;border-bottom:1px solid var(--border-light)}
+  .lang-toggle{margin-left:auto;border-left:none;padding-left:0}
+  .header-inner{flex-wrap:wrap}
+}
+@media(max-width:400px){
+  .container{padding:0 16px}
+  .hero h1{font-size:22px}
+  .preset-btn{font-size:11px;padding:6px 12px}
+  .presets{gap:4px}
+  .input-group label{font-size:12px}
+  .stat-card .number{font-size:15px}
+  .stat-card .label{font-size:10px}
+}
+.tool-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 24px 20px;position:sticky;top:24px}
+.tool-panel h2{font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:16px}
+.input-group{margin-bottom:12px}
+.input-group label{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--text-secondary);margin-bottom:6px}
+.input-group .value{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--text);min-width:48px;text-align:right}
+input[type=range]{-webkit-appearance:none;width:100%;height:6px;background:var(--border);border-radius:3px;outline:none;touch-action:manipulation}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:var(--text);border-radius:50%;cursor:pointer}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;background:var(--text);border-radius:50%;cursor:pointer;border:0}
+.presets{display:flex;gap:6px;margin:16px 0 18px;flex-wrap:wrap}
+.preset-btn{font-family:inherit;font-size:12px;font-weight:500;padding:8px 16px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--text-secondary);cursor:pointer;transition:all .15s}.preset-btn:hover{border-color:var(--text);color:var(--text)}.preset-btn.active{background:var(--text);color:var(--bg);border-color:var(--text)}
+.summary-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:8px;margin-bottom:16px}
+.stat-card{background:var(--surface-alt);border-radius:var(--radius);padding:10px 12px}
+.stat-card .label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:2px}
+.stat-card .number{font-family:'DM Mono',monospace;font-size:20px;font-weight:500}
+.results-section h3{font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:12px}
+.input-section-label{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin:14px 0 8px;padding-top:10px;border-top:1px solid var(--border-light)}.input-section-label:first-of-type{margin-top:0;padding-top:0;border-top:none}
+.diagnosis-block{border-radius:var(--radius);padding:12px 14px;margin-bottom:12px;line-height:1.5}
+.diagnosis-block.status-critical{background:var(--fail-bg);border:1px solid var(--fail-border)}
+.diagnosis-block.status-caution{background:var(--warn-bg);border:1px solid var(--warn-border)}
+.diagnosis-block.status-healthy{background:var(--pass-bg);border:1px solid var(--pass-border)}
+.diagnosis-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.status-critical .diagnosis-label{color:var(--fail)}.status-caution .diagnosis-label{color:var(--warn)}.status-healthy .diagnosis-label{color:var(--pass)}
+.diagnosis-title{font-size:15px;font-weight:700;margin-bottom:6px}
+.diagnosis-detail{font-size:12px;color:var(--text-secondary)}
+.top-actions{background:var(--surface-alt);border-radius:var(--radius);padding:12px 14px;margin-bottom:16px}
+.top-actions h4{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:8px}
+.top-actions ol{margin:0;padding-left:18px;font-size:12px;color:var(--text);line-height:1.7}
+.rule-watch{font-size:12px;color:var(--warn);margin:4px 0 0 26px;line-height:1.5;font-style:italic}
+.rule-card{border-left:3px solid var(--border);padding:8px 12px;margin-bottom:6px;border-radius:0 var(--radius) var(--radius) 0;transition:all .2s}
+.rule-card.pass{background:var(--pass-bg);border-left-color:var(--pass-border)}.rule-card.warn{background:var(--warn-bg);border-left-color:var(--warn-border)}.rule-card.fail{background:var(--fail-bg);border-left-color:var(--fail-border)}
+.rule-header{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.rule-icon{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:white;flex-shrink:0}
+.rule-card.pass .rule-icon{background:var(--pass)}.rule-card.warn .rule-icon{background:var(--warn)}.rule-card.fail .rule-icon{background:var(--fail)}
+.rule-name{font-size:13px;font-weight:500}
+.rule-desc{font-size:12px;color:var(--text-secondary);line-height:1.5;margin-left:26px}
+.rule-action{font-size:12px;font-weight:500;color:var(--text);margin:6px 0 0 26px;line-height:1.5}
+.context-panel h2{font-size:20px;font-weight:700;margin-bottom:10px;letter-spacing:-.3px}
+.context-panel h3{font-size:15px;font-weight:700;margin:22px 0 10px;letter-spacing:-.2px}
+.context-panel p{font-size:14px;color:var(--text-secondary);margin-bottom:10px;line-height:1.7}
+.context-panel table{width:100%;font-size:13px;border-collapse:collapse;margin:12px 0;table-layout:fixed}
+.context-panel th,.context-panel td{text-align:left;padding:6px 12px;border-bottom:1px solid var(--border-light);vertical-align:top}
+.context-panel th:first-child,.context-panel td:first-child{width:38%}
+.context-panel th{font-weight:500;color:var(--text-tertiary);font-size:11px;text-transform:uppercase;letter-spacing:.5px;border-bottom-color:var(--border)}
+.context-panel td:first-child{font-weight:500;color:var(--text)}.context-panel td{color:var(--text-secondary)}
+.context-panel .callout{background:var(--surface-alt);border-radius:var(--radius);padding:12px 14px;margin:12px 0;font-size:13px;line-height:1.6}
+.context-panel .callout strong{display:block;margin-bottom:4px}
+.comparison-table{margin:16px 0;table-layout:auto}.comparison-table th,.comparison-table td{width:auto}.comparison-table th{background:var(--surface-alt)}.comparison-table td{font-size:12px}
+.rules-summary-table{table-layout:auto}.rules-summary-table th:first-child,.rules-summary-table td:first-child{width:24px;text-align:center;color:var(--text-tertiary);font-weight:400}.rules-summary-table td:nth-child(2){width:auto;white-space:nowrap}
+footer{border-top:1px solid var(--border);padding:40px 0}.footer-inner{display:flex;justify-content:space-between;align-items:center}.footer-author{font-size:13px;color:var(--text-tertiary)}.footer-links{display:flex;gap:20px}.footer-links a{font-size:13px;color:var(--text-tertiary);text-decoration:none;transition:color .15s}.footer-links a:hover{color:var(--text-secondary)}
+a:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:2px}button:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:4px}input[type=range]:focus-visible{outline:2px solid var(--text);outline-offset:4px;border-radius:4px}.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999;font-size:14px;padding:12px 24px;background:var(--text);color:var(--bg);text-decoration:none;border-radius:0 0 var(--radius) 0}.skip-link:focus{position:fixed;left:0;top:0;width:auto;height:auto;overflow:visible}
+.quadrant-viz{position:relative;width:100%;aspect-ratio:1;background:var(--surface-alt);border-radius:var(--radius);margin-bottom:16px;overflow:hidden}
+.quadrant-viz .axis-label{position:absolute;font-family:var(--mono);font-size:10px;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.5px}
+.quadrant-viz .axis-x{bottom:6px;left:50%;transform:translateX(-50%)}
+.quadrant-viz .axis-y{top:50%;left:6px;transform:translateY(-50%) rotate(-90deg);transform-origin:center}
+.quadrant-viz .q-label{position:absolute;font-size:10px;font-weight:500;color:var(--text-muted);pointer-events:none}
+.quadrant-viz .q-tl{top:8px;left:12px}.quadrant-viz .q-tr{top:8px;right:12px}.quadrant-viz .q-bl{bottom:24px;left:12px}.quadrant-viz .q-br{bottom:24px;right:12px}
+.quadrant-viz .mid-line{position:absolute;background:var(--border)}
+.quadrant-viz .mid-h{top:50%;left:0;width:100%;height:1px}
+.quadrant-viz .mid-v{left:50%;top:0;width:1px;height:100%}
+.quadrant-viz .dot{position:absolute;width:14px;height:14px;border-radius:50%;border:2px solid var(--text);transition:all .25s ease;transform:translate(-50%,-50%);z-index:2}
+.quadrant-viz .dot.q-pass{background:var(--pass);border-color:var(--pass)}.quadrant-viz .dot.q-warn{background:var(--warn);border-color:var(--warn)}.quadrant-viz .dot.q-fail{background:var(--fail);border-color:var(--fail)}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TPTWKRCW"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<header><div class="container header-inner"><div class="logo"><a href="../..">Logica</a></div><div class="header-right"><nav><a href="../../#tools">Tools</a><a href="../../methodology/">Method</a><a href="https://github.com/nickcks/logica" target="_blank" rel="noopener noreferrer">GitHub</a></nav></div><div class="lang-toggle"><button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button><span class="lang-sep">|</span><button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button></div><button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="var h=document.querySelector('.header-right');h.classList.toggle('open');var o=h.classList.contains('open');this.textContent=o?'✕':'☰';this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Menu')">☰</button></div></header>
+
+<main id="main">
+<div class="container hero"><h1 data-i="title">Vertical market prioritization diagnostic</h1><p data-i="subtitle">10 decision rules to evaluate which merchant verticals an acquirer should target first — scoring Opportunity vs. Effort across five factors with quadrant classification.</p><div class="hero-meta"><span data-i="tag1">Decision system</span><span data-i="tag2">Acquiring strategy</span><span data-i="tag3">10 diagnostic rules</span><span data-i="tag4">Interactive</span></div></div>
+<div class="container main-grid">
+<div class="context-panel">
+<h2 data-i="what_title">What this is</h2>
+<p data-i="what_p1">Most acquirers choose vertical targets by intuition or volume ranking: "restaurants process a lot of cards, so let's start there." This systematically misallocates resources because it ignores competition intensity, acquirer readiness, and the interaction between opportunity size and execution difficulty. A high-volume vertical with entrenched competitors and unbuilt capabilities becomes a multi-year resource drain — a "Time Sink" — while easier, lower-profile verticals with existing banking relationships sit untouched.</p>
+<p data-i="what_p2">This tool scores merchant verticals across five factors on two axes (Opportunity vs. Effort), classifying each into one of four strategic quadrants. Adjust the parameters on the right to see where a vertical lands in the matrix and which structural conditions gate profitable entry.</p>
+<h3 data-i="fw_title">Two-axis framework</h3>
+<table><tr><th data-i="th_axis">Axis</th><th data-i="th_factor">Factor</th><th data-i="th_measures">Measures</th></tr><tr><td rowspan="3" data-i="ax_opp">Opportunity</td><td data-i="f_vol">Card Volume Scale</td><td data-i="f_vol_d">Total processed volume + growth trajectory</td></tr><tr><td data-i="f_dep">Deposits Propensity</td><td data-i="f_dep_d">Industry revenue scale + growth (banking cross-sell proxy)</td></tr><tr><td data-i="f_comp">Competition Intensity</td><td data-i="f_comp_d">Market concentration × active acquirers × targeting pressure</td></tr><tr><td rowspan="2" data-i="ax_eff">Effort</td><td data-i="f_ready">Acquirer Readiness</td><td data-i="f_ready_d">Capability fit × onboarding infrastructure</td></tr><tr><td data-i="f_cross">Cross-sell Leverage</td><td data-i="f_cross_d">Existing banking relationships with vertical businesses</td></tr></table>
+<h3 data-i="quad_title">Quadrant classification</h3>
+<table><tr><th data-i="th_quad">Quadrant</th><th data-i="th_opp">Opportunity</th><th data-i="th_ease">Effort (Ease)</th><th data-i="th_action">Action</th></tr><tr><td data-i="q_qw">Quick Win</td><td data-i="q_qw_o">High</td><td data-i="q_qw_e">High (Easy)</td><td data-i="q_qw_a">Fast-track — first cohort within 3 months</td></tr><tr><td data-i="q_sb">Strategic Bet</td><td data-i="q_sb_o">High</td><td data-i="q_sb_e">Low (Hard)</td><td data-i="q_sb_a">Build capabilities 6–12 months, then attack</td></tr><tr><td data-i="q_po">Potential Opportunity</td><td data-i="q_po_o">Low</td><td data-i="q_po_e">High (Easy)</td><td data-i="q_po_a">Monitor — enter after Quick Wins captured</td></tr><tr><td data-i="q_ts">Time Sink</td><td data-i="q_ts_o">Low</td><td data-i="q_ts_e">Low (Hard)</td><td data-i="q_ts_a">Avoid — redirect resources</td></tr></table>
+<h3 data-i="rules_title">The 10 diagnostic rules</h3>
+<p data-i="rules_intro">Three layers — opportunity assessment, effort assessment, quadrant classification — each testing specific structural conditions for market entry.</p>
+<table class="rules-summary-table"><tr><th>#</th><th data-i="rth_rule">Rule</th><th data-i="rth_tests">Tests</th></tr><tr><td>1</td><td data-i="rs1_name">Volume viability</td><td data-i="rs1_test">Is card volume large enough to justify dedicated targeting?</td></tr><tr><td>2</td><td data-i="rs2_name">Growth trajectory</td><td data-i="rs2_test">Is the vertical growing or contracting?</td></tr><tr><td>3</td><td data-i="rs3_name">Competition fortress</td><td data-i="rs3_test">Is the market dominated by entrenched incumbents?</td></tr><tr><td>4</td><td data-i="rs4_name">Deposits & banking upside</td><td data-i="rs4_test">Does cross-sell potential offset thin acquiring margins?</td></tr><tr><td>5</td><td data-i="rs5_name">Capability readiness</td><td data-i="rs5_test">Can you actually serve this vertical today?</td></tr><tr><td>6</td><td data-i="rs6_name">Onboarding fit</td><td data-i="rs6_test">Can merchants in this vertical be onboarded efficiently?</td></tr><tr><td>7</td><td data-i="rs7_name">Cross-sell leverage</td><td data-i="rs7_test">Do existing banking relationships create an acquisition advantage?</td></tr><tr><td>8</td><td data-i="rs8_name">Quick win gate</td><td data-i="rs8_test">Does this vertical qualify for immediate fast-tracking?</td></tr><tr><td>9</td><td data-i="rs9_name">Strategic bet gate</td><td data-i="rs9_test">Is the opportunity worth a capability investment?</td></tr><tr><td>10</td><td data-i="rs10_name">Time sink warning</td><td data-i="rs10_test">Should resources be redirected away from this vertical?</td></tr></table>
+<h3 data-i="howto_title">How to use</h3>
+<p data-i="howto_p1">Set the seven opportunity inputs and three effort inputs to match a specific merchant vertical you are evaluating. Rules evaluate in real time. The quadrant visualization shows where the vertical lands on the Opportunity × Effort matrix. Start with the first failing rule — that is your highest-leverage intervention. Use the preset buttons to compare an attractive F&B vertical against a fortress luxury retail segment and see how the same framework reveals entirely different strategic priorities.</p>
+<h3 data-i="ex_title">Worked example: SE Asian F&B vs. Luxury Retail</h3>
+<p data-i="ex_fb">A large acquirer in Southeast Asia evaluates the F&B vertical: $22B card volume, 12% growth, $180B industry revenue, top-2 share 35%, only 4 active acquirers with 2 targeting. Strong capability fit (4/5), 45% banking overlap, solid onboarding (4/5). Result: all 10 rules pass — Quick Win. High opportunity + high readiness + no structural barriers. Fast-track with a dedicated vertical team.</p>
+<p data-i="ex_lux">The same acquirer evaluates luxury retail: $4B volume, 2% growth, $40B revenue, top-2 share 75%, 8 acquirers with 7 targeting. Moderate capability (2.5/5), 5% banking overlap, limited onboarding (2.5/5). Result: 1 fail (competition fortress) + 6 warns — Time Sink. Fortress competition, sub-scale volume, no relationships. Every dimension points to resource drain.</p>
+<table class="comparison-table"><tr><th data-i="ct_dim">Dimension</th><th data-i="ct_fb">SE Asian F&B</th><th data-i="ct_lux">Luxury Retail</th></tr><tr><td data-i="ct_quad">Quadrant</td><td data-i="ct_quad_f">Quick Win</td><td data-i="ct_quad_l">Time Sink</td></tr><tr><td data-i="ct_bind">Binding constraint</td><td data-i="ct_bind_f">Execution speed (team deployment)</td><td data-i="ct_bind_l">Fortress competition (no entry angle)</td></tr><tr><td data-i="ct_lever">Highest-impact lever</td><td data-i="ct_lever_f">Fast merchant acquisition via banking relationships</td><td data-i="ct_lever_l">Redirect resources to better verticals</td></tr></table>
+<h3 data-i="demo_title">What this demonstrates</h3>
+<p data-i="demo_body">This diagnostic reflects how I approach acquiring market strategy: not as a volume-ranking exercise, but as a structural assessment of whether the opportunity–effort balance supports profitable entry. The five-factor model, dual-axis scoring, and quadrant classification mirror the analytical frameworks used in real "Where to Play" engagements — where the most common mistake is confusing high card volume with high attractiveness, and the most valuable insight is often that the obvious target is not the highest-return entry point.</p>
+</div>
+<div class="tool-panel">
+<h2 data-i="tp_title">Vertical parameters</h2>
+<div class="input-section-label" data-i="sec_opp">Opportunity factors</div>
+<div class="input-group"><label><span data-i="l_vol">Card volume ($B)</span><span class="value" id="o-vol">22</span></label><input type="range" id="card_volume" min="1" max="50" step="1" value="22" aria-label="Card volume in vertical"></div>
+<div class="input-group"><label><span data-i="l_vgr">Volume growth (%)</span><span class="value" id="o-vgr">12</span></label><input type="range" id="volume_growth" min="-5" max="30" step="1" value="12" aria-label="Volume YoY growth"></div>
+<div class="input-group"><label><span data-i="l_rev">Industry revenue ($B)</span><span class="value" id="o-rev">180</span></label><input type="range" id="industry_revenue" min="10" max="500" step="10" value="180" aria-label="Industry revenue scale"></div>
+<div class="input-group"><label><span data-i="l_rgr">Revenue growth (%)</span><span class="value" id="o-rgr">8</span></label><input type="range" id="revenue_growth" min="0" max="25" step="1" value="8" aria-label="Revenue growth"></div>
+<div class="input-group"><label><span data-i="l_t2s">Top-2 market share (%)</span><span class="value" id="o-t2s">35</span></label><input type="range" id="top2_share" min="10" max="90" step="5" value="35" aria-label="Top-2 acquirer market share"></div>
+<div class="input-group"><label><span data-i="l_naq">Active acquirers</span><span class="value" id="o-naq">4</span></label><input type="range" id="num_acquirers" min="1" max="15" step="1" value="4" aria-label="Number of active acquirers"></div>
+<div class="input-group"><label><span data-i="l_tgt">Targeting acquirers</span><span class="value" id="o-tgt">2</span></label><input type="range" id="targeting_count" min="0" max="10" step="1" value="2" aria-label="Number of acquirers explicitly targeting"></div>
+<div class="input-section-label" data-i="sec_eff">Effort factors</div>
+<div class="input-group"><label><span data-i="l_cap">Capability fit (1–5)</span><span class="value" id="o-cap">4.0</span></label><input type="range" id="capability_fit" min="1" max="5" step="0.5" value="4" aria-label="Acquirer capability fit"></div>
+<div class="input-group"><label><span data-i="l_bnk">Banking overlap (%)</span><span class="value" id="o-bnk">45</span></label><input type="range" id="banking_overlap" min="0" max="80" step="5" value="45" aria-label="Existing banking relationship"></div>
+<div class="input-group"><label><span data-i="l_onb">Onboarding readiness (1–5)</span><span class="value" id="o-onb">4.0</span></label><input type="range" id="onboarding_ready" min="1" max="5" step="0.5" value="4" aria-label="Onboarding readiness"></div>
+<div class="presets">
+<button class="preset-btn" id="p-fb" data-i="p_fb">SE Asian F&B</button>
+<button class="preset-btn" id="p-health" data-i="p_health">Healthcare</button>
+<button class="preset-btn" id="p-luxury" data-i="p_luxury">Luxury Retail</button>
+<button class="preset-btn" id="p-reset" data-i="p_reset">Reset</button>
+</div>
+<div class="quadrant-viz" id="quadrant-viz">
+<div class="mid-line mid-h"></div>
+<div class="mid-line mid-v"></div>
+<div class="q-label q-tl" id="ql-tl">Strategic Bet</div>
+<div class="q-label q-tr" id="ql-tr">Quick Win</div>
+<div class="q-label q-bl" id="ql-bl">Time Sink</div>
+<div class="q-label q-br" id="ql-br">Potential</div>
+<div class="axis-label axis-x" id="ax-x">Effort →</div>
+<div class="axis-label axis-y" id="ax-y">Opportunity →</div>
+<div class="dot" id="quad-dot"></div>
+</div>
+<div class="summary-row">
+<div class="stat-card"><div class="label" data-i="s_opp">Opportunity</div><div class="number" id="s-opp">—</div></div>
+<div class="stat-card"><div class="label" data-i="s_eff">Effort</div><div class="number" id="s-eff">—</div></div>
+<div class="stat-card"><div class="label" data-i="s_quad">Quadrant</div><div class="number" id="s-quad" style="font-size:13px">—</div></div>
+<div class="stat-card"><div class="label" data-i="s_pass">Rules passed</div><div class="number" id="s-pass">—</div></div>
+</div>
+<div id="diagnosis-block"></div>
+<div id="top-actions"></div>
+<div class="results-section"><h3 data-i="results_title">Rule-by-rule results</h3><div id="results"></div></div>
+</div>
+</div>
+</main>
+
+<footer><div class="container footer-inner"><div class="footer-author">Nick Chang · Strategy consultant · Payments & financial services</div><div class="footer-links"><a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/nickcks/logica" target="_blank" rel="noopener noreferrer">GitHub</a></div></div></footer>
+
+<script>
+let lang='en';
+const T={
+title:{en:'Vertical market prioritization diagnostic',zh:'垂直市場優先序診斷'},
+subtitle:{en:'10 decision rules to evaluate which merchant verticals an acquirer should target first — scoring Opportunity vs. Effort across five factors with quadrant classification.',zh:'10 條決策規則評估收單機構應優先進入哪些商戶垂直市場 — 五因子雙軸評分與象限分類。'},
+tag1:{en:'Decision system',zh:'決策系統'},
+tag2:{en:'Acquiring strategy',zh:'收單策略'},
+tag3:{en:'10 diagnostic rules',zh:'10 條診斷規則'},
+tag4:{en:'Interactive',zh:'互動式'},
+what_title:{en:'What this is',zh:'這是什麼'},
+what_p1:{en:'Most acquirers choose vertical targets by intuition or volume ranking: "restaurants process a lot of cards, so let\'s start there." This systematically misallocates resources because it ignores competition intensity, acquirer readiness, and the interaction between opportunity size and execution difficulty. A high-volume vertical with entrenched competitors and unbuilt capabilities becomes a multi-year resource drain — a "Time Sink" — while easier, lower-profile verticals with existing banking relationships sit untouched.',zh:'多數收單機構憑直覺或交易量排名選擇垂直市場：「餐飲刷卡量大，就從那裡開始。」這種方法系統性地錯配資源，因為它忽略了競爭強度、收單機構準備度、以及機會規模與執行難度之間的交互作用。一個高交易量但競爭者盤據且能力缺口未補的垂直市場會成為多年的資源消耗——「時間陷阱」——而那些有既有銀行關係、競爭較低的市場卻被忽略。'},
+what_p2:{en:'This tool scores merchant verticals across five factors on two axes (Opportunity vs. Effort), classifying each into one of four strategic quadrants. Adjust the parameters on the right to see where a vertical lands in the matrix and which structural conditions gate profitable entry.',zh:'本工具以五個因子、雙軸（機會 × 執行容易度）為商戶垂直市場評分，將每個市場分類到四個策略象限之一。調整右側參數，即時查看垂直市場在矩陣中的位置，以及哪些結構性條件是獲利進入的門檻。'},
+fw_title:{en:'Two-axis framework',zh:'雙軸架構'},
+th_axis:{en:'Axis',zh:'軸'},
+th_factor:{en:'Factor',zh:'因子'},
+th_measures:{en:'Measures',zh:'衡量'},
+ax_opp:{en:'Opportunity',zh:'機會'},
+f_vol:{en:'Card Volume Scale',zh:'刷卡量規模'},
+f_vol_d:{en:'Total processed volume + growth trajectory',zh:'總處理量 + 成長軌跡'},
+f_dep:{en:'Deposits Propensity',zh:'存款潛力'},
+f_dep_d:{en:'Industry revenue scale + growth (banking cross-sell proxy)',zh:'產業營收規模 + 成長率（銀行交叉銷售代理指標）'},
+f_comp:{en:'Competition Intensity',zh:'競爭強度'},
+f_comp_d:{en:'Market concentration × active acquirers × targeting pressure',zh:'市場集中度 × 活躍收單機構數 × 目標壓力'},
+ax_eff:{en:'Effort (Ease)',zh:'執行容易度'},
+f_ready:{en:'Acquirer Readiness',zh:'收單機構準備度'},
+f_ready_d:{en:'Capability fit × onboarding infrastructure',zh:'能力適配度 × 商戶入網基礎設施'},
+f_cross:{en:'Cross-sell Leverage',zh:'交叉銷售槓桿'},
+f_cross_d:{en:'Existing banking relationships with vertical businesses',zh:'與該垂直市場企業的既有銀行關係'},
+quad_title:{en:'Quadrant classification',zh:'象限分類'},
+th_quad:{en:'Quadrant',zh:'象限'},
+th_opp:{en:'Opportunity',zh:'機會'},
+th_ease:{en:'Effort (Ease)',zh:'執行容易度'},
+th_action:{en:'Action',zh:'行動'},
+q_qw:{en:'Quick Win',zh:'速勝'},
+q_qw_o:{en:'High',zh:'高'},
+q_qw_e:{en:'High (Easy)',zh:'高（容易）'},
+q_qw_a:{en:'Fast-track — first cohort within 3 months',zh:'快速推進——3 個月內取得首批商戶'},
+q_sb:{en:'Strategic Bet',zh:'策略賭注'},
+q_sb_o:{en:'High',zh:'高'},
+q_sb_e:{en:'Low (Hard)',zh:'低（困難）'},
+q_sb_a:{en:'Build capabilities 6–12 months, then attack',zh:'先建能力 6-12 個月，再進攻'},
+q_po:{en:'Potential Opportunity',zh:'潛在機會'},
+q_po_o:{en:'Low',zh:'低'},
+q_po_e:{en:'High (Easy)',zh:'高（容易）'},
+q_po_a:{en:'Monitor — enter after Quick Wins captured',zh:'觀察——在速勝項目完成後再進入'},
+q_ts:{en:'Time Sink',zh:'時間陷阱'},
+q_ts_o:{en:'Low',zh:'低'},
+q_ts_e:{en:'Low (Hard)',zh:'低（困難）'},
+q_ts_a:{en:'Avoid — redirect resources',zh:'迴避——重新配置資源'},
+rules_title:{en:'The 10 diagnostic rules',zh:'10 條診斷規則'},
+rules_intro:{en:'Three layers — opportunity assessment, effort assessment, quadrant classification — each testing specific structural conditions for market entry.',zh:'三個層次——機會評估、執行容易度評估、象限分類——各自測試市場進入的特定結構性條件。'},
+rth_rule:{en:'Rule',zh:'規則'},
+rth_tests:{en:'Tests',zh:'測試'},
+rs1_name:{en:'Volume viability',zh:'量體可行性'},
+rs1_test:{en:'Is card volume large enough to justify dedicated targeting?',zh:'刷卡量是否足以支撐專門的市場開發？'},
+rs2_name:{en:'Growth trajectory',zh:'成長軌跡'},
+rs2_test:{en:'Is the vertical growing or contracting?',zh:'該垂直市場正在成長還是萎縮？'},
+rs3_name:{en:'Competition fortress',zh:'競爭壁壘'},
+rs3_test:{en:'Is the market dominated by entrenched incumbents?',zh:'市場是否被根深蒂固的既有者把持？'},
+rs4_name:{en:'Deposits & banking upside',zh:'存款與銀行業務上行空間'},
+rs4_test:{en:'Does cross-sell potential offset thin acquiring margins?',zh:'交叉銷售潛力能否彌補微薄的收單利潤？'},
+rs5_name:{en:'Capability readiness',zh:'能力準備度'},
+rs5_test:{en:'Can you actually serve this vertical today?',zh:'你今天能否真正服務這個垂直市場？'},
+rs6_name:{en:'Onboarding fit',zh:'入網適配度'},
+rs6_test:{en:'Can merchants in this vertical be onboarded efficiently?',zh:'該垂直市場的商戶能否高效入網？'},
+rs7_name:{en:'Cross-sell leverage',zh:'交叉銷售槓桿'},
+rs7_test:{en:'Do existing banking relationships create an acquisition advantage?',zh:'既有銀行關係是否創造了獲客優勢？'},
+rs8_name:{en:'Quick win gate',zh:'速勝門檻'},
+rs8_test:{en:'Does this vertical qualify for immediate fast-tracking?',zh:'此垂直市場是否符合立即快速推進的條件？'},
+rs9_name:{en:'Strategic bet gate',zh:'策略賭注門檻'},
+rs9_test:{en:'Is the opportunity worth a capability investment?',zh:'這個機會是否值得投資建構能力？'},
+rs10_name:{en:'Time sink warning',zh:'時間陷阱警告'},
+rs10_test:{en:'Should resources be redirected away from this vertical?',zh:'是否應將資源從此垂直市場移開？'},
+howto_title:{en:'How to use',zh:'使用方式'},
+howto_p1:{en:'Set the seven opportunity inputs and three effort inputs to match a specific merchant vertical you are evaluating. Rules evaluate in real time. The quadrant visualization shows where the vertical lands on the Opportunity × Effort matrix. Start with the first failing rule — that is your highest-leverage intervention. Use the preset buttons to compare an attractive F&B vertical against a fortress luxury retail segment and see how the same framework reveals entirely different strategic priorities.',zh:'設定七個機會參數和三個執行容易度參數來匹配你正在評估的特定商戶垂直市場。規則即時計算。象限視覺化顯示該垂直市場在機會 × 執行容易度矩陣中的位置。從第一條失敗規則開始處理——那是你最高槓桿的介入點。使用預設按鈕比較有吸引力的餐飲市場與壁壘型奢侈品零售市場，看同一框架如何揭示完全不同的策略優先序。'},
+ex_title:{en:'Worked example: SE Asian F&B vs. Luxury Retail',zh:'實例：東南亞餐飲 vs. 奢侈品零售'},
+ex_fb:{en:'A large acquirer in Southeast Asia evaluates the F&B vertical: $22B card volume, 12% growth, $180B industry revenue, top-2 share 35%, only 4 active acquirers with 2 targeting. Strong capability fit (4/5), 45% banking overlap, solid onboarding (4/5). Result: all 10 rules pass — Quick Win. High opportunity + high readiness + no structural barriers. Fast-track with a dedicated vertical team.',zh:'一家東南亞大型收單機構評估餐飲垂直市場：220 億美元刷卡量、12% 成長率、1800 億美元產業營收、前二名市佔 35%、僅 4 家活躍收單機構其中 2 家瞄準。能力適配度強（4/5）、45% 銀行關係重疊、良好入網準備度（4/5）。結果：全部 10 條規則通過——速勝。高機會 + 高準備度 + 零結構性障礙。以專屬垂直團隊快速推進。'},
+ex_lux:{en:'The same acquirer evaluates luxury retail: $4B volume, 2% growth, $40B revenue, top-2 share 75%, 8 acquirers with 7 targeting. Moderate capability (2.5/5), 5% banking overlap, limited onboarding (2.5/5). Result: 1 fail (competition fortress) + 6 warns — Time Sink. Fortress competition, sub-scale volume, no relationships. Every dimension points to resource drain.',zh:'同一機構評估奢侈品零售：40 億美元交易量、2% 成長率、400 億美元營收、前二名市佔 75%、8 家收單機構其中 7 家瞄準。能力適配度中等（2.5/5）、5% 銀行關係重疊、有限入網準備度（2.5/5）。結果：1 項失敗（競爭壁壘）+ 6 項警告——時間陷阱。壁壘型競爭、量體不足、無既有關係。每個維度都指向資源消耗。'},
+ct_dim:{en:'Dimension',zh:'維度'},
+ct_fb:{en:'SE Asian F&B',zh:'東南亞餐飲'},
+ct_lux:{en:'Luxury Retail',zh:'奢侈品零售'},
+ct_quad:{en:'Quadrant',zh:'象限'},
+ct_quad_f:{en:'Quick Win',zh:'速勝'},
+ct_quad_l:{en:'Time Sink',zh:'時間陷阱'},
+ct_bind:{en:'Binding constraint',zh:'核心約束'},
+ct_bind_f:{en:'Execution speed (team deployment)',zh:'執行速度（團隊部署）'},
+ct_bind_l:{en:'Fortress competition (no entry angle)',zh:'壁壘型競爭（無進入角度）'},
+ct_lever:{en:'Highest-impact lever',zh:'最高槓桿施力點'},
+ct_lever_f:{en:'Fast merchant acquisition via banking relationships',zh:'透過銀行關係快速獲取商戶'},
+ct_lever_l:{en:'Redirect resources to better verticals',zh:'將資源重新配置到更好的垂直市場'},
+demo_title:{en:'What this demonstrates',zh:'這展示了什麼'},
+demo_body:{en:'This diagnostic reflects how I approach acquiring market strategy: not as a volume-ranking exercise, but as a structural assessment of whether the opportunity–effort balance supports profitable entry. The five-factor model, dual-axis scoring, and quadrant classification mirror the analytical frameworks used in real "Where to Play" engagements — where the most common mistake is confusing high card volume with high attractiveness, and the most valuable insight is often that the obvious target is not the highest-return entry point.',zh:'此診斷反映了我如何處理收單市場策略：不是交易量排名，而是結構性評估機會與阻力的平衡是否支持獲利進入。五因子模型、雙軸評分和象限分類，映射的是真實「Where to Play」專案中使用的分析框架——最常見的錯誤是把高刷卡量等同於高吸引力，而最有價值的洞察往往是：最顯眼的目標未必是回報最高的進入點。'},
+tp_title:{en:'Vertical parameters',zh:'垂直市場參數'},
+sec_opp:{en:'Opportunity factors',zh:'機會因子'},
+sec_eff:{en:'Effort factors',zh:'執行容易度因子'},
+l_vol:{en:'Card volume ($B)',zh:'刷卡量（十億美元）'},
+l_vgr:{en:'Volume growth (%)',zh:'交易量成長率（%）'},
+l_rev:{en:'Industry revenue ($B)',zh:'產業營收（十億美元）'},
+l_rgr:{en:'Revenue growth (%)',zh:'營收成長率（%）'},
+l_t2s:{en:'Top-2 market share (%)',zh:'前二名市佔率（%）'},
+l_naq:{en:'Active acquirers',zh:'活躍收單機構數'},
+l_tgt:{en:'Targeting acquirers',zh:'瞄準該市場的收單機構'},
+l_cap:{en:'Capability fit (1–5)',zh:'能力適配度（1–5）'},
+l_bnk:{en:'Banking overlap (%)',zh:'銀行關係重疊（%）'},
+l_onb:{en:'Onboarding readiness (1–5)',zh:'入網準備度（1–5）'},
+p_fb:{en:'SE Asian F&B',zh:'東南亞餐飲'},
+p_health:{en:'Healthcare',zh:'醫療'},
+p_luxury:{en:'Luxury Retail',zh:'奢侈品零售'},
+p_reset:{en:'Reset',zh:'重置'},
+p_custom:{en:'Custom',zh:'自訂'},
+s_opp:{en:'Opportunity',zh:'機會'},
+s_eff:{en:'Effort (Ease)',zh:'執行容易度'},
+s_quad:{en:'Quadrant',zh:'象限'},
+s_pass:{en:'Diagnostic rules passed',zh:'診斷規則通過數'},
+diag_label:{en:'Diagnosis',zh:'診斷'},
+actions_label:{en:'Top recommended actions',zh:'優先建議行動'},
+results_title:{en:'Rule-by-rule results',zh:'逐條規則結果'},
+classification_title:{en:'Classification outcome',zh:'分類結果'},
+ql_sb:{en:'Strategic Bet',zh:'策略賭注'},
+ql_qw:{en:'Quick Win',zh:'速勝'},
+ql_ts:{en:'Time Sink',zh:'時間陷阱'},
+ql_po:{en:'Potential Opportunity',zh:'潛在機會'},
+ax_opp_label:{en:'Opportunity →',zh:'機會 →'},
+ax_eff_label:{en:'Effort (ease) →',zh:'執行容易度 →'}
+};
+const ruleT={
+1:{name:{en:'Volume viability',zh:'量體可行性'},
+fail:{en:d=>`Below minimum viable scale — $${d.card_volume}B volume with ${d.volume_growth}% growth is insufficient for dedicated vertical investment`,zh:d=>`低於最低可行規模——${d.card_volume}B 交易量、${d.volume_growth}% 成長率不足以支撐專門的垂直市場投資`},
+warn:{en:d=>`Sub-scale — $${d.card_volume}B volume with ${d.volume_growth}% growth may not justify a dedicated vertical team`,zh:d=>`規模偏小——${d.card_volume}B 交易量、${d.volume_growth}% 成長率可能不足以支撐專屬垂直團隊`},
+pass:{en:d=>`Volume viable — $${d.card_volume}B with ${d.volume_growth}% growth supports dedicated targeting`,zh:d=>`量體可行——${d.card_volume}B 交易量、${d.volume_growth}% 成長率可支撐專門開發`},
+action:{en:'Re-evaluate whether this vertical merits standalone targeting or should be bundled with adjacent verticals',zh:'重新評估此垂直市場是否值得獨立開發，或應與相鄰垂直市場合併'},
+watch:{en:'Monitor volume trajectory — if growth accelerates, reassess in 6 months',zh:'監控交易量軌跡——若成長加速，6 個月後重新評估'}},
+2:{name:{en:'Growth trajectory',zh:'成長軌跡'},
+fail:{en:d=>`Contracting vertical — ${d.volume_growth}% volume growth signals wrong entry timing`,zh:d=>`萎縮的垂直市場——${d.volume_growth}% 交易量成長率顯示進入時機不對`},
+warn:{en:d=>`Mature vertical — ${d.volume_growth}% volume growth and ${d.revenue_growth}% revenue growth indicate limited organic expansion`,zh:d=>`成熟市場——${d.volume_growth}% 交易量成長率和 ${d.revenue_growth}% 營收成長率顯示有限的有機擴張`},
+pass:{en:d=>`Growth trajectory supports entry — ${d.volume_growth}% volume growth provides organic tailwind`,zh:d=>`成長軌跡支持進入——${d.volume_growth}% 交易量成長率提供有機順風`},
+action:{en:'Assess whether share capture (vs. growth riding) is feasible given competition intensity',zh:'評估在當前競爭強度下，市佔搶奪（vs. 順勢成長）是否可行'},
+watch:{en:'Track whether growth is decelerating or stabilizing',zh:'追蹤成長率是否在減速或穩定'}},
+3:{name:{en:'Competition fortress',zh:'競爭壁壘'},
+fail:{en:d=>`Fortress vertical — top-2 hold ${d.top2_share}% share with ${d.targeting_count} acquirers actively targeting. No room for new entrants.`,zh:d=>`壁壘型市場——前二名佔 ${d.top2_share}% 市佔率，${d.targeting_count} 家收單機構積極瞄準。新進者無空間。`},
+warn:{en:d=>`Crowded vertical — ${d.top2_share}% top-2 share with ${d.num_acquirers} active acquirers requires clear differentiation for entry`,zh:d=>`擁擠市場——${d.top2_share}% 前二名市佔率、${d.num_acquirers} 家活躍收單機構，進入需要明確的差異化`},
+pass:{en:d=>`Competitive headroom exists — ${d.top2_share}% top-2 share with ${d.num_acquirers} acquirers leaves room for well-positioned entrants`,zh:d=>`存在競爭空間——${d.top2_share}% 前二名市佔率、${d.num_acquirers} 家收單機構，為定位良好的進入者留有空間`},
+action:{en:'Identify unserved sub-segments or alternative entry angles (vertical SaaS partnership, niche product)',zh:'識別未被服務的子細分市場，或替代進入角度（垂直 SaaS 合作、利基產品）'},
+watch:{en:'Monitor whether incumbent share is consolidating or fragmenting',zh:'監控既有者市佔是否在整合或碎片化'}},
+4:{name:{en:'Deposits & banking upside',zh:'存款與銀行業務上行空間'},
+warn:{en:d=>`Low banking upside — $${d.industry_revenue}B revenue with ${d.banking_overlap}% overlap. Acquiring stand-alone ROI must justify entry.`,zh:d=>`銀行業務上行空間低——${d.industry_revenue}B 營收、${d.banking_overlap}% 重疊率。收單獨立投資回報須足以支撐進入。`},
+pass:{en:d=>`Banking cross-sell viable — $${d.industry_revenue}B industry revenue with ${d.banking_overlap}% existing overlap provides deposits propensity`,zh:d=>`銀行交叉銷售可行——${d.industry_revenue}B 產業營收、${d.banking_overlap}% 既有重疊率提供存款潛力`},
+action:{en:'Cross-sell deposits and lending to justify customer acquisition cost if acquiring margin alone is thin',zh:'若收單利潤微薄，透過交叉銷售存款和貸款來合理化獲客成本'},
+watch:{en:'Track whether banking relationship translates into actual referral volume',zh:'追蹤銀行關係是否實際轉化為推薦量'}},
+5:{name:{en:'Capability readiness',zh:'能力準備度'},
+fail:{en:d=>`Critical capability gaps — fit score ${d.capability_fit}/5 indicates inability to serve this vertical without significant investment`,zh:d=>`關鍵能力缺口——適配度 ${d.capability_fit}/5 顯示不進行重大投資無法服務此垂直市場`},
+warn:{en:d=>`Below table-stakes — capability fit ${d.capability_fit}/5 requires 6–12 month build before serious market entry`,zh:d=>`低於基本門檻——能力適配度 ${d.capability_fit}/5 需要 6-12 個月建設後才能認真進入市場`},
+pass:{en:d=>`Capability ready — fit score ${d.capability_fit}/5 meets vertical requirements`,zh:d=>`能力就緒——適配度 ${d.capability_fit}/5 符合垂直市場需求`},
+action:{en:'Map specific capability gaps (onboarding, servicing, vertical-specific VAS) and estimate build timeline',zh:'盤點具體能力缺口（入網、服務、垂直市場專屬 VAS）並估算建設時程'},
+watch:{en:'Reassess capability fit quarterly as internal investments mature',zh:'隨內部投資成熟，每季重新評估能力適配度'}},
+6:{name:{en:'Onboarding fit',zh:'入網適配度'},
+fail:{en:d=>`Onboarding not ready — readiness ${d.onboarding_ready}/5 means merchants will churn during setup`,zh:d=>`入網未就緒——準備度 ${d.onboarding_ready}/5 意味著商戶將在設置過程中流失`},
+warn:{en:d=>`Onboarding friction — readiness ${d.onboarding_ready}/5 will slow merchant acquisition velocity`,zh:d=>`入網摩擦——準備度 ${d.onboarding_ready}/5 將減緩商戶獲取速度`},
+pass:{en:d=>`Onboarding infrastructure ready — readiness ${d.onboarding_ready}/5 supports efficient merchant acquisition`,zh:d=>`入網基礎設施就緒——準備度 ${d.onboarding_ready}/5 支持高效商戶獲取`},
+action:{en:'Prioritize onboarding process optimization for this vertical\'s specific requirements (compliance, integration, POS type)',zh:'優先針對此垂直市場的特定需求（合規、整合、POS 類型）優化入網流程'},
+watch:{en:'Benchmark onboarding time against competitors in this vertical',zh:'將入網時間與此垂直市場的競爭者進行基準比較'}},
+7:{name:{en:'Cross-sell leverage',zh:'交叉銷售槓桿'},
+warn:{en:d=>`Cold start — ${d.banking_overlap}% banking overlap means no existing relationships to leverage for merchant acquisition`,zh:d=>`冷啟動——${d.banking_overlap}% 銀行關係重疊率意味著無既有關係可用於商戶獲取`},
+pass:{en:d=>`Cross-sell leverage exists — ${d.banking_overlap}% banking overlap provides warm leads for merchant acquisition`,zh:d=>`交叉銷售槓桿存在——${d.banking_overlap}% 銀行關係重疊率為商戶獲取提供暖線索`},
+action:{en:'Explore indirect channels (ISV partnerships, vertical-specific referrals) to substitute for direct banking relationships',zh:'探索間接通路（ISV 合作、垂直市場專屬推薦）以替代直接銀行關係'},
+watch:{en:'Track indirect channel conversion rates vs. direct banking referrals',zh:'追蹤間接通路轉換率 vs. 直接銀行推薦'}},
+8:{name:{en:'Quick win gate',zh:'速勝門檻'},
+pass:{en:'Quick Win confirmed — high opportunity, high readiness, no structural barriers. Fast-track this vertical.',zh:'確認速勝——高機會、高準備度、無結構性障礙。快速推進此垂直市場。'},
+warn:{en:'Does not qualify as Quick Win — either opportunity or effort score below threshold',zh:'不符合速勝資格——機會或執行容易度分數低於門檻'},
+fail:{en:'Does not qualify as Quick Win — structural barriers present in Rules 1–7',zh:'不符合速勝資格——規則 1–7 中存在結構性障礙'},
+action:{en:'Fast-track with dedicated vertical team, aim for first merchant cohort within 3 months',zh:'以專屬垂直團隊快速推進，目標 3 個月內取得首批商戶'},
+watch:{en:'Track time-to-first-merchant and early cohort retention',zh:'追蹤首批商戶獲取時間和早期留存率'}},
+9:{name:{en:'Strategic bet gate',zh:'策略賭注門檻'},
+pass:{en:'Strategic Bet confirmed — high opportunity justifies capability investment despite current gaps',zh:'確認策略賭注——高機會值得投資建構能力，儘管目前存在缺口'},
+warn:{en:'Does not qualify as Strategic Bet — opportunity or barrier profile does not justify investment',zh:'不符合策略賭注資格——機會或障礙狀況不足以支撐投資'},
+fail:{en:'Does not qualify as Strategic Bet — too many structural barriers for the opportunity level',zh:'不符合策略賭注資格——相對機會水平，結構性障礙過多'},
+action:{en:'Build capability roadmap (6–12 months) before committing dedicated acquisition resources',zh:'先建立能力路線圖（6-12 個月），再投入專門的獲客資源'},
+watch:{en:'Set milestone gates at 3-month intervals to validate capability build progress',zh:'每 3 個月設立里程碑門檻以驗證能力建設進度'}},
+10:{name:{en:'Time sink warning',zh:'時間陷阱警告'},
+fail:{en:d=>`Time Sink — resources will be consumed without adequate return. Redirect to higher-return verticals.`,zh:d=>`時間陷阱——資源將被消耗而無法獲得足夠回報。重新導向至回報更高的垂直市場。`},
+warn:{en:'Low opportunity but manageable effort — monitor only, do not allocate dedicated resources',zh:'低機會但執行容易度尚可——僅觀察，不配置專門資源'},
+pass:{en:'No time sink risk — opportunity and effort profile support resource allocation',zh:'無時間陷阱風險——機會與執行容易度狀況支持資源配置'},
+action:{en:'Redirect resources to Quick Wins or Strategic Bets with better return profiles',zh:'將資源重新導向回報更佳的速勝或策略賭注項目'},
+watch:{en:'Revisit if market structure changes (e.g., incumbent exits, regulation shifts)',zh:'若市場結構變化（如既有者退出、法規調整），重新評估'}}
+};
+const diagT={
+quick_win:{en:{title:'Quick Win',detail:'High opportunity, high readiness, and no structural barriers. This vertical is ready for immediate fast-tracking with a dedicated team.'},zh:{title:'速勝',detail:'高機會、高準備度、無結構性障礙。此垂直市場可立即以專屬團隊快速推進。'}},
+strategic_bet:{en:{title:'Strategic Bet',detail:'The opportunity is strong, but capability or readiness gaps must be closed first. Build a 6–12 month roadmap before committing acquisition resources.'},zh:{title:'策略賭注',detail:'機會強勁，但能力或準備度缺口須先補上。先建立 6-12 個月路線圖，再投入獲客資源。'}},
+potential:{en:{title:'Potential Opportunity',detail:'Manageable effort but limited opportunity. Monitor this vertical and enter after Quick Wins are captured, if resources allow.'},zh:{title:'潛在機會',detail:'執行容易度尚可但機會有限。觀察此垂直市場，在速勝項目完成後、資源允許時再進入。'}},
+time_sink:{en:{title:'Time Sink',detail:'Low opportunity combined with high execution difficulty. Resources allocated here will be consumed without adequate return. Redirect to higher-return verticals.'},zh:{title:'時間陷阱',detail:'低機會加上低執行容易度。配置在此的資源將被消耗而無法獲得足夠回報。重新導向至回報更高的垂直市場。'}},
+time_sink_fortress:{en:{title:'Fortress Time Sink',detail:'Entrenched competition in a low-opportunity vertical. Even if capabilities were built, incumbent dominance leaves no viable entry angle. Avoid.'},zh:{title:'壁壘型時間陷阱',detail:'低機會垂直市場中的根深蒂固競爭。即使建構了能力，既有者的主導地位也不留可行的進入角度。迴避。'}},
+caution_fail:{en:fc=>({title:'Caution — Structural Barriers',detail:`${fc} structural barrier${fc>1?'s':''} detected. Address failing conditions before committing resources to this vertical.`}),zh:fc=>({title:'警告——結構性障礙',detail:`偵測到 ${fc} 項結構性障礙。在投入資源到此垂直市場之前，先解決失敗條件。`})},
+caution_warn:{en:{title:'Conditional Entry',detail:'No structural barriers, but multiple areas need attention. Proceed with targeted improvements before full commitment.'},zh:{title:'有條件進入',detail:'無結構性障礙，但多個面向需要關注。在全面投入前，先進行針對性改善。'}},
+healthy_watch:{en:{title:'Favorable',detail:'Mostly clear conditions with minor areas to monitor. This vertical is a reasonable candidate for resource allocation.'},zh:{title:'條件良好',detail:'大致條件清晰，僅有少數面向需監控。此垂直市場是合理的資源配置候選。'}}
+};
+const sliderIds=['card_volume','volume_growth','industry_revenue','revenue_growth','top2_share','num_acquirers','targeting_count','capability_fit','banking_overlap','onboarding_ready'];
+const presets={
+fb:{card_volume:22,volume_growth:12,industry_revenue:180,revenue_growth:8,top2_share:35,num_acquirers:4,targeting_count:2,capability_fit:4,banking_overlap:45,onboarding_ready:4},
+health:{card_volume:18,volume_growth:6,industry_revenue:300,revenue_growth:5,top2_share:50,num_acquirers:6,targeting_count:4,capability_fit:2,banking_overlap:15,onboarding_ready:2},
+luxury:{card_volume:4,volume_growth:2,industry_revenue:40,revenue_growth:1,top2_share:75,num_acquirers:8,targeting_count:7,capability_fit:2.5,banking_overlap:5,onboarding_ready:2.5},
+reset:{card_volume:15,volume_growth:8,industry_revenue:150,revenue_growth:6,top2_share:45,num_acquirers:5,targeting_count:3,capability_fit:3,banking_overlap:20,onboarding_ready:3}
+};
+function getData(){const d={};sliderIds.forEach(id=>{d[id]=parseFloat(document.getElementById(id).value);});return d;}
+function setPreset(p){sliderIds.forEach(id=>{if(p[id]!==undefined)document.getElementById(id).value=p[id];});clearPresetHighlight();update();}
+function clearPresetHighlight(){document.querySelectorAll('.preset-btn').forEach(b=>b.classList.remove('active'));}
+function calcOppScore(d){
+const vol_base=Math.min(10,(d.card_volume/30)*10);
+const vol_factor=1+(d.volume_growth/30);
+const vol_score=Math.min(10,vol_base*vol_factor);
+const dep_base=Math.min(10,((d.industry_revenue-10)/290)*10);
+const dep_factor=1+(d.revenue_growth/25);
+const dep_score=Math.min(10,dep_base*dep_factor);
+const conc_score=Math.max(0,10-(d.top2_share/9));
+const breadth_score=Math.max(0,10-d.num_acquirers*0.67);
+const target_score=Math.max(0,10-d.targeting_count);
+const comp_score=conc_score*0.4+breadth_score*0.3+target_score*0.3;
+return Math.min(10,Math.max(0,vol_score*0.30+dep_score*0.25+comp_score*0.45));
+}
+function calcEffScore(d){
+const cap_score=(d.capability_fit-1)*2.5;
+const onb_score=(d.onboarding_ready-1)*2.5;
+const bank_score=(d.banking_overlap/60)*10;
+return Math.min(10,Math.max(0,cap_score*0.40+onb_score*0.30+bank_score*0.30));
+}
+const rules=[
+{id:1,test:d=>{if(d.card_volume<3&&d.volume_growth<3)return'fail';if(d.card_volume<5&&d.volume_growth<5)return'warn';return'pass';}},
+{id:2,test:d=>{if(d.volume_growth<=0)return'fail';if(d.volume_growth<3&&d.revenue_growth<3)return'warn';return'pass';}},
+{id:3,test:d=>{if(d.top2_share>70&&d.targeting_count>5)return'fail';if(d.top2_share>55&&d.num_acquirers>8)return'warn';return'pass';}},
+{id:4,test:d=>{if(d.industry_revenue<50&&d.banking_overlap<10)return'warn';return'pass';}},
+{id:5,test:d=>{if(d.capability_fit<2)return'fail';if(d.capability_fit<3)return'warn';return'pass';}},
+{id:6,test:d=>{if(d.onboarding_ready<2)return'fail';if(d.onboarding_ready<3)return'warn';return'pass';}},
+{id:7,test:d=>{if(d.banking_overlap<10)return'warn';return'pass';}},
+{id:8,test:(d,opp,eff,fc)=>{if(opp>=7&&eff>=7&&fc===0)return'pass';if(fc>0)return'fail';return'warn';}},
+{id:9,test:(d,opp,eff,fc)=>{if(opp>=7&&eff<7&&fc<=1)return'pass';if(opp<7)return'warn';return'warn';}},
+{id:10,test:(d,opp,eff,fc)=>{if(opp<5&&eff<5)return'fail';if(opp<5&&fc>=2)return'fail';return'pass';}}
+];
+function getDiagKey(opp,eff,fc,wc,results){
+const r3Fail=results.find(r=>r.id===3)?.status==='fail';
+if(r3Fail&&opp<5)return'time_sink_fortress';
+if((opp<5&&eff<5)||(opp<5&&fc>=2))return'time_sink';
+if(opp>=7&&eff>=7&&fc===0)return'quick_win';
+if(opp>=7&&eff<7&&fc<=1)return'strategic_bet';
+if(opp<7&&eff>=7&&fc===0)return'potential';
+if(fc>=1)return'caution_fail';
+if(wc>=3)return'caution_warn';
+return'healthy_watch';
+}
+function setLang(l){document.documentElement.lang=l==='zh'?'zh-Hant':'en';lang=l;document.body.classList.toggle('zh',l==='zh');document.getElementById('btn-en').classList.toggle('active',l==='en');document.getElementById('btn-zh').classList.toggle('active',l==='zh');document.querySelectorAll('[data-i]').forEach(el=>{const k=el.getAttribute('data-i');if(T[k]&&T[k][l])el.textContent=T[k][l];});update();}
+function update(){
+const d=getData();
+/* Derived scores */
+const opp=calcOppScore(d);
+const eff=calcEffScore(d);
+/* Display values */
+document.getElementById('o-vol').textContent=d.card_volume;
+document.getElementById('o-vgr').textContent=d.volume_growth+'%';
+document.getElementById('o-rev').textContent=d.industry_revenue;
+document.getElementById('o-rgr').textContent=d.revenue_growth+'%';
+document.getElementById('o-t2s').textContent=d.top2_share+'%';
+document.getElementById('o-naq').textContent=d.num_acquirers;
+document.getElementById('o-tgt').textContent=d.targeting_count;
+document.getElementById('o-cap').textContent=d.capability_fit.toFixed(1);
+document.getElementById('o-bnk').textContent=d.banking_overlap+'%';
+document.getElementById('o-onb').textContent=d.onboarding_ready.toFixed(1);
+/* Evaluate layer 1-2 rules first (1-7) */
+const layer12=rules.filter(r=>r.id<=7).map(r=>({id:r.id,status:r.test(d)}));
+const fc=layer12.filter(r=>r.status==='fail').length;
+/* Evaluate layer 3 rules (8-10) with scores + fc */
+const layer3=rules.filter(r=>r.id>=8).map(r=>({id:r.id,status:r.test(d,opp,eff,fc)}));
+const results=[...layer12,...layer3];
+const wc=results.filter(r=>r.status==='warn').length;
+const pc12=layer12.filter(r=>r.status==='pass').length;
+/* Stat cards */
+document.getElementById('s-opp').textContent=opp.toFixed(1);
+document.getElementById('s-opp').style.color=opp>=7?'var(--pass)':opp>=5?'var(--warn)':'var(--fail)';
+document.getElementById('s-eff').textContent=eff.toFixed(1);
+document.getElementById('s-eff').style.color=eff>=7?'var(--pass)':eff>=5?'var(--warn)':'var(--fail)';
+const dk=getDiagKey(opp,eff,fc,wc,results);
+const quadLabels={quick_win:{en:'Quick Win',zh:'速勝'},strategic_bet:{en:'Strategic Bet',zh:'策略賭注'},potential:{en:'Potential Opportunity',zh:'潛在機會'},time_sink:{en:'Time Sink',zh:'時間陷阱'},time_sink_fortress:{en:'Time Sink (Fortress)',zh:'時間陷阱（壁壘型）'},caution_fail:{en:'Caution',zh:'警告'},caution_warn:{en:'Conditional',zh:'有條件'},healthy_watch:{en:'Favorable',zh:'良好'}};
+document.getElementById('s-quad').textContent=(quadLabels[dk]||{})[lang]||dk;
+document.getElementById('s-quad').style.color=dk==='quick_win'||dk==='healthy_watch'?'var(--pass)':dk.startsWith('time_sink')||dk==='caution_fail'?'var(--fail)':'var(--warn)';
+document.getElementById('s-pass').textContent=pc12+'/7';
+document.getElementById('s-pass').style.color=pc12>=7?'var(--pass)':pc12>=5?'var(--warn)':'var(--fail)';
+/* Quadrant viz */
+const vizEl=document.getElementById('quadrant-viz');
+const dot=document.getElementById('quad-dot');
+const pctX=Math.min(95,Math.max(5,(eff/10)*100));
+const pctY=Math.min(95,Math.max(5,100-(opp/10)*100));
+dot.style.left=pctX+'%';
+dot.style.top=pctY+'%';
+dot.className='dot'+(dk==='quick_win'||dk==='potential'||dk==='healthy_watch'?' q-pass':dk.startsWith('time_sink')||dk==='caution_fail'?' q-fail':' q-warn');
+/* Quadrant labels i18n */
+document.getElementById('ql-tl').textContent=T.ql_sb[lang];
+document.getElementById('ql-tr').textContent=T.ql_qw[lang];
+document.getElementById('ql-bl').textContent=T.ql_ts[lang];
+document.getElementById('ql-br').textContent=T.ql_po[lang];
+document.getElementById('ax-x').textContent=T.ax_eff_label[lang];
+document.getElementById('ax-y').textContent=T.ax_opp_label[lang];
+/* Diagnosis block */
+const dt=diagT[dk][lang];
+const diagObj=typeof dt==='function'?dt(fc):dt;
+const statusClass=dk==='quick_win'||dk==='potential'||dk==='healthy_watch'?'status-healthy':dk.startsWith('time_sink')||dk==='caution_fail'?'status-critical':'status-caution';
+document.getElementById('diagnosis-block').innerHTML=`<div class="diagnosis-block ${statusClass}"><div class="diagnosis-label">${T.diag_label[lang]}</div><div class="diagnosis-title">${diagObj.title}</div><div class="diagnosis-detail">${diagObj.detail}</div></div>`;
+/* Top actions — fail first, fallback to warn */
+const fa=[],wa=[];
+results.forEach(r=>{if(r.status==='fail'){const rt=ruleT[r.id];if(rt&&rt.action)fa.push({action:rt.action[lang],watch:rt.watch?rt.watch[lang]:null,status:'fail'});}if(r.status==='warn'){const rt=ruleT[r.id];if(rt&&rt.action)wa.push({action:rt.action[lang],watch:rt.watch?rt.watch[lang]:null,status:'warn'});}});
+const topActs=(fa.length>0?fa:wa).slice(0,3);
+if(topActs.length>0){let html=`<h4>${T.actions_label[lang]}</h4><ol>`;topActs.forEach(a=>{html+=`<li>${a.action}`;if(a.watch&&a.status==='warn')html+=`<div class="rule-watch">△ ${a.watch}</div>`;html+=`</li>`;});html+=`</ol>`;document.getElementById('top-actions').innerHTML=`<div class="top-actions">${html}</div>`;}else{document.getElementById('top-actions').innerHTML='';}
+/* Rule cards — R1-7 diagnostic rules */
+let rhtml='';
+results.filter(r=>r.id<=7).forEach(r=>{const rt=ruleT[r.id];const name=rt.name[lang];const descFn=rt[r.status][lang];const desc=typeof descFn==='function'?descFn(d):descFn;const icon=r.status==='pass'?'\u2713':r.status==='warn'?'!':'\u2717';rhtml+=`<div class="rule-card ${r.status}"><div class="rule-header"><div class="rule-icon">${icon}</div><div class="rule-name">${name}</div></div><div class="rule-desc">${desc}</div>`;if(r.status==='fail'){rhtml+=`<div class="rule-action">→ ${rt.action[lang]}</div>`;}if(r.status==='warn'){rhtml+=`<div class="rule-action">→ ${rt.action[lang]}</div>`;if(rt.watch)rhtml+=`<div class="rule-watch">△ ${rt.watch[lang]}</div>`;}rhtml+=`</div>`;});
+/* R8-10 classification outcome */
+rhtml+=`<h3 style="font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin:18px 0 12px">${T.classification_title[lang]}</h3>`;
+results.filter(r=>r.id>=8).forEach(r=>{const rt=ruleT[r.id];const name=rt.name[lang];const descFn=rt[r.status][lang];const desc=typeof descFn==='function'?descFn(d):descFn;const icon=r.status==='pass'?'\u2713':r.status==='warn'?'!':'\u2717';rhtml+=`<div class="rule-card ${r.status}"><div class="rule-header"><div class="rule-icon">${icon}</div><div class="rule-name">${name}</div></div><div class="rule-desc">${desc}</div>`;if(r.status==='fail'){rhtml+=`<div class="rule-action">→ ${rt.action[lang]}</div>`;}if(r.status==='warn'){rhtml+=`<div class="rule-action">→ ${rt.action[lang]}</div>`;if(rt.watch)rhtml+=`<div class="rule-watch">△ ${rt.watch[lang]}</div>`;}rhtml+=`</div>`;});
+document.getElementById('results').innerHTML=rhtml;
+/* Auto-highlight preset if exact match */
+let matchedPreset=null;
+for(const[k,p]of Object.entries(presets)){let match=true;for(const id of sliderIds){if(parseFloat(document.getElementById(id).value)!==p[id]){match=false;break;}}if(match){matchedPreset=k;break;}}
+clearPresetHighlight();
+if(matchedPreset){const btn=document.getElementById('p-'+matchedPreset);if(btn)btn.classList.add('active');}
+}
+sliderIds.forEach(id=>{document.getElementById(id).addEventListener('input',function(){update();});});
+document.getElementById('p-fb').addEventListener('click',function(){setPreset(presets.fb);this.classList.add('active');});
+document.getElementById('p-health').addEventListener('click',function(){setPreset(presets.health);this.classList.add('active');});
+document.getElementById('p-luxury').addEventListener('click',function(){setPreset(presets.luxury);this.classList.add('active');});
+document.getElementById('p-reset').addEventListener('click',function(){setPreset(presets.reset);this.classList.add('active');});
+/* Init with F&B preset for strongest first impression */
+setPreset(presets.fb);document.getElementById('p-fb').classList.add('active');
+</script>
+</body>
+</html>
