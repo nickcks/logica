@@ -117,6 +117,9 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
 .roadmap-pill{display:inline-flex;align-items:center;gap:10px;padding:10px 20px;border:1px solid var(--border);border-radius:40px;font-size:13px;background:var(--surface)}
 .roadmap-pill .pill-num{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.5px}
 .roadmap-pill .pill-text{color:var(--text-secondary);font-weight:500}
+.connect-line{margin-top:28px;font-size:14px;color:var(--text-tertiary);line-height:1.7}
+.connect-line a{color:var(--text-secondary);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:1px;transition:border-color .15s}
+.connect-line a:hover{border-color:var(--text-secondary)}
 
 /* ── Footer ── */
 footer{border-top:1px solid var(--border);padding:40px 0}
@@ -205,7 +208,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="container hero">
 <div class="hero-super" data-i="hero_super">Strategic diagnostics</div>
 <h1 data-i="hero_title">Turning complex commercial problems into decisions that move the business</h1>
-<p class="tagline" data-i="hero_tagline">Each tool takes a real commercial problem — the kind that usually requires weeks of consulting analysis to diagnose — decomposes it into structural drivers, and turns it into a diagnostic anyone can operate — so the revenue, cost, and growth decisions get made with structure instead of instinct.</p>
+<p class="tagline" data-i="hero_tagline">Each tool decomposes a real commercial problem — the kind consultants spend weeks diagnosing — into a structured diagnostic anyone can operate. Revenue, cost, and growth decisions get made with structure instead of instinct.</p>
 <p class="hero-author" data-i="hero_author">Built by <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">Nick Chang</a> · Strategy consultant · Payments &amp; financial services</p>
 </div>
 
@@ -305,6 +308,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="roadmap-pill" href="methodology/" style="text-decoration:none"><span class="pill-num">✓</span><span class="pill-text" data-i="ph3_title">Methodology</span></a>
 <div class="roadmap-pill"><span class="pill-num">→</span><span class="pill-text" data-i="ph4_title">New domains</span></div>
 </div>
+<p class="connect-line" data-i="connect_line">Open to conversations about payments strategy, commercial diagnostics, and making expert judgment operational — <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">connect on LinkedIn</a>.</p>
 </div>
 </div>
 </main>
@@ -323,7 +327,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 const T={
 hero_super:{en:'Strategic diagnostics',zh:'策略診斷'},
 hero_title:{en:'Turning complex commercial problems into decisions that move the business',zh:'將複雜商業問題轉化為推動業務的決策'},
-hero_tagline:{en:'Each tool takes a real commercial problem — the kind that usually requires weeks of consulting analysis to diagnose — decomposes it into structural drivers, and turns it into a diagnostic anyone can operate — so the revenue, cost, and growth decisions get made with structure instead of instinct.',zh:'每個工具處理一個真實的商業問題——那種通常需要數週顧問分析才能釐清的問題——將它解構為結構性驅動因素，轉化為任何人都能操作的診斷——讓營收、成本與成長決策以結構取代直覺。'},
+hero_tagline:{en:'Each tool decomposes a real commercial problem — the kind consultants spend weeks diagnosing — into a structured diagnostic anyone can operate. Revenue, cost, and growth decisions get made with structure instead of instinct.',zh:'每個工具將一個真實的商業問題——那種顧問需要數週才能診斷的問題——解構為任何人都能操作的結構化診斷。營收、成本與成長決策，以結構取代直覺。'},
 hero_author:{en:'Built by <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">Nick Chang</a> · Strategy consultant · Payments &amp; financial services',zh:'<a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank">Nick Chang（張凱翔）</a> · 策略顧問 · 支付與金融服務'},
 wid_label:{en:'What I do',zh:'我做什麼'},
 wid_text:{en:'I take the commercial problems that drive revenue, cost, and growth decisions — the kind consultants spend weeks diagnosing — and turn them into structured, interactive decision systems anyone can operate. Each tool compresses deep domain expertise into something you can run in minutes.',zh:'我將驅動營收、成本與成長決策的商業問題——那種顧問需要花數週診斷的問題——轉化為任何人都能操作的結構化互動式決策系統。每個工具把深度領域專業壓縮成幾分鐘內就能執行的東西。'},
@@ -345,7 +349,8 @@ t7_title:{en:'Marketplace Launch',zh:'市場進入'},t7_sub:{en:'Platform econom
 next_label:{en:"What's next",zh:'下一步'},
 next_desc:{en:'Payments was the starting point — seven tools that prove the approach works on real commercial problems. The marketplace diagnostic tested it beyond payments. More domains will follow where the same conditions hold: high complexity, consequential decisions, and expertise trapped in expert judgment.',zh:'支付是起點——七個工具證明這套方法在真實商業問題上行得通。市場進入診斷在支付之外驗證了它。更多領域將在相同條件下跟進：高複雜度、關鍵決策、以及困在專家判斷中的專業知識。'},
 ph3_title:{en:'Methodology',zh:'方法論'},
-ph4_title:{en:'New domains',zh:'新領域'}
+ph4_title:{en:'New domains',zh:'新領域'},
+connect_line:{en:'Open to conversations about payments strategy, commercial diagnostics, and making expert judgment operational — <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">connect on LinkedIn</a>.',zh:'歡迎交流支付策略、商業診斷，以及如何讓專家判斷可操作化——<a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">LinkedIn 聯繫</a>。'}
 };
 let lang='en';
 function setLang(l){
