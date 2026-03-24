@@ -1,8 +1,8 @@
 # Logica
 
-**Decision systems for complex domains.**
+**Turning complex industries into decisions you can run.**
 
-Interactive tools that turn dense domain knowledge into structured, navigable systems — so anyone can see clearly and act decisively from day one.
+Strategic diagnostic tools that take the problems consultants and analysts spend weeks diagnosing — and turn them into structured, interactive systems anyone can operate. Each tool compresses deep domain expertise into explicit inputs, testable rules, and actionable outputs.
 
 **→ [View the live site](https://nickcks.github.io/logica/)**
 
@@ -10,7 +10,7 @@ Interactive tools that turn dense domain knowledge into structured, navigable sy
 
 ## Payments
 
-The first domain. Six diagnostic tools covering the core economics of card payments — from issuer P&L to vertical market prioritization.
+The proving ground. Six diagnostic tools covering the core economics of card payments — from issuer P&L to vertical market prioritization.
 
 | # | Tool | What it answers |
 |---|------|-----------------|
@@ -35,13 +35,15 @@ Cross-domain decision systems beyond payments.
 
 ## Methodology
 
-**→ [How the tools are built](https://nickcks.github.io/logica/methodology/)**
+**→ [How expert judgment becomes operational](https://nickcks.github.io/logica/methodology/)**
 
-Behind these tools is a repeatable system for turning domain expertise into decision infrastructure. The methodology page explains the process, the analytical operating system, and why it extends beyond payments.
+Most strategic analysis is trapped in decks, frameworks, and expert judgment. The methodology page explains the repeatable process behind these tools — and why the same approach works wherever decisions are complex and expertise is trapped in people's heads.
 
 ## About
 
-Built by [Nick Chang](https://www.linkedin.com/in/nick-kaihsiangchang/) — strategy consultant, payments & financial services. 8+ years across issuer economics, acquiring strategy, commercial card, and embedded finance. Payments is the proof. The methodology is domain-agnostic.
+Built by [Nick Chang](https://www.linkedin.com/in/nick-kaihsiangchang/) — strategy consultant, payments & financial services. 8+ years across issuer economics, acquiring strategy, commercial card, and embedded finance.
+
+These tools don't just describe what I've worked on — they demonstrate how I think about complex commercial problems: decompose the structural drivers, formalize the decision logic, and ship something someone can actually use. Payments is where I've proven it. The method is the same wherever the conditions hold.
 
 ## License
 
