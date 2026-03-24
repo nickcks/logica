@@ -2,7 +2,7 @@
 
 **Turning complex commercial problems into decisions that move the business.**
 
-Strategic diagnostic tools that take the revenue, cost, and growth problems consultants spend weeks diagnosing — and turn them into structured, interactive systems anyone can operate. Each tool compresses deep domain expertise into explicit inputs, testable rules, and actionable outputs.
+Strategic diagnostic tools that decompose the revenue, cost, and growth problems consultants spend weeks diagnosing into structured, interactive systems anyone can operate. Each tool compresses deep domain expertise into explicit inputs, testable rules, and actionable outputs.
 
 **→ [View the live site](https://nickcks.github.io/logica/)**
 
@@ -44,6 +44,8 @@ Most strategic analysis is trapped in decks, frameworks, and expert judgment. Th
 Built by [Nick Chang](https://www.linkedin.com/in/nick-kaihsiangchang/) — strategy consultant, payments & financial services. 8+ years across issuer economics, acquiring strategy, commercial card, and embedded finance.
 
 These tools don't just describe what I've worked on — they demonstrate how I think about complex commercial problems: decompose the structural drivers, formalize the decision logic, and ship something someone can actually use. Payments is where I've proven it. The method is the same wherever the conditions hold.
+
+Open to conversations about payments strategy, commercial diagnostics, and making expert judgment operational — [connect on LinkedIn](https://www.linkedin.com/in/nick-kaihsiangchang/).
 
 ## License
 
