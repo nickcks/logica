@@ -1,3 +1,8 @@
+---
+Title: README
+Created: 2026-03-22
+Modified: 2026-03-25
+---
 # Logica
 
 **Turning complex commercial problems into decisions that move the business.**
