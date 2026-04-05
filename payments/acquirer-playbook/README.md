@@ -239,4 +239,4 @@ This diagnostic operationalizes the central strategic question facing every acqu
 
 ---
 
-*Built by Nick Chang · Strategy consultant · Payments & financial services · [Logica](https://nickcks.github.io/logica/)*
+*Built by Nick Chang · Strategy consultant · Payments & financial services · [Logica](https://nickchang.dev/logica/)*
