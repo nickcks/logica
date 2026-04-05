@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nickchang.dev/logica/sitemap.xml
+Sitemap: https://nickchang.dev/sitemap.xml
