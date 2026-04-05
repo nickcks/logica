@@ -1,6 +1,6 @@
 # Credit Card Issuer P&L Diagnostic: A Decision System for Profitability Analysis
 
-> **→ [Try the interactive diagnostic tool](https://nickchang.dev/logica/payments/issuer-economics/)**
+> **→ [Try the interactive diagnostic tool](https://nickchang.dev/payments/issuer-economics/)**
 
 ## The Problem
 
@@ -270,4 +270,4 @@ Note: This is a portfolio-level triage tool using observable proxies, not a full
 
 **Nick Chang** — Strategy consultant · Payments & financial services. I build decision systems that turn complex industry knowledge into actionable tools. Currently focused on issuer economics, card profitability optimization, and payment ecosystem strategy across Asia-Pacific and Latin American markets.
 
-[View more decision systems →](https://nickchang.dev/logica/)
+[View more decision systems →](https://nickchang.dev/)

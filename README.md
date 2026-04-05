@@ -9,7 +9,7 @@ Modified: 2026-03-25
 
 Strategic diagnostic tools that decompose the revenue, cost, and growth problems consultants spend weeks diagnosing into structured, interactive systems anyone can operate. Each tool compresses deep domain expertise into explicit inputs, testable rules, and actionable outputs.
 
-**→ [View the live site](https://nickchang.dev/logica/)**
+**→ [View the live site](https://nickchang.dev/)**
 
 ---
 
@@ -19,12 +19,12 @@ The proving ground. Six diagnostic tools covering the core economics of card pay
 
 | # | Tool | What it answers |
 |---|------|-----------------|
-| 01 | [Issuer P&L](https://nickchang.dev/logica/payments/issuer-economics/) | Where is this card portfolio making — or losing — money? |
-| 02 | [Co-Brand](https://nickchang.dev/logica/payments/cobrand-strategy/) | Will this partnership actually create value — or just burn acquisition spend? |
-| 03 | [Conversion](https://nickchang.dev/logica/payments/portfolio-conversion/) | Is the portfolio ready to migrate — or will the switch destroy more value than it creates? |
-| 04 | [Acquiring](https://nickchang.dev/logica/payments/acquirer-playbook/) | Can this acquiring business survive margin compression — or is the model structurally broken? |
-| 05 | [SME Payments](https://nickchang.dev/logica/payments/sme-payments/) | Is the SME card a real operating system — or just a payment instrument dressed up? |
-| 06 | [Vertical Prioritization](https://nickchang.dev/logica/payments/vertical-prioritization/) | Is this the right vertical to enter — or will competition and execution complexity burn the investment? |
+| 01 | [Issuer P&L](https://nickchang.dev/payments/issuer-economics/) | Where is this card portfolio making — or losing — money? |
+| 02 | [Co-Brand](https://nickchang.dev/payments/cobrand-strategy/) | Will this partnership actually create value — or just burn acquisition spend? |
+| 03 | [Conversion](https://nickchang.dev/payments/portfolio-conversion/) | Is the portfolio ready to migrate — or will the switch destroy more value than it creates? |
+| 04 | [Acquiring](https://nickchang.dev/payments/acquirer-playbook/) | Can this acquiring business survive margin compression — or is the model structurally broken? |
+| 05 | [SME Payments](https://nickchang.dev/payments/sme-payments/) | Is the SME card a real operating system — or just a payment instrument dressed up? |
+| 06 | [Vertical Prioritization](https://nickchang.dev/payments/vertical-prioritization/) | Is this the right vertical to enter — or will competition and execution complexity burn the investment? |
 
 Each tool takes a problem that usually lives inside consulting decks and analyst models — and turns it into a system you can actually run. Explicit inputs, structured rules, clear outputs. Preset scenarios let you load real market archetypes and compare how structural context changes the strategy.
 
@@ -36,11 +36,11 @@ Cross-domain decision systems beyond payments.
 
 | # | Tool | What it answers |
 |---|------|-----------------|
-| 07 | [Marketplace Launch](https://nickchang.dev/logica/platforms/marketplace-launch/) | Is this vertical ready to launch — or will supply, regulation, and unit economics kill it before liquidity? |
+| 07 | [Marketplace Launch](https://nickchang.dev/platforms/marketplace-launch/) | Is this vertical ready to launch — or will supply, regulation, and unit economics kill it before liquidity? |
 
 ## Methodology
 
-**→ [How expert judgment becomes operational](https://nickchang.dev/logica/methodology/)**
+**→ [How expert judgment becomes operational](https://nickchang.dev/methodology/)**
 
 Most strategic analysis is trapped in decks, frameworks, and expert judgment. The methodology page explains the repeatable process behind these tools — and why the same approach works wherever decisions are complex and expertise is trapped in people's heads.
 

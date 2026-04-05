@@ -181,4 +181,4 @@ This framework operationalizes a decision that most issuers make intuitively —
 
 ---
 
-*Built by Nick Chang · Strategy consultant · Payments & financial services · [Logica](https://nickchang.dev/logica/)*
+*Built by Nick Chang · Strategy consultant · Payments & financial services · [Logica](https://nickchang.dev/)*
