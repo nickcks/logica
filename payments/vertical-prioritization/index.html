@@ -169,6 +169,21 @@ a:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:2
 .quadrant-viz .mid-v{left:50%;top:0;width:1px;height:100%}
 .quadrant-viz .dot{position:absolute;width:14px;height:14px;border-radius:50%;border:2px solid var(--text);transition:all .25s ease;transform:translate(-50%,-50%);z-index:2}
 .quadrant-viz .dot.q-pass{background:var(--pass);border-color:var(--pass)}.quadrant-viz .dot.q-warn{background:var(--warn);border-color:var(--warn)}.quadrant-viz .dot.q-fail{background:var(--fail);border-color:var(--fail)}
+/* EMAIL GATE */
+.email-gate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:rgba(250,250,248,0.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transition:opacity .3s ease}
+.email-gate.hidden{opacity:0;pointer-events:none}
+.gate-card{max-width:400px;width:90%;padding:40px 32px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);text-align:center;box-shadow:0 4px 24px rgba(0,0,0,0.06)}
+.gate-logo{font-family:var(--mono);font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.gate-card h2{font-size:20px;font-weight:700;line-height:1.3;margin-bottom:8px}
+.gate-desc{font-size:14px;color:var(--text-secondary);line-height:1.6;margin-bottom:24px}
+.gate-form{display:flex;gap:8px}
+.gate-form input[type=email]{flex:1;font-family:inherit;font-size:14px;padding:10px 14px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);outline:none;transition:border-color .15s}
+.gate-form input[type=email]:focus{border-color:var(--text)}
+.gate-form button{font-family:inherit;font-size:14px;font-weight:500;padding:10px 20px;background:var(--text);color:var(--bg);border:none;border-radius:var(--radius);cursor:pointer;white-space:nowrap;transition:opacity .15s}
+.gate-form button:hover{opacity:0.85}
+.gate-form button:disabled{opacity:0.5;cursor:default}
+.gate-fine{font-size:11px;color:var(--text-tertiary);margin-top:16px}
+@media(max-width:480px){.gate-card{padding:32px 20px}.gate-form{flex-direction:column}.gate-form button{padding:12px 20px}}
 </style>
 </head>
 <body>
@@ -178,6 +193,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
 <a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- EMAIL GATE -->
+<div id="email-gate" class="email-gate" style="display:none;">
+<div class="gate-card">
+<div class="gate-logo">Logica</div>
+<h2 data-gate-i="title">Unlock this decision tool</h2>
+<p class="gate-desc" data-gate-i="desc">Enter your email to access the full interactive diagnostic. I occasionally share new frameworks and tools.</p>
+<form id="gate-form" class="gate-form">
+<input type="email" id="gate-email" placeholder="you@company.com" required autocomplete="email">
+<button type="submit" data-gate-i="btn">Access tool</button>
+</form>
+<p class="gate-fine" data-gate-i="fine">Your email is stored privately. No spam. Unsubscribe anytime.</p>
+</div>
+</div>
 
 <header><div class="container header-inner"><div class="logo"><a href="../..">Logica</a></div><div class="header-right"><nav><a href="../../#tools">Tools</a><a href="../../methodology/">Method</a><a href="https://btmbynickchangkhs.substack.com/?utm_source=logica&amp;utm_medium=portfolio&amp;utm_campaign=nav_link" target="_blank" rel="noopener noreferrer">Substack</a><a href="https://github.com/nickcks/logica" target="_blank" rel="noopener noreferrer">GitHub</a></nav></div><div class="lang-toggle"><button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button><span class="lang-sep">|</span><button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button></div><button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="var h=document.querySelector('.header-right');h.classList.toggle('open');var o=h.classList.contains('open');this.textContent=o?'✕':'☰';this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Menu')">☰</button></div></header>
 
@@ -578,6 +607,54 @@ document.getElementById('p-luxury').addEventListener('click',function(){setPrese
 document.getElementById('p-reset').addEventListener('click',function(){setPreset(presets.reset);this.classList.add('active');});
 /* Init with F&B preset for strongest first impression */
 setPreset(presets.fb);document.getElementById('p-fb').classList.add('active');
+</script>
+
+<!-- EMAIL GATE LOGIC -->
+<script>
+(function(){
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwfKxQ-g1pDdTh5B03WfRAz8QRQVsr17nXNvNFwVgsHGsEffi6cR210XAF1-vnDUe5fhw/exec';
+  var GATE_I18N = {
+    title:{ en:'Unlock this decision tool', zh:'解鎖此決策工具' },
+    desc:{ en:'Enter your email to access the full interactive diagnostic. I occasionally share new frameworks and tools.', zh:'輸入 email 即可使用完整互動診斷工具。我偶爾會分享新的分析框架與工具。' },
+    btn:{ en:'Access tool', zh:'開始使用' },
+    fine:{ en:'Your email is stored privately. No spam. Unsubscribe anytime.', zh:'Email 僅供私人使用，不會寄垃圾信。隨時可取消。' },
+    sending:{ en:'...', zh:'...' }
+  };
+  var gate = document.getElementById('email-gate');
+  try { if(localStorage.getItem('logica_unlocked')){ gate.remove(); return; } } catch(e){}
+  gate.style.display = 'flex';
+  function syncGateLang(){
+    var l = document.documentElement.lang === 'zh-Hant' ? 'zh' : 'en';
+    document.querySelectorAll('[data-gate-i]').forEach(function(el){
+      var k = el.getAttribute('data-gate-i');
+      if(GATE_I18N[k] && GATE_I18N[k][l]) el.textContent = GATE_I18N[k][l];
+    });
+  }
+  syncGateLang();
+  var origSetLang = window.setLang;
+  window.setLang = function(l){ origSetLang(l); syncGateLang(); };
+  document.getElementById('gate-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('gate-email').value.trim();
+    if(!email) return;
+    var btn = this.querySelector('button');
+    btn.textContent = '...';
+    btn.disabled = true;
+    function unlock(){
+      try { localStorage.setItem('logica_unlocked','1'); } catch(ex){}
+      gate.classList.add('hidden');
+      setTimeout(function(){ gate.remove(); }, 350);
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event:'email_gate_unlock', tool: document.title, email_domain: email.split('@')[1] || '' });
+    }
+    if(!SCRIPT_URL){ console.log('[Logica gate] email:', email, '| tool:', document.title); unlock(); return; }
+    fetch(SCRIPT_URL, {
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'application/x-www-form-urlencoded'},
+      body:'email='+encodeURIComponent(email)+'&tool='+encodeURIComponent(document.title)+'&ts='+encodeURIComponent(new Date().toISOString())
+    }).then(unlock).catch(function(){ unlock(); });
+  });
+})();
 </script>
 </body>
 </html>
