@@ -66,6 +66,7 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
 .hero p{font-size:16px;color:var(--text-secondary);margin-top:8px;max-width:600px}
 .hero-meta{display:flex;gap:8px;margin-top:14px;font-size:12px;flex-wrap:wrap}
 .hero-meta span{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;border:1px solid var(--border);color:var(--text-tertiary)}
+.tool-jump{display:inline-block;margin-top:16px;font-size:13px;color:var(--text-secondary);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:2px}.tool-jump:hover{border-color:var(--text-secondary)}
 .main-grid{display:grid;grid-template-columns:1fr 380px;gap:32px;padding-top:28px;padding-bottom:80px;align-items:start}.context-panel,.tool-panel{min-width:0}
 @media(max-width:1080px){
   .main-grid{grid-template-columns:1fr;gap:24px;padding-top:20px;padding-bottom:60px}
@@ -110,7 +111,7 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
   .stat-card .number{font-size:15px}
   .stat-card .label{font-size:10px}
 }
-.tool-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 24px 20px;position:sticky;top:24px}
+.tool-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 24px 20px;position:sticky;top:24px;scroll-margin-top:24px}
 .tool-panel h2{font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:16px}
 .input-group{margin-bottom:12px}
 .input-group label{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--text-secondary);margin-bottom:6px}
@@ -211,13 +212,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="gate-logo">Logica</div>
 <div class="gate-lang" role="group" aria-labelledby="gate-language-label"><span id="gate-language-label" class="sr-only" data-gate-i="language_label">Language</span><button type="button" data-gate-lang="en" aria-pressed="true">EN</button><span aria-hidden="true">|</span><button type="button" data-gate-lang="zh" aria-pressed="false">中文</button></div>
 <h2 id="gate-title" data-gate-i="title">Unlock this decision tool</h2>
-<p id="gate-desc" class="gate-desc" data-gate-i="desc">Enter your email to access the full interactive diagnostic. I occasionally share new frameworks and tools.</p>
+<p id="gate-desc" class="gate-desc" data-gate-i="desc">Enter your email to unlock the interactive diagnostic.</p>
 <form id="gate-form" class="gate-form">
 <label class="sr-only" for="gate-email" data-gate-i="email_label">Email address</label>
 <input type="email" id="gate-email" placeholder="you@company.com" required autocomplete="email" aria-describedby="gate-fine">
 <button type="submit" data-gate-i="btn">Access tool</button>
 </form>
-<p id="gate-fine" class="gate-fine" data-gate-i="fine">Your email is stored privately. No spam. Unsubscribe anytime.</p>
+<p id="gate-fine" class="gate-fine" data-gate-i="fine">Submitting sends your email address, this tool title, and a timestamp to the configured signup endpoint. This browser stores only the unlock state; the page’s explicit unlock event sends the tool title and email domain—not the full address—to the data layer.</p>
 </div>
 </div>
 
@@ -690,11 +691,11 @@ setPreset(presets.fb);document.getElementById('p-fb').classList.add('active');
   var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwfKxQ-g1pDdTh5B03WfRAz8QRQVsr17nXNvNFwVgsHGsEffi6cR210XAF1-vnDUe5fhw/exec';
   var GATE_I18N = {
     title:{ en:'Unlock this decision tool', zh:'解鎖此決策工具' },
-    desc:{ en:'Enter your email to access the full interactive diagnostic. I occasionally share new frameworks and tools.', zh:'輸入 email 即可使用完整互動診斷工具。我偶爾會分享新的分析框架與工具。' },
+    desc:{ en:'Enter your email to unlock the interactive diagnostic.', zh:'輸入電子郵件即可解鎖互動診斷。' },
     language_label:{ en:'Language', zh:'語言' },
     email_label:{ en:'Email address', zh:'電子郵件地址' },
     btn:{ en:'Access tool', zh:'開始使用' },
-    fine:{ en:'Your email is stored privately. No spam. Unsubscribe anytime.', zh:'Email 僅供私人使用，不會寄垃圾信。隨時可取消。' },
+    fine:{ en:'Submitting sends your email address, this tool title, and a timestamp to the configured signup endpoint. This browser stores only the unlock state; the page’s explicit unlock event sends the tool title and email domain—not the full address—to the data layer.', zh:'送出後會將電子郵件地址、工具名稱與時間戳記傳送至本站設定的登記端點；瀏覽器只保存「已解鎖」狀態。本頁明確送出的解鎖事件只含工具名稱與 email 網域，不含完整地址。' },
     sending:{ en:'...', zh:'...' }
   };
   var gate = document.getElementById('email-gate');
