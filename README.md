@@ -7,7 +7,7 @@ Modified: 2026-08-09
 
 **Turning complex commercial problems into decisions that move the business.**
 
-Strategic diagnostic tools that decompose the revenue, cost, and growth problems consultants spend weeks diagnosing into structured, interactive systems anyone can operate. Each tool compresses deep domain expertise into explicit inputs, testable rules, and actionable outputs.
+Strategic diagnostic tools that turn revenue, cost, and growth questions into structured, interactive systems. Each artifact makes its inputs, rules, and outputs inspectable in one interface.
 
 **→ [View the live site](https://nickchang.dev/)**
 

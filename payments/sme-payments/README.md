@@ -32,7 +32,7 @@ A structurally complete SME strategy covers all three axes. Most issuers cover o
 
 ## Decision rules
 
-> **Disclaimer:** Thresholds are indicative and informed by publicly available industry benchmarks and the author's experience across Asia Pacific, European, and Latin American markets. They should be calibrated to local market conditions before use in live portfolio decisions.
+> **Evidence boundary:** This is a personal portfolio artifact. The scenarios are illustrative and synthetic, not client cases. Unless a source is linked, numeric thresholds are author-defined triage heuristics—not market standards. Nothing here claims client deployment, adoption, or realised results.
 
 ### Layer 1: Product architecture
 
@@ -124,12 +124,12 @@ Result: 7 rules fail, 2 warn → **Commodity Trap.** Both product architecture (
 
 ## What this demonstrates
 
-This diagnostic reflects how I approach SME payments strategy: not as a product feature comparison, but as a structural analysis of whether the product, distribution, and stickiness model are architecturally sound. The three-layer separation mirrors the actual failure modes I've observed across Asia Pacific markets — where the most common pattern is economically viable products built on obsolete architectures (rewards-only value propositions delivered through branch-only channels).
+This diagnostic shows how I frame SME payments strategy: not as a feature comparison, but as a structural analysis of product, distribution, and stickiness. The three-layer separation makes common failure hypotheses explicit without claiming a universal market model or client-derived pattern.
 
 The core thesis — that SME cards must function as operating system interfaces rather than payment instruments — is the structural insight that separates high-activation SME programs from commodity offerings.
 
 ---
 
-*Source: Industry frameworks, public SME payments benchmarks, author experience across Asia Pacific markets.*
+*Evidence note: Personal synthesis of SME-payments concepts. Uncited thresholds and scenarios are illustrative, not client evidence or market benchmarks.*
 
-*Nick Chang · Strategy consultant · Payments & financial services*
+*Nick Chang · Financial-services consultant · Strategy & decision systems*

@@ -54,7 +54,7 @@ The Effort Score (0–10) is a weighted composite: capability fit contributes 40
 
 ## Decision rules
 
-> **Disclaimer:** Thresholds are indicative and informed by publicly available industry benchmarks and the author's experience across Asia Pacific acquiring markets. They are not calibrated to any single institution or proprietary dataset. Adjust parameters to reflect your specific market context.
+> **Evidence boundary:** This is a personal portfolio artifact. The scenarios are illustrative and synthetic, not client cases. Unless a source is linked, numeric thresholds are author-defined triage heuristics—not market standards. Nothing here claims client deployment, adoption, or realised results.
 
 ### Layer 1 — Opportunity assessment (Rules 1–4)
 
@@ -178,10 +178,10 @@ Fortress competition, sub-scale volume, no growth, no banking relationships. Eve
 
 ## What this demonstrates
 
-This diagnostic reflects how I approach acquiring market strategy: not as a volume-ranking exercise, but as a structural assessment of whether the opportunity–effort balance supports profitable entry. The five-factor model, dual-axis scoring, and quadrant classification mirror the analytical frameworks used in real "Where to Play" engagements across Asia Pacific markets — where the most common mistake is confusing high card volume with high attractiveness, and the most valuable insight is often that the obvious target is not the highest-return entry point.
+This diagnostic shows how I frame acquiring-market strategy: not as a volume ranking, but as a structural assessment of opportunity versus effort. The five-factor model, dual-axis scoring, and quadrant classification are an author-defined portfolio framework that makes trade-offs inspectable; they are not presented as client-engagement evidence.
 
 ---
 
-*Source: Industry frameworks, public acquiring market benchmarks, author experience across Asia Pacific markets.*
+*Evidence note: Personal synthesis of acquiring-market concepts. Uncited thresholds and scenarios are illustrative, not client evidence or market benchmarks.*
 
-*Nick Chang · Strategy consultant · Payments & financial services*
+*Nick Chang · Financial-services consultant · Strategy & decision systems*

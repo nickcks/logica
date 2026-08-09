@@ -8,7 +8,9 @@ Most credit card issuers track revenue and cost in aggregate — total interchan
 
 The root cause: issuer P&L is driven by the **interaction** between customer behavior mix, product economics, and risk — not by any single metric. A transactor generating $50K in annual spend at 1.5% interchange but consuming 2% in rewards is a net-negative customer. A revolver carrying $8K in balance at 18% APR with a 2% chargeoff rate is highly profitable. Without a structured system to decompose these interactions, profitability decisions become guesswork.
 
-This decision system converts issuer economics into a diagnostic with explicit inputs, logic, and outputs — usable on day one of any issuer engagement.
+This decision system converts issuer economics into a diagnostic with explicit inputs, logic, and outputs that can be inspected and stress-tested.
+
+> **Evidence boundary:** This is a personal portfolio artifact. The scenarios are illustrative and synthetic, not client cases. Unless a source is linked, numeric thresholds are author-defined triage heuristics—not market standards. Nothing here claims client deployment, adoption, or realised results.
 
 ---
 
@@ -31,7 +33,7 @@ This decision system converts issuer economics into a diagnostic with explicit i
 | **Rewards & Benefits** | Spend × earn rate × redemption rate + fulfillment cost | Rewards Cost % of Spend, Breakage Rate |
 | **Credit Losses** | Portfolio balance × chargeoff rate × (1 − recovery rate) | Net Chargeoff Rate by Vintage (chargeoff typically triggered at 90–180 days past due) |
 | **Cost of Funds** | Revolving + installment balance × funding rate | Funding Rate, NIM Spread |
-| **Acquisition Cost** | New accounts × CPA (incentives + marketing + channel) | CPA, Payback Period (industry benchmarks suggest $100+ per customer) |
+| **Acquisition Cost** | New accounts × CPA (incentives + marketing + channel) | CPA, Payback Period (illustrative baseline; calibrate before use) |
 | **Operations** | Processing, servicing, fraud, compliance, technology | Cost/Active Account |
 | **Network & Scheme Fees** | Assessment fees to card networks on volume | Scheme Fee % of Interchange |
 
@@ -71,7 +73,7 @@ Acquisition → Activation (EMOB) → Usage & Monetization → Loyalty → Reten
 
 | Stage | P&L Impact | Key Failure Mode |
 |-------|-----------|------------------|
-| **Acquisition** | Sets CPA baseline; determines payback period. Industry benchmarks suggest $100+ CPA per customer. | Low-quality channels produce inactive cards at full cost |
+| **Acquisition** | Sets CPA baseline and determines payback period. The tool's CPA value is an illustrative assumption that must be calibrated. | Low-quality channels produce inactive cards at full cost |
 | **Activation (EMOB)** | First 90 days are the critical activation window within the broader EMOB period (0–6 months). Strong early activation is a leading indicator of 12-month retention. | No activation journey → 40–50% of cards never transact |
 | **Usage & Monetization** | Drives interchange + revolve revenue | Top-of-wallet lost to competitor; spend concentrated in low-margin categories |
 | **Loyalty** | Reduces attrition cost; increases cross-sell | Rewards perceived as commodity → switching on marginal offers |
@@ -216,7 +218,7 @@ The same diagnostic framework applied to two markets with fundamentally differen
 *Rule 3 (Channel & Early Activation):* **WARNING.** Mass issuance strategy (~100M cards) shows 40–50% inactivation. Massive CPA waste.
 
 **Consultant recommendation for Brazil:**
-1. **Billing cycle optimization**: High cost of funds means float management has enormous impact. Restructuring billing cycles to reduce funded-day exposure. Estimated impact: ~R$37.9M at Porto Bank scale (illustrative estimate based on engagement modeling).
+1. **Billing cycle optimization**: High cost of funds means float management has enormous impact. Restructuring billing cycles to reduce funded-day exposure. Illustrative synthetic scenario impact: ~R$37.9M under the stated assumptions.
 2. **Digital-first issuance**: Eliminate physical card production costs (estimated ~R$16.6/card). Virtual-first with optional plastic request.
 3. **Activation investment**: Redirect acquisition budget to 90-day activation programs. Each activated card worth significantly more than an incremental new card.
 4. **Premium upgrade campaigns**: Migrate active mainstream cardholders to premium tiers with annual fees. Estimated impact: ~R$15.1M (illustrative).
@@ -268,6 +270,6 @@ Note: This is a portfolio-level triage tool using observable proxies, not a full
 
 ## About the Author
 
-**Nick Chang** — Strategy consultant · Payments & financial services. I build decision systems that turn complex industry knowledge into actionable tools. Currently focused on issuer economics, card profitability optimization, and payment ecosystem strategy across Asia-Pacific and Latin American markets.
+**Nick Chang** — Financial-services consultant focused on strategy and decision systems. I build inspectable portfolio tools that turn complex questions into explicit inputs, logic, and outputs.
 
 [View more decision systems →](https://nickchang.dev/)

@@ -79,9 +79,9 @@ A co-brand CVP fails when it is defined as a feature list rather than a behavior
 
 ## Decision Rules
 
-Eight rules that determine whether a co-brand creates or destroys value. Each rule is a specific failure mode drawn from issuer program diagnostics.
+Eight rules that test whether a co-brand may create or destroy value. Each rule is an author-defined failure hypothesis for portfolio analysis.
 
-> **On thresholds:** Values below are portfolio-level heuristics informed by publicly available industry benchmarks and the author's experience across Asia Pacific, Middle East, and European payment markets. They serve as triage indicators, not underwriting standards — specific market conditions (regulatory regime, partner tier, portfolio maturity) will shift the applicable ranges.
+> **Evidence boundary:** This is a personal portfolio artifact. The scenarios are illustrative and synthetic, not client cases. Unless a source is linked, numeric thresholds are author-defined triage heuristics—not market standards. Nothing here claims client deployment, adoption, or realised results.
 
 
 
@@ -177,8 +177,8 @@ ACTION: Validate that (annual fee revenue + interchange revenue) per active card
 
 ## What This Demonstrates
 
-This framework operationalizes a decision that most issuers make intuitively — "is this a good co-brand deal?" — into a repeatable diagnostic system with specific, falsifiable thresholds. The eight rules are not general principles; they are informed by publicly available industry benchmarks and the author's experience across Asia Pacific, Middle East, and European payment markets. The framework deliberately separates *deal economics* (Rules 1–3, 6), *product design quality* (Rules 4–5), and *contract structure* (Rules 7–8) — because the most common failure mode is a structurally sound economic model built on a weak CVP, or a strong CVP attached to a contract that transfers long-term value to the partner. Passing all three layers is the minimum requirement for a viable co-brand.
+This framework operationalizes the question "is this a good co-brand deal?" as a repeatable diagnostic with explicit thresholds. The thresholds are author-defined triage heuristics rather than general principles or underwriting standards. The framework separates *deal economics* (Rules 1–3, 6), *product design quality* (Rules 4–5), and *contract structure* (Rules 7–8) so each layer can be inspected independently.
 
 ---
 
-*Built by Nick Chang · Strategy consultant · Payments & financial services · [Logica](https://nickchang.dev/)*
+*Built by Nick Chang · Financial-services consultant · Strategy & decision systems · [Logica](https://nickchang.dev/)*
