@@ -205,6 +205,7 @@ a:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:2
 <span data-i="meta_layers">3 Layers</span>
 <span data-i="meta_domain">Platform Economics</span>
 </div>
+<a class="tool-jump" href="#diagnostic" data-i="jump_to_tool">Jump to interactive diagnostic ↓</a>
 </div>
 <div class="container main-grid">
 <!-- CONTEXT PANEL -->
@@ -251,16 +252,17 @@ a:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:2
 <p data-i="ctx_how_p">Start with a preset scenario to see how the diagnostic works, then adjust inputs to match your specific vertical × market combination. Each input directly affects one or more rules. The diagnosis updates in real time.</p>
 
 <h3 data-i="ctx_cross">Cross-Domain Note</h3>
-<p data-i="ctx_cross_p">This tool applies the same Logica methodology proven across five payments industry tools to a different domain — platform economics. Built entirely from publicly available frameworks and data (a16z, Andrew Chen, NFX, platform earnings disclosures). The structural quality comes from the method, not proprietary industry knowledge.</p>
+<p data-i="ctx_cross_p">This tool applies the same diagnostic architecture used across six payments tools to a different domain: platform economics. It is a cross-domain portfolio example, not evidence that the method has been deployed or validated by a client.</p>
 
 <h3 data-i="ctx_demo">What This Demonstrates</h3>
-<p data-i="ctx_demo_p">Five payments tools prove domain depth. This tool proves the method transfers. Same diagnostic architecture — decompose a complex decision into testable rules, formalize thresholds, produce actionable verdicts. Different domain. Same quality.</p>
+<p data-i="ctx_demo_p">Six payments tools show repeated application within one domain; this seventh tool shows how the architecture can be adapted to another. The evidence is the inspectable structure and behavior of the artifact—not client adoption or realised results.</p>
 
-<p style="font-size:12px;color:var(--text-tertiary);margin-top:20px;line-height:1.6" data-i="disclaimer">Disclaimer: Indicative thresholds informed by publicly available marketplace economics research (a16z, Andrew Chen, NFX) and the author's analytical methodology. Actual thresholds vary by market, vertical, and business model. Use as a structured starting point, not definitive criteria.</p>
+<p style="font-size:12px;color:var(--text-tertiary);margin-top:20px;line-height:1.6" data-i="disclaimer">Thresholds are author-defined heuristics for illustrating the diagnostic logic, not definitive marketplace benchmarks. Calibrate them to the market, vertical, and business model before making a live decision.</p>
+<div class="callout"><strong data-i="evidence_title">Evidence boundary</strong><span data-i="evidence_body">This is a personal portfolio tool. Presets use synthetic operating profiles to demonstrate sensitivity; they are not client cases. Uncited numeric thresholds are author-defined heuristics, not market standards. The page does not claim client deployment, adoption, or realised results.</span></div>
 </div>
 
 <!-- TOOL PANEL -->
-<div class="tool-panel">
+<div class="tool-panel" id="diagnostic">
 <h2 data-i="tool_h">Diagnostic</h2>
 
 <div class="input-section-label" data-i="sec_market">Market Viability</div>
@@ -354,7 +356,7 @@ a:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:2
 </main>
 <footer>
 <div class="container footer-inner">
-<div class="footer-author">Nick Chang · Strategy consultant · Payments & financial services</div>
+<div class="footer-author">Nick Chang · Financial-services consultant · Strategy &amp; decision systems</div>
 <div class="footer-links">
 <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 <a href="https://btmbynickchangkhs.substack.com/?utm_source=logica&amp;utm_medium=portfolio&amp;utm_campaign=footer_link" target="_blank" rel="noopener noreferrer">Substack</a>
@@ -782,6 +784,16 @@ document.getElementById('p-custom').addEventListener('click',function(){clearPre
 
 // Initialize
 update();
+</script>
+<script>
+Object.assign(T,{
+  jump_to_tool:{en:'Jump to interactive diagnostic ↓',zh:'直接前往互動診斷 ↓'},
+  ctx_cross_p:{en:'This tool applies the same diagnostic architecture used across six payments tools to a different domain: platform economics. It is a cross-domain portfolio example, not evidence that the method has been deployed or validated by a client.',zh:'本工具把六個支付工具共用的診斷架構套用到平台經濟。它是跨領域作品示例，不代表方法已由客戶部署或驗證。'},
+  ctx_demo_p:{en:'Six payments tools show repeated application within one domain; this seventh tool shows how the architecture can be adapted to another. The evidence is the inspectable structure and behavior of the artifact—not client adoption or realised results.',zh:'六個支付工具呈現同一領域中的反覆應用；第七個工具則展示架構如何適應另一個領域。證據是作品本身可檢視的結構與行為，不是客戶採用或已實現成果。'},
+  disclaimer:{en:'Thresholds are author-defined heuristics for illustrating the diagnostic logic, not definitive marketplace benchmarks. Calibrate them to the market, vertical, and business model before making a live decision.',zh:'門檻是作者為呈現診斷邏輯而設定的啟發式規則，不是定論性的市場平台基準。用於真實決策前，應依市場、垂直領域與商業模式重新校準。'},
+  evidence_title:{en:'Evidence boundary',zh:'證據邊界'},
+  evidence_body:{en:'This is a personal portfolio tool. Presets use synthetic operating profiles to demonstrate sensitivity; they are not client cases. Uncited numeric thresholds are author-defined heuristics, not market standards. The page does not claim client deployment, adoption, or realised results.',zh:'這是個人作品集工具。預設使用合成營運輪廓呈現敏感度，不是客戶案例。未附來源的數值門檻屬作者設定的啟發式規則，不是市場標準；本頁也不主張客戶部署、採用或已實現成果。'}
+});
 </script>
 <!-- ACCESSIBILITY ENHANCEMENTS -->
 <script>
