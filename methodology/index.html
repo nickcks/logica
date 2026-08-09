@@ -50,8 +50,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --surface-alt:#F5F4F0;
   --text:#1A1A18;
   --text-secondary:#5C5C56;
-  --text-tertiary:#787870;
-  --text-muted:#8E8E86;
+  --text-tertiary:#6F6F68;
+  --text-muted:#73736D;
   --accent:#6B6B5E;
   --border:#E2E1DC;
   --border-light:#EEEDE9;
@@ -64,6 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 body.zh{font-family:'DM Sans','Noto Sans TC',system-ui,sans-serif}
 a{color:inherit}
+button{min-height:44px}
 .container{max-width:1080px;margin:0 auto;padding:0 28px}
 
 /* ── Header ── */
@@ -73,9 +74,9 @@ header{padding:20px 0 0}
 .header-right{display:flex;align-items:center;margin-left:auto}
 nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-left:28px;letter-spacing:.2px;transition:color .15s}nav a:hover{color:var(--text)}
 .lang-toggle{display:inline-flex;align-items:center;margin-left:24px;border-left:1px solid var(--border);padding-left:20px}
-.lang-btn{font-size:12px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:6px 10px;font-family:var(--mono);letter-spacing:.5px;transition:color .15s}.lang-btn:hover{color:var(--text-secondary)}.lang-btn.active{color:var(--text);font-weight:500}
+.lang-btn{font-size:12px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:6px 10px;min-width:44px;font-family:var(--mono);letter-spacing:.5px;transition:color .15s}.lang-btn:hover{color:var(--text-secondary)}.lang-btn.active{color:var(--text);font-weight:500}
 .lang-sep{font-size:12px;color:var(--border);margin:0 2px}
-.menu-toggle{display:none;background:none;border:none;font-size:22px;line-height:1;color:var(--text-secondary);cursor:pointer;padding:8px 4px}
+.menu-toggle{display:none;background:none;border:none;font-size:22px;line-height:1;color:var(--text-secondary);cursor:pointer;padding:8px 4px;min-width:44px}
 
 /* ── Hero ── */
 .hero{padding-top:80px;padding-bottom:64px;max-width:640px}
@@ -161,7 +162,7 @@ footer{border-top:1px solid var(--border);padding:40px 0}
   .header-right{display:none;width:100%;flex-direction:column;align-items:flex-start;padding-top:16px;margin-top:12px;border-top:1px solid var(--border-light);order:10}
   .header-right.open{display:flex}
   .header-right nav{display:flex;flex-direction:column;width:100%}
-  .header-right nav a{margin-left:0;padding:10px 0;font-size:14px;border-bottom:1px solid var(--border-light)}
+  .header-right nav a{margin-left:0;padding:12px 0;min-height:44px;font-size:14px;border-bottom:1px solid var(--border-light)}
   .lang-toggle{margin-left:auto;border-left:none;padding-left:0}
   .header-inner{flex-wrap:wrap}
 }
@@ -170,6 +171,7 @@ footer{border-top:1px solid var(--border);padding:40px 0}
   .hero h1{font-size:24px}
 }
 a:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:2px}button:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:4px}select:focus-visible{outline:2px solid var(--text);outline-offset:1px}input[type=range]:focus-visible{outline:2px solid var(--text);outline-offset:4px;border-radius:4px}.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999;font-size:14px;padding:12px 24px;background:var(--text);color:var(--bg);text-decoration:none;border-radius:0 0 var(--radius) 0}.skip-link:focus{position:fixed;left:0;top:0;width:auto;height:auto;overflow:visible}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -192,9 +194,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 </div>
 <div class="lang-toggle">
-<button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+<button class="lang-btn active" id="btn-en" aria-pressed="true" onclick="setLang('en')">EN</button>
 <span class="lang-sep">|</span>
-<button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
+<button class="lang-btn" id="btn-zh" aria-pressed="false" onclick="setLang('zh')">中文</button>
 </div>
 <button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="var h=document.querySelector('.header-right');h.classList.toggle('open');var o=h.classList.contains('open');this.textContent=o?'✕':'☰';this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Menu')">☰</button>
 </div>
@@ -431,6 +433,8 @@ function setLang(l){document.documentElement.lang=l==='zh'?'zh-Hant':'en';
   document.body.classList.toggle('zh',l==='zh');
   document.getElementById('btn-en').classList.toggle('active',l==='en');
   document.getElementById('btn-zh').classList.toggle('active',l==='zh');
+  document.getElementById('btn-en').setAttribute('aria-pressed',l==='en');
+  document.getElementById('btn-zh').setAttribute('aria-pressed',l==='zh');
   document.querySelectorAll('[data-i]').forEach(el=>{
     const k=el.getAttribute('data-i');
     if(T[k]&&T[k][l]) el.innerHTML=T[k][l];
