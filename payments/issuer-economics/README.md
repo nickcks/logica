@@ -123,7 +123,7 @@ IF 90-day Activation Rate < 60% for any acquisition channel
 THEN that channel is producing dead cards at full CPA
 ACTION: Cut or restructure that channel; reallocate budget to higher-activation sources
 ```
-Industry indicative benchmark: top-quartile issuers achieve 80%+ 90-day activation through structured EMOB programs. Channels producing below 60% activation are burning acquisition budget with no viable payback path. The 60% threshold is a practical floor — below this level, the CPA payback economics become structurally unviable for most market conditions.
+Illustrative diagnostic bands: this tool treats activation below 60% as fail, 60–69% as warn, and 70%+ as pass. These are author-defined scenario thresholds, not market standards. Teams should recalibrate them with their own channel CPA, cohort retention, and revenue-per-active economics.
 
 **Rule 4 — Fee Revenue Integrity Test**
 ```
@@ -156,7 +156,7 @@ ACTION: Deploy EMOB (Early Month on Book) journey: welcome trigger at Day 1, spe
 ```
 Rule 7 tests a stricter lifecycle standard against the same 90-day activation metric as Rule 3 — portfolios passing Rule 3's channel-level test (≥60%) may still fail Rule 7's lifecycle threshold (<55% = fail, <65% = warning). The distinction: Rule 3 diagnoses *which channels* are broken; Rule 7 diagnoses whether the *EMOB program itself* is structurally failing. The interactive tool operationalizes both rules via the same activation slider with different cut-points (Rule 3: fail <60%, warn <70%; Rule 7: fail <55%, warn <65%).
 
-Top-quartile issuers achieve 80%+ 90-day activation through structured EMOB programs that span the 0–6 month window (New → Beginners stages in the industry lifecycle framework). The gap between 50% and 80% activation on a 1M-card portfolio at $200 average annual revenue per active card = $60M in estimated unrealized revenue. Early activation is the strongest leading indicator of lifecycle monetization; poor EMOB performance compounds through every downstream stage.
+A structured EMOB program should separate Day 30, Day 60, and Day 90 milestones so teams can locate the break point and test the response by channel. This tool does not turn an activation gap into a universal revenue estimate; any value case should use the portfolio's actual cards issued, revenue per active account, CPA, retention, and downstream behaviour.
 
 ### Outputs
 
