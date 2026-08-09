@@ -209,7 +209,7 @@ Result: 2 fails, 3 warns → **Not Ready.** Large addressable population is misl
 
 **Preset D — New F&B Delivery Vertical (Launch Ready)**
 
-Scenario: Platform already operates food delivery; expanding into adjacent category. High infrastructure reuse, proven demand patterns, existing supply base partially transferable, clear regulatory framework.
+Scenario: Platform already operates food delivery and is considering an adjacent category. The illustrative assumptions use high infrastructure reuse, established demand signals, a partially transferable supply base, and a clear regulatory framework.
 
 Inputs: addressable pop 1,500K, demand density 4.0, alternative coverage 45%, supply pool 25K, earnings ratio 1.4, months to MVL 6, regulatory status clear, government partnership none, infrastructure reuse 85%, competitive position early.
 
@@ -229,16 +229,16 @@ Result: 0 fails, 0 warns → **Launch Ready.** This is the "easy extension" arch
 
 ## Cross-Domain Note
 
-This tool applies the same Logica methodology proven across five payments industry tools to a different domain — platform economics. The diagnostic architecture is identical: decompose a complex decision into testable rules, formalize thresholds, and produce actionable diagnostics with explicit pass/warn/fail logic.
+This tool applies the same diagnostic architecture used across six payments portfolio tools to a seventh, marketplace-focused artifact: decompose a complex decision into testable rules, formalize thresholds, and produce explicit pass/warn/fail outputs. Repetition demonstrates consistency of construction, not client adoption or business results.
 
-This tool is built entirely from publicly available frameworks and data — marketplace economics research (a16z, Andrew Chen, NFX), platform company earnings disclosures, and regulatory frameworks. The structural quality comes from the method, not proprietary industry knowledge. The specific metrics change; the diagnostic architecture doesn't.
+This tool is a personal synthesis drawing on public marketplace concepts and company disclosures. Uncited thresholds are author-defined heuristics, and the scenario is illustrative rather than a client case. The specific metrics change; the diagnostic architecture does not.
 
 ## What This Demonstrates
 
 Platform launch decisions and payment strategy decisions share the same structural DNA: multi-stakeholder systems where demand, supply, economics, and regulation interact in non-obvious ways. This tool demonstrates that the methodology — not domain-specific expertise — is the transferable asset.
 
-Five payments tools prove domain depth. This tool proves the method transfers. Same architecture. Different domain. Same quality.
+Six payments artifacts and this marketplace artifact share the same architecture. That portfolio shows a repeatable construction method; it does not establish deployment, adoption, or realised outcomes.
 
 ---
 
-*Source: Public marketplace economics research (a16z, Andrew Chen, NFX), platform company earnings disclosures, regulatory frameworks, and author's analytical methodology. Indicative thresholds — not definitive benchmarks for any specific market.*
+*Evidence note: Personal synthesis drawing on public marketplace concepts. Uncited thresholds and scenarios are illustrative, not client evidence or definitive market benchmarks.*

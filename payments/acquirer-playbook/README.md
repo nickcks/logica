@@ -70,9 +70,9 @@ Market entry timing should be assessed not by market size, but by fragmentation 
 
 ## Decision Rules
 
-Nine rules across three diagnostic layers. Each rule tests a specific failure mode observable in acquiring businesses across markets.
+Nine rules across three diagnostic layers. Each rule tests an author-defined failure hypothesis within the portfolio structure.
 
-> **On thresholds:** Values below are portfolio-level heuristics informed by publicly available industry benchmarks and the author's experience across Asia Pacific, Middle East, and European payment markets. They serve as triage indicators — specific market conditions (regulatory regime, interchange regulation, digital maturity) will shift the applicable ranges.
+> **Evidence boundary:** This is a personal portfolio artifact. The scenarios are illustrative and synthetic, not client cases. Unless a source is linked, numeric thresholds are author-defined triage heuristics—not market standards. Nothing here claims client deployment, adoption, or realised results.
 
 ### Layer 1 — Economics
 
@@ -235,8 +235,8 @@ ACTION: This is a strategic-level finding, not an operational fix. The recommend
 
 ## What This Demonstrates
 
-This diagnostic operationalizes the central strategic question facing every acquiring business: not "how much volume do we process?" but "where is the profit, and is the structure that generates it defensible?" The nine rules deliberately separate economics (Rules 1–3), distribution (Rules 4–6), and strategic positioning (Rules 7–9) because the most common failure mode in acquiring strategy is a viable P&L built on an obsolete distribution model — or a modern distribution model that leaks all margin through processing inefficiency. The framework is informed by publicly available industry benchmarks and the author's experience across Asia Pacific, Middle East, and European payment markets.
+This diagnostic operationalizes the central strategic question facing every acquiring business: not "how much volume do we process?" but "where is the profit, and is the structure that generates it defensible?" The nine rules deliberately separate economics (Rules 1–3), distribution (Rules 4–6), and strategic positioning (Rules 7–9) because each layer can fail independently. The structure is an author-defined synthesis designed to make those dependencies inspectable.
 
 ---
 
-*Built by Nick Chang · Strategy consultant · Payments & financial services · [Logica](https://nickchang.dev/)*
+*Built by Nick Chang · Financial-services consultant · Strategy & decision systems · [Logica](https://nickchang.dev/)*

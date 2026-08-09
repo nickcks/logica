@@ -41,7 +41,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {
       "@type": "Person",
       "name": "Nick Chang",
-      "jobTitle": "Strategy Consultant — Payments & Financial Services",
+      "jobTitle": "Financial Services Consultant",
       "url": "https://nickchang.dev/",
       "sameAs": [
         "https://www.linkedin.com/in/nick-kaihsiangchang/",
@@ -63,8 +63,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --surface-alt:#F5F4F0;
   --text:#1A1A18;
   --text-secondary:#5C5C56;
-  --text-tertiary:#787870;
-  --text-muted:#8E8E86;
+  --text-tertiary:#6F6F68;
+  --text-muted:#73736D;
   --accent:#6B6B5E;
   --border:#E2E1DC;
   --border-light:#EEEDE9;
@@ -77,6 +77,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 body.zh{font-family:'DM Sans','Noto Sans TC',system-ui,sans-serif}
 a{color:inherit}
+button{min-height:44px}
 .container{max-width:1080px;margin:0 auto;padding:0 28px}
 
 /* ── Header ── */
@@ -86,9 +87,9 @@ header{padding:20px 0 0}
 .header-right{display:flex;align-items:center;margin-left:auto}
 nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-left:28px;letter-spacing:.2px;transition:color .15s}nav a:hover{color:var(--text)}
 .lang-toggle{display:inline-flex;align-items:center;margin-left:24px;border-left:1px solid var(--border);padding-left:20px}
-.lang-btn{font-size:12px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:6px 10px;font-family:var(--mono);letter-spacing:.5px;transition:color .15s}.lang-btn:hover{color:var(--text-secondary)}.lang-btn.active{color:var(--text);font-weight:500}
+.lang-btn{font-size:12px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:6px 10px;min-width:44px;font-family:var(--mono);letter-spacing:.5px;transition:color .15s}.lang-btn:hover{color:var(--text-secondary)}.lang-btn.active{color:var(--text);font-weight:500}
 .lang-sep{font-size:12px;color:var(--border);margin:0 2px}
-.menu-toggle{display:none;background:none;border:none;font-size:22px;line-height:1;color:var(--text-secondary);cursor:pointer;padding:8px 4px}
+.menu-toggle{display:none;background:none;border:none;font-size:22px;line-height:1;color:var(--text-secondary);cursor:pointer;padding:8px 4px;min-width:44px}
 
 /* ── Hero ── */
 .hero{padding-top:80px;padding-bottom:64px;max-width:720px}
@@ -185,7 +186,7 @@ footer{border-top:1px solid var(--border);padding:40px 0}
   .header-right{display:none;width:100%;flex-direction:column;align-items:flex-start;padding-top:16px;margin-top:12px;border-top:1px solid var(--border-light);order:10}
   .header-right.open{display:flex}
   .header-right nav{display:flex;flex-direction:column;width:100%}
-  .header-right nav a{margin-left:0;padding:10px 0;font-size:14px;border-bottom:1px solid var(--border-light)}
+  .header-right nav a{margin-left:0;padding:12px 0;min-height:44px;font-size:14px;border-bottom:1px solid var(--border-light)}
   .lang-toggle{margin-left:auto;border-left:none;padding-left:0}
   .header-inner{flex-wrap:wrap}
 }
@@ -200,6 +201,7 @@ button:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-rad
 select:focus-visible{outline:2px solid var(--text);outline-offset:1px}
 input[type=range]:focus-visible{outline:2px solid var(--text);outline-offset:4px;border-radius:4px}
 .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999;font-size:14px;padding:12px 24px;background:var(--text);color:var(--bg);text-decoration:none;border-radius:0 0 var(--radius) 0}.skip-link:focus{position:fixed;left:0;top:0;width:auto;height:auto;overflow:visible}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -222,9 +224,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 </div>
 <div class="lang-toggle">
-<button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+<button class="lang-btn active" id="btn-en" aria-pressed="true" onclick="setLang('en')">EN</button>
 <span class="lang-sep">|</span>
-<button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
+<button class="lang-btn" id="btn-zh" aria-pressed="false" onclick="setLang('zh')">中文</button>
 </div>
 <button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="var h=document.querySelector('.header-right');h.classList.toggle('open');var o=h.classList.contains('open');this.textContent=o?'✕':'☰';this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Menu')">☰</button>
 </div>
@@ -234,18 +236,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="container hero">
 <div class="hero-super" data-i="hero_super">Strategic diagnostics</div>
 <h1 data-i="hero_title">Turning complex commercial problems into decisions that move the business</h1>
-<p class="tagline" data-i="hero_tagline">Each tool decomposes a real commercial problem — the kind consultants spend weeks diagnosing — into a structured diagnostic anyone can operate. Revenue, cost, and growth decisions get made with structure instead of instinct.</p>
-<p class="hero-author" data-i="hero_author">Built by <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">Nick Chang</a> · Strategy consultant · Payments &amp; financial services</p>
+<p class="tagline" data-i="hero_tagline">Each tool decomposes a complex commercial decision into a structured diagnostic with inspectable inputs, rules, and outputs. The portfolio shows how judgment is designed—not whether a client adopted it.</p>
+<p class="hero-author" data-i="hero_author">Built by <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">Nick Chang</a> · Financial-services consultant · Strategy, propositions &amp; decision systems</p>
 </div>
 
 <div class="container context-bar">
 <div class="context-block">
 <div class="context-label" data-i="wid_label">What I do</div>
-<p data-i="wid_text">I take the commercial problems that drive revenue, cost, and growth decisions — the kind consultants spend weeks diagnosing — and turn them into structured, interactive decision systems anyone can operate. Each tool compresses deep domain expertise into something you can run in minutes.</p>
+<p data-i="wid_text">I turn complex revenue, cost, growth, and operating questions into structured decision systems. The inputs, assumptions, rules, and outputs stay visible so another person can inspect the judgment rather than accept a black-box answer.</p>
 </div>
 <div class="context-block">
 <div class="context-label" data-i="about_title">The evidence</div>
-<p data-i="about_text">Seven diagnostic tools across card payments and platform economics. Each takes a problem that usually lives inside consulting decks — and structures it into explicit inputs, testable rules, and actionable outputs. Payments is the proving ground.</p>
+<p data-i="about_text">Seven diagnostic tools: six in card payments and one in marketplace economics. They demonstrate repeatable problem framing and decision-logic design; illustrative scenarios are not client cases or evidence of deployment.</p>
 </div>
 </div>
 
@@ -268,7 +270,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <a class="tool-card" href="payments/cobrand-strategy/">
 <div class="tool-number">02</div>
 <h3 data-i="t2_title">Co-Brand</h3>
-<p data-i="t2_desc">Will this partnership actually create value — or just burn acquisition spend? Tests partner reach, deal economics, and contract structure against proven failure modes.</p>
+<p data-i="t2_desc">Will this partnership create value — or just burn acquisition spend? Tests partner reach, deal economics, and contract structure against common failure patterns.</p>
 <div class="tool-meta"><span class="tool-tag" data-i="t2_tag1">8 rules</span><span class="tool-tag" data-i="t2_tag2">Partnership strategy</span></div>
 </a>
 
@@ -329,19 +331,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="section-label" data-i="next_label">What's next</span>
 </div>
 <div class="next-content">
-<p data-i="next_desc">Payments was the starting point — seven tools that prove the approach works on real commercial problems. The marketplace diagnostic tested it beyond payments. More domains will follow where the same conditions hold: high complexity, consequential decisions, and expertise trapped in expert judgment.</p>
+<p data-i="next_desc">Payments was the starting point: six tools apply the same diagnostic architecture within one domain. A seventh explores marketplace launch readiness. Together they demonstrate how the structure transfers—not client adoption or realised business results.</p>
 <div class="roadmap">
 <a class="roadmap-pill" href="methodology/" style="text-decoration:none"><span class="pill-num">✓</span><span class="pill-text" data-i="ph3_title">Method</span></a>
 <div class="roadmap-pill"><span class="pill-num">→</span><span class="pill-text" data-i="ph4_title">New domains</span></div>
 </div>
-<p class="connect-line" data-i="connect_line">Open to conversations about payments strategy, commercial diagnostics, and making expert judgment operational — <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">connect on LinkedIn</a>.</p>
+<p class="connect-line" data-i="connect_line"><strong>Hiring managers and collaborators:</strong> if you are evaluating Nick for financial-services strategy, propositions, business management, client journeys, or decision-system work, review the logic here and <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">connect on LinkedIn</a>.</p>
 </div>
 </div>
 </main>
 
 <footer>
 <div class="container footer-inner">
-<span class="footer-author">Nick Chang · Strategy consultant · Payments &amp; financial services</span>
+<span class="footer-author">Nick Chang · Financial-services consultant · Strategy &amp; decision systems</span>
 <div class="footer-links">
 <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 <a href="https://btmbynickchangkhs.substack.com/?utm_source=logica&amp;utm_medium=portfolio&amp;utm_campaign=footer_link" target="_blank" rel="noopener noreferrer">Substack</a>
@@ -354,18 +356,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 const T={
 hero_super:{en:'Strategic diagnostics',zh:'策略診斷'},
 hero_title:{en:'Turning complex commercial problems into decisions that move the business',zh:'將複雜商業問題轉化為推動業務的決策'},
-hero_tagline:{en:'Each tool decomposes a real commercial problem — the kind consultants spend weeks diagnosing — into a structured diagnostic anyone can operate. Revenue, cost, and growth decisions get made with structure instead of instinct.',zh:'每個工具將一個真實的商業問題——那種顧問需要數週才能診斷的問題——解構為任何人都能操作的結構化診斷。營收、成本與成長決策，以結構取代直覺。'},
-hero_author:{en:'Built by <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">Nick Chang</a> · Strategy consultant · Payments &amp; financial services',zh:'<a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank">Nick Chang（張凱翔）</a> · 策略顧問 · 支付與金融服務'},
+hero_tagline:{en:'Each tool decomposes a complex commercial decision into a structured diagnostic with inspectable inputs, rules, and outputs. The portfolio shows how judgment is designed—not whether a client adopted it.',zh:'每個工具把複雜商業決策拆成可檢視的輸入、規則與產出。這個作品集呈現判斷如何被設計，不代表客戶已採用。'},
+hero_author:{en:'Built by <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">Nick Chang</a> · Financial-services consultant · Strategy, propositions & decision systems',zh:'<a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">Nick Chang（張凱翔）</a> · 金融服務顧問 · 策略、價值主張與決策系統'},
 wid_label:{en:'What I do',zh:'我做什麼'},
-wid_text:{en:'I take the commercial problems that drive revenue, cost, and growth decisions — the kind consultants spend weeks diagnosing — and turn them into structured, interactive decision systems anyone can operate. Each tool compresses deep domain expertise into something you can run in minutes.',zh:'我將驅動營收、成本與成長決策的商業問題——那種顧問需要花數週診斷的問題——轉化為任何人都能操作的結構化互動式決策系統。每個工具把深度領域專業壓縮成幾分鐘內就能執行的東西。'},
+wid_text:{en:'I turn complex revenue, cost, growth, and operating questions into structured decision systems. The inputs, assumptions, rules, and outputs stay visible so another person can inspect the judgment rather than accept a black-box answer.',zh:'我把複雜的營收、成本、成長與營運問題轉成結構化決策系統。輸入、假設、規則與產出都保持可見，讓讀者能檢視判斷，而不是接受黑箱答案。'},
 about_title:{en:'The evidence',zh:'證據'},
-about_text:{en:'Seven diagnostic tools across card payments and platform economics. Each takes a problem that usually lives inside consulting decks — and structures it into explicit inputs, testable rules, and actionable outputs. Payments is the proving ground.',zh:'七個診斷工具，涵蓋卡片支付與平台經濟。每個工具將通常困在顧問簡報中的問題——結構化為明確的輸入、可測試的規則與可行動的產出。支付是證明場。'},
+about_text:{en:'Seven diagnostic tools: six in card payments and one in marketplace economics. They demonstrate repeatable problem framing and decision-logic design; illustrative scenarios are not client cases or evidence of deployment.',zh:'七個診斷工具：六個卡片支付工具，加上一個市場平台經濟工具。它們呈現可重複的問題拆解與決策邏輯設計；示意情境不是客戶案例，也不代表已部署。'},
 sec_payments:{en:'Payments',zh:'支付'},
 sec_count:{en:'6 systems',zh:'6 個系統'},
 t1_title:{en:'Issuer P&L',zh:'發卡 P&L'},
 t1_desc:{en:'Where is this card portfolio making — or losing — money? Diagnoses the economics of a credit card book across transaction mix, customer behavior, and risk.',zh:'這張卡組合的錢從哪裡賺、從哪裡漏？橫跨交易結構、客戶行為與風險，診斷發卡經濟的價值創造與毀損。'},
 t1_tag1:{en:'7 rules',zh:'7 條規則'},t1_tag2:{en:'Issuer economics',zh:'發卡經濟'},
-t2_title:{en:'Co-Brand',zh:'聯名卡'},t2_desc:{en:'Will this partnership actually create value — or just burn acquisition spend? Tests partner reach, deal economics, and contract structure against proven failure modes.',zh:'這個合作真的創造價值——還是只在燒獲客預算？以已驗證的失敗模式，檢驗合作方規模、交易經濟與合約結構。'},t2_tag1:{en:'8 rules',zh:'8 條規則'},t2_tag2:{en:'Partnership strategy',zh:'合作策略'},
+t2_title:{en:'Co-Brand',zh:'聯名卡'},t2_desc:{en:'Will this partnership create value — or just burn acquisition spend? Tests partner reach, deal economics, and contract structure against common failure patterns.',zh:'這個合作會創造價值——還是只在燒獲客預算？依常見失效模式檢驗合作方觸達、交易經濟與合約結構。'},t2_tag1:{en:'8 rules',zh:'8 條規則'},t2_tag2:{en:'Partnership strategy',zh:'合作策略'},
 t3_title:{en:'Conversion',zh:'轉換'},t3_desc:{en:'Is the portfolio ready to migrate — or will the switch destroy more value than it creates? Assesses readiness across network switches, upgrades, and M&A migrations.',zh:'卡組合準備好遷移了嗎——還是轉換會毀掉更多價值？評估網路轉換、產品升級與併購遷移的準備度。'},t3_tag1:{en:'8 rules',zh:'8 條規則'},t3_tag2:{en:'Conversion readiness',zh:'轉換準備度'},
 t4_title:{en:'Acquiring',zh:'收單'},t4_desc:{en:'Can this acquiring business survive margin compression — or is the model structurally broken? Diagnoses economics, distribution, and strategic position across the value chain.',zh:'這個收單業務撐得過利潤壓縮嗎——還是模式本身就有結構性問題？診斷價值鏈上的經濟、通路與策略定位。'},t4_tag1:{en:'9 rules',zh:'9 條規則'},t4_tag2:{en:'Acquiring economics',zh:'收單經濟'},
 t5_title:{en:'SME Payments',zh:'中小企業支付'},t5_desc:{en:'Is the SME card a real operating system — or just a payment instrument dressed up? Tests whether product architecture, go-to-market, and stickiness hold up under scrutiny.',zh:'中小企業卡是真正的營運系統——還是披著外衣的支付工具？檢驗產品架構、市場策略與黏著度是否經得起檢視。'},t5_tag1:{en:'9 rules',zh:'9 條規則'},t5_tag2:{en:'SME payments',zh:'中小企業支付'},
@@ -374,10 +376,10 @@ sec_platforms:{en:'Platforms',zh:'平台'},
 sec_platforms_count:{en:'1 system',zh:'1 個系統'},
 t7_title:{en:'Marketplace Launch',zh:'市場進入'},t7_sub:{en:'Platform economics diagnostic',zh:'平台經濟診斷'},t7_desc:{en:'Is this vertical worth launching — or will it burn platform resources on a market that never reaches liquidity? Stress-tests demand density, supply economics, and execution readiness before committing.',zh:'這個垂直市場值得進入嗎——還是會把平台資源燒在永遠達不到流動性的市場上？在投入前壓力測試需求密度、供給經濟與執行準備度。'},t7_tag1:{en:'9 rules',zh:'9 條規則'},t7_tag2:{en:'Platform economics',zh:'平台經濟'},
 next_label:{en:"What's next",zh:'下一步'},
-next_desc:{en:'Payments was the starting point — seven tools that prove the approach works on real commercial problems. The marketplace diagnostic tested it beyond payments. More domains will follow where the same conditions hold: high complexity, consequential decisions, and expertise trapped in expert judgment.',zh:'支付是起點——七個工具證明這套方法在真實商業問題上行得通。市場進入診斷在支付之外驗證了它。更多領域將在相同條件下跟進：高複雜度、關鍵決策、以及困在專家判斷中的專業知識。'},
+next_desc:{en:'Payments was the starting point: six tools apply the same diagnostic architecture within one domain. A seventh explores marketplace launch readiness. Together they demonstrate how the structure transfers—not client adoption or realised business results.',zh:'支付是起點：六個工具在同一領域中反覆應用相同的診斷架構，第七個則探索市場平台的進入準備度。它們呈現架構如何遷移，不代表客戶採用或已實現的商業成果。'},
 ph3_title:{en:'Method',zh:'方法'},
 ph4_title:{en:'New domains',zh:'新領域'},
-connect_line:{en:'Open to conversations about payments strategy, commercial diagnostics, and making expert judgment operational — <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">connect on LinkedIn</a>.',zh:'歡迎交流支付策略、商業診斷，以及如何讓專家判斷可操作化——<a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">LinkedIn 聯繫</a>。'}
+connect_line:{en:'<strong>Hiring managers and collaborators:</strong> if you are evaluating Nick for financial-services strategy, propositions, business management, client journeys, or decision-system work, review the logic here and <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">connect on LinkedIn</a>.',zh:'<strong>用人主管與合作夥伴：</strong>若你正在評估 Nick 的金融服務策略、價值主張、商業管理、客戶旅程或決策系統能力，請先檢視這裡的判斷邏輯，再透過 <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">LinkedIn 聯繫</a>。'}
 };
 let lang='en';
 function setLang(l){
@@ -386,6 +388,8 @@ function setLang(l){
   document.body.classList.toggle('zh',l==='zh');
   document.getElementById('btn-en').classList.toggle('active',l==='en');
   document.getElementById('btn-zh').classList.toggle('active',l==='zh');
+  document.getElementById('btn-en').setAttribute('aria-pressed',l==='en');
+  document.getElementById('btn-zh').setAttribute('aria-pressed',l==='zh');
   document.querySelectorAll('[data-i]').forEach(el=>{const k=el.getAttribute('data-i');if(T[k]&&T[k][l]) el.innerHTML=T[k][l];});
 }
 </script>

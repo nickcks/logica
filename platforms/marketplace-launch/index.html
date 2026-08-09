@@ -46,10 +46,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#FAFAF8;--surface:#FFFFFF;--surface-alt:#F5F4F0;--text:#1A1A18;--text-secondary:#5C5C56;--text-tertiary:#787870;--border:#E2E1DC;--border-light:#EEEDE9;--accent:#6B6B5E;--text-muted:#8E8E86;--border-hover:#B8B8B0;--mono:'DM Mono',monospace;--sans:'DM Sans',system-ui,sans-serif;--pass:#1B7D46;--pass-bg:#EEFBF3;--pass-border:#C6F0D5;--warn:#8A6D0B;--warn-bg:#FFF9E6;--warn-border:#FFE680;--fail:#B91C1C;--fail-bg:#FEF2F2;--fail-border:#FECACA;--radius:8px;--radius-lg:12px}
+:root{--bg:#FAFAF8;--surface:#FFFFFF;--surface-alt:#F5F4F0;--text:#1A1A18;--text-secondary:#5C5C56;--text-tertiary:#6F6F68;--border:#E2E1DC;--border-light:#EEEDE9;--accent:#6B6B5E;--text-muted:#73736D;--border-hover:#B8B8B0;--mono:'DM Mono',monospace;--sans:'DM Sans',system-ui,sans-serif;--pass:#1B7D46;--pass-bg:#EEFBF3;--pass-border:#C6F0D5;--warn:#8A6D0B;--warn-bg:#FFF9E6;--warn-border:#FFE680;--fail:#B91C1C;--fail-bg:#FEF2F2;--fail-border:#FECACA;--radius:8px;--radius-lg:12px}
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
 body.zh{font-family:'DM Sans','Noto Sans TC',system-ui,sans-serif}
 a{color:inherit}
+button,select{min-height:44px}
 .container{max-width:1120px;margin:0 auto;padding:0 24px}
 header{padding:24px 0 0;border-bottom:1px solid var(--border)}
 .header-inner{display:flex;align-items:center;padding-bottom:20px}
@@ -57,18 +58,20 @@ header{padding:24px 0 0;border-bottom:1px solid var(--border)}
 .header-right{display:flex;align-items:center;margin-left:auto}
 nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-left:24px}nav a:hover{color:var(--text)}
 .lang-toggle{display:inline-flex;align-items:center;margin-left:20px;border-left:1px solid var(--border);padding-left:16px}
-.lang-btn{font-size:12px;color:var(--text-tertiary);background:none;border:none;cursor:pointer;padding:6px 10px;font-family:inherit;transition:color .15s}.lang-btn:hover{color:var(--text)}.lang-btn.active{color:var(--text);font-weight:500}
+.lang-btn{font-size:12px;color:var(--text-tertiary);background:none;border:none;cursor:pointer;padding:6px 10px;min-width:44px;font-family:inherit;transition:color .15s}.lang-btn:hover{color:var(--text)}.lang-btn.active{color:var(--text);font-weight:500}
 .lang-sep{font-size:12px;color:var(--border);margin:0 2px}
-.menu-toggle{display:none;background:none;border:none;font-size:22px;line-height:1;color:var(--text-secondary);cursor:pointer;padding:8px 4px}
+.menu-toggle{display:none;background:none;border:none;font-size:22px;line-height:1;color:var(--text-secondary);cursor:pointer;padding:8px 4px;min-width:44px}
 .hero{padding-top:36px;padding-bottom:28px}
 .hero h1{font-size:32px;font-weight:700;line-height:1.2;max-width:680px;letter-spacing:-.5px}
 .hero p{font-size:16px;color:var(--text-secondary);margin-top:8px;max-width:600px}
 .hero-meta{display:flex;gap:8px;margin-top:14px;font-size:12px;flex-wrap:wrap}
 .hero-meta span{display:inline-flex;align-items:center;padding:3px 10px;border-radius:20px;border:1px solid var(--border);color:var(--text-tertiary)}
-.main-grid{display:grid;grid-template-columns:1fr 380px;gap:32px;padding-top:28px;padding-bottom:80px;align-items:start}
+.tool-jump{display:inline-block;margin-top:16px;font-size:13px;color:var(--text-secondary);text-decoration:none;border-bottom:1px solid var(--border);padding-bottom:2px}.tool-jump:hover{border-color:var(--text-secondary)}
+.main-grid{display:grid;grid-template-columns:1fr 380px;gap:32px;padding-top:28px;padding-bottom:80px;align-items:start}.context-panel,.tool-panel{min-width:0}
 @media(max-width:1080px){
   .main-grid{grid-template-columns:1fr;gap:24px;padding-top:20px;padding-bottom:60px}
   .tool-panel{position:static}
+  .context-panel{max-width:760px}
 }
 @media(max-width:860px){
   .footer-inner{flex-direction:column;gap:12px;align-items:flex-start}
@@ -95,7 +98,7 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
   .header-right{display:none;width:100%;flex-direction:column;align-items:flex-start;padding-top:16px;margin-top:12px;border-top:1px solid var(--border-light);order:10}
   .header-right.open{display:flex}
   .header-right nav{display:flex;flex-direction:column;width:100%}
-  .header-right nav a{margin-left:0;padding:10px 0;font-size:14px;border-bottom:1px solid var(--border-light)}
+  .header-right nav a{margin-left:0;padding:12px 0;min-height:44px;font-size:14px;border-bottom:1px solid var(--border-light)}
   .lang-toggle{margin-left:auto;border-left:none;padding-left:0}
   .header-inner{flex-wrap:wrap}
 }
@@ -108,12 +111,14 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
   .stat-card .number{font-size:15px}
   .stat-card .label{font-size:10px}
 }
-.tool-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 24px 20px;position:sticky;top:24px}
+.tool-panel{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:24px 24px 20px;position:sticky;top:24px;scroll-margin-top:24px}
 .tool-panel h2{font-size:14px;font-weight:500;text-transform:uppercase;letter-spacing:.5px;color:var(--text-tertiary);margin-bottom:16px}
 .input-group{margin-bottom:12px}
 .input-group label{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--text-secondary);margin-bottom:6px}
 .input-group .value{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--text);min-width:48px;text-align:right}
-input[type=range]{-webkit-appearance:none;width:100%;height:6px;background:var(--border);border-radius:3px;outline:none;touch-action:manipulation}
+input[type=range]{-webkit-appearance:none;width:100%;height:44px;background:transparent;outline:none;touch-action:manipulation}
+input[type=range]::-webkit-slider-runnable-track{height:6px;background:var(--border);border-radius:3px}
+input[type=range]::-moz-range-track{height:6px;background:var(--border);border-radius:3px}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:var(--text);border-radius:50%;cursor:pointer}
 input[type=range]::-moz-range-thumb{width:22px;height:22px;background:var(--text);border-radius:50%;cursor:pointer;border:0}
 select{font-family:inherit;font-size:13px;padding:6px 10px;border:1px solid var(--border);border-radius:var(--radius);background:var(--surface);color:var(--text);width:100%;cursor:pointer;margin-top:2px}
@@ -158,8 +163,12 @@ select{font-family:inherit;font-size:13px;padding:6px 10px;border:1px solid var(
 .context-panel .callout{background:var(--surface-alt);border-radius:var(--radius);padding:12px 14px;margin:12px 0;font-size:13px;line-height:1.6}
 .context-panel .callout strong{display:block;margin-bottom:4px}
 .rules-summary-table{table-layout:auto}.rules-summary-table th:first-child,.rules-summary-table td:first-child{width:24px;text-align:center;color:var(--text-tertiary);font-weight:400}.rules-summary-table td:nth-child(2){width:auto;white-space:nowrap}
+@media(max-width:600px){.rules-summary-table td:nth-child(2){white-space:normal}}
+@media(max-width:1080px){.tool-panel{position:static}}
 footer{border-top:1px solid var(--border);padding:40px 0}.footer-inner{display:flex;justify-content:space-between;align-items:center}.footer-author{font-size:13px;color:var(--text-tertiary)}.footer-links{display:flex;gap:20px}.footer-links a{font-size:13px;color:var(--text-tertiary);text-decoration:none;transition:color .15s}.footer-links a:hover{color:var(--text-secondary)}
 a:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:2px}button:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:4px}select:focus-visible{outline:2px solid var(--text);outline-offset:1px}input[type=range]:focus-visible{outline:2px solid var(--text);outline-offset:4px;border-radius:4px}.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999;font-size:14px;padding:12px 24px;background:var(--text);color:var(--bg);text-decoration:none;border-radius:0 0 var(--radius) 0}.skip-link:focus{position:fixed;left:0;top:0;width:auto;height:auto;overflow:visible}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -196,6 +205,7 @@ a:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:2
 <span data-i="meta_layers">3 Layers</span>
 <span data-i="meta_domain">Platform Economics</span>
 </div>
+<a class="tool-jump" href="#diagnostic" data-i="jump_to_tool">Jump to interactive diagnostic ↓</a>
 </div>
 <div class="container main-grid">
 <!-- CONTEXT PANEL -->
@@ -242,16 +252,17 @@ a:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:2
 <p data-i="ctx_how_p">Start with a preset scenario to see how the diagnostic works, then adjust inputs to match your specific vertical × market combination. Each input directly affects one or more rules. The diagnosis updates in real time.</p>
 
 <h3 data-i="ctx_cross">Cross-Domain Note</h3>
-<p data-i="ctx_cross_p">This tool applies the same Logica methodology proven across five payments industry tools to a different domain — platform economics. Built entirely from publicly available frameworks and data (a16z, Andrew Chen, NFX, platform earnings disclosures). The structural quality comes from the method, not proprietary industry knowledge.</p>
+<p data-i="ctx_cross_p">This tool applies the same diagnostic architecture used across six payments tools to a different domain: platform economics. It is a cross-domain portfolio example, not evidence that the method has been deployed or validated by a client.</p>
 
 <h3 data-i="ctx_demo">What This Demonstrates</h3>
-<p data-i="ctx_demo_p">Five payments tools prove domain depth. This tool proves the method transfers. Same diagnostic architecture — decompose a complex decision into testable rules, formalize thresholds, produce actionable verdicts. Different domain. Same quality.</p>
+<p data-i="ctx_demo_p">Six payments tools show repeated application within one domain; this seventh tool shows how the architecture can be adapted to another. The evidence is the inspectable structure and behavior of the artifact—not client adoption or realised results.</p>
 
-<p style="font-size:12px;color:var(--text-tertiary);margin-top:20px;line-height:1.6" data-i="disclaimer">Disclaimer: Indicative thresholds informed by publicly available marketplace economics research (a16z, Andrew Chen, NFX) and the author's analytical methodology. Actual thresholds vary by market, vertical, and business model. Use as a structured starting point, not definitive criteria.</p>
+<p style="font-size:12px;color:var(--text-tertiary);margin-top:20px;line-height:1.6" data-i="disclaimer">Thresholds are author-defined heuristics for illustrating the diagnostic logic, not definitive marketplace benchmarks. Calibrate them to the market, vertical, and business model before making a live decision.</p>
+<div class="callout"><strong data-i="evidence_title">Evidence boundary</strong><span data-i="evidence_body">This is a personal portfolio tool. Presets use synthetic operating profiles to demonstrate sensitivity; they are not client cases. Uncited numeric thresholds are author-defined heuristics, not market standards. The page does not claim client deployment, adoption, or realised results.</span></div>
 </div>
 
 <!-- TOOL PANEL -->
-<div class="tool-panel">
+<div class="tool-panel" id="diagnostic">
 <h2 data-i="tool_h">Diagnostic</h2>
 
 <div class="input-section-label" data-i="sec_market">Market Viability</div>
@@ -345,7 +356,7 @@ a:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:2
 </main>
 <footer>
 <div class="container footer-inner">
-<div class="footer-author">Nick Chang · Strategy consultant · Payments & financial services</div>
+<div class="footer-author">Nick Chang · Financial-services consultant · Strategy &amp; decision systems</div>
 <div class="footer-links">
 <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 <a href="https://btmbynickchangkhs.substack.com/?utm_source=logica&amp;utm_medium=portfolio&amp;utm_campaign=footer_link" target="_blank" rel="noopener noreferrer">Substack</a>
@@ -388,9 +399,9 @@ special_p:{en:'Economics Trap (R5 + R6 both fail) · Regulatory Blocker (R7 fail
 ctx_how:{en:'How to Use',zh:'使用方法'},
 ctx_how_p:{en:'Start with a preset scenario to see how the diagnostic works, then adjust inputs to match your specific vertical × market combination. Each input directly affects one or more rules. The diagnosis updates in real time.',zh:'先從預設情境開始了解診斷運作方式，再調整參數以匹配你的具體垂直領域和市場。每個輸入直接影響一條或多條規則，診斷結果即時更新。'},
 ctx_cross:{en:'Cross-Domain Note',zh:'跨領域說明'},
-ctx_cross_p:{en:'This tool applies the same Logica methodology proven across five payments industry tools to a different domain — platform economics. Built entirely from publicly available frameworks and data (a16z, Andrew Chen, NFX, platform earnings disclosures). The structural quality comes from the method, not proprietary industry knowledge.',zh:'本工具將經五個支付行業工具驗證的 Logica 方法論應用於不同領域——平台經濟學。完全基於公開框架與數據（a16z、Andrew Chen、NFX、平台財報）構建。結構品質來自方法論，而非專有行業知識。'},
+ctx_cross_p:{en:'This tool applies the diagnostic architecture used across six payments portfolio tools to a seventh, marketplace-focused artifact. It is a personal synthesis drawing on public marketplace concepts; repetition demonstrates consistency of construction, not client adoption or results.',zh:'本工具把六個支付作品所使用的診斷架構應用到第七個市場平台作品。這是參考公開市場平台概念的個人綜合；重複使用只顯示建構一致性，不代表客戶採用或成果。'},
 ctx_demo:{en:'What This Demonstrates',zh:'能力展示'},
-ctx_demo_p:{en:'Five payments tools prove domain depth. This tool proves the method transfers. Same diagnostic architecture — decompose a complex decision into testable rules, formalize thresholds, produce actionable verdicts. Different domain. Same quality.',zh:'五個支付工具證明領域深度。本工具證明方法可遷移。相同的診斷架構——將複雜決策分解為可測試規則、形式化門檻、產出可行動判定。不同領域，相同品質。'},
+ctx_demo_p:{en:'Six payments artifacts and this marketplace artifact share one diagnostic architecture. The portfolio shows a repeatable construction method; it does not establish deployment, adoption, or realised outcomes.',zh:'六個支付作品與這個市場平台作品共用同一診斷架構。作品集顯示可重複的建構方法，但不代表部署、採用或已實現成果。'},
 disclaimer:{en:'Disclaimer: Indicative thresholds informed by publicly available marketplace economics research (a16z, Andrew Chen, NFX) and the author\'s analytical methodology. Actual thresholds vary by market, vertical, and business model. Use as a structured starting point, not definitive criteria.',zh:'免責聲明：指標性門檻參考公開的市場平台經濟學研究（a16z、Andrew Chen、NFX）與作者的分析方法論。實際門檻因市場、垂直領域和商業模式而異。請作為結構化分析起點，非最終判定標準。'},
 tool_h:{en:'Diagnostic',zh:'診斷工具'},
 sec_market:{en:'Market Viability',zh:'市場可行性'},
@@ -773,6 +784,73 @@ document.getElementById('p-custom').addEventListener('click',function(){clearPre
 
 // Initialize
 update();
+</script>
+<script>
+Object.assign(T,{
+  jump_to_tool:{en:'Jump to interactive diagnostic ↓',zh:'直接前往互動診斷 ↓'},
+  ctx_cross_p:{en:'This tool applies the same diagnostic architecture used across six payments tools to a different domain: platform economics. It is a cross-domain portfolio example, not evidence that the method has been deployed or validated by a client.',zh:'本工具把六個支付工具共用的診斷架構套用到平台經濟。它是跨領域作品示例，不代表方法已由客戶部署或驗證。'},
+  ctx_demo_p:{en:'Six payments tools show repeated application within one domain; this seventh tool shows how the architecture can be adapted to another. The evidence is the inspectable structure and behavior of the artifact—not client adoption or realised results.',zh:'六個支付工具呈現同一領域中的反覆應用；第七個工具則展示架構如何適應另一個領域。證據是作品本身可檢視的結構與行為，不是客戶採用或已實現成果。'},
+  disclaimer:{en:'Thresholds are author-defined heuristics for illustrating the diagnostic logic, not definitive marketplace benchmarks. Calibrate them to the market, vertical, and business model before making a live decision.',zh:'門檻是作者為呈現診斷邏輯而設定的啟發式規則，不是定論性的市場平台基準。用於真實決策前，應依市場、垂直領域與商業模式重新校準。'},
+  evidence_title:{en:'Evidence boundary',zh:'證據邊界'},
+  evidence_body:{en:'This is a personal portfolio tool. Presets use synthetic operating profiles to demonstrate sensitivity; they are not client cases. Uncited numeric thresholds are author-defined heuristics, not market standards. The page does not claim client deployment, adoption, or realised results.',zh:'這是個人作品集工具。預設使用合成營運輪廓呈現敏感度，不是客戶案例。未附來源的數值門檻屬作者設定的啟發式規則，不是市場標準；本頁也不主張客戶部署、採用或已實現成果。'}
+});
+</script>
+<!-- ACCESSIBILITY ENHANCEMENTS -->
+<script>
+(function(){
+  document.querySelectorAll('.input-group').forEach(function(group){
+    var control = group.querySelector('input:not([type="email"]),select,textarea');
+    var labelText = group.querySelector('label [data-i]');
+    if(!control || !labelText || !control.id) return;
+    if(!labelText.id) labelText.id = 'label-' + control.id;
+    var label = group.querySelector('label');
+    if(label) label.setAttribute('for', control.id);
+    control.setAttribute('aria-labelledby', labelText.id);
+    control.removeAttribute('aria-label');
+  });
+  document.querySelectorAll('.pill-group,.pill-selector').forEach(function(group){
+    var owner = group.closest('.input-group');
+    var labelText = owner && owner.querySelector('label [data-i]');
+    if(!labelText) return;
+    if(!labelText.id) labelText.id = 'label-' + (group.id || group.getAttribute('data-field') || 'choice');
+    group.setAttribute('role','group');
+    group.setAttribute('aria-labelledby', labelText.id);
+  });
+  function syncPressed(){
+    document.querySelectorAll('.preset-btn,.pill-btn,.pill-opt,.lang-btn').forEach(function(btn){
+      btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
+    });
+  }
+  syncPressed();
+  var toolPanel = document.querySelector('.tool-panel');
+  if(toolPanel && window.MutationObserver){
+    new MutationObserver(syncPressed).observe(toolPanel,{subtree:true,attributes:true,attributeFilter:['class']});
+  }
+  var langToggle = document.querySelector('.lang-toggle');
+  if(langToggle && window.MutationObserver){
+    new MutationObserver(syncPressed).observe(langToggle,{subtree:true,attributes:true,attributeFilter:['class']});
+  }
+  var diagnosis = document.getElementById('diagnosis-block');
+  if(diagnosis){
+    diagnosis.setAttribute('role','status');
+    diagnosis.setAttribute('aria-live','polite');
+    diagnosis.setAttribute('aria-atomic','true');
+  }
+  var visualization = document.querySelector('.quadrant-viz');
+  if(visualization) visualization.setAttribute('aria-hidden','true');
+  var menu = document.querySelector('.menu-toggle');
+  function syncMenuLabel(){
+    if(!menu) return;
+    var zh = document.documentElement.lang === 'zh-Hant';
+    var open = menu.getAttribute('aria-expanded') === 'true';
+    menu.setAttribute('aria-label', zh ? (open ? '關閉選單' : '開啟選單') : (open ? 'Close menu' : 'Menu'));
+  }
+  syncMenuLabel();
+  if(menu && window.MutationObserver){
+    new MutationObserver(syncMenuLabel).observe(menu,{attributes:true,attributeFilter:['aria-expanded']});
+    new MutationObserver(syncMenuLabel).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  }
+})();
 </script>
 </body>
 </html>

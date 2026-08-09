@@ -6,7 +6,7 @@ An issuer planning a portfolio conversion — whether a network switch, product 
 
 This tool provides a structured readiness assessment across three layers — scale and timeline feasibility, operational preparedness, and post-conversion risk — to answer one question: **is this issuer ready to execute a portfolio conversion successfully, or does it need to address specific gaps before proceeding?**
 
-The framework synthesizes industry conversion readiness methodologies, publicly available case study patterns, and the author's experience supporting portfolio conversions across Asia Pacific, Middle East, and European payment markets.
+The framework is a personal synthesis of conversion-readiness concepts, expressed as an inspectable decision structure rather than a record of client work.
 
 ---
 
@@ -54,7 +54,7 @@ A conversion fails when any one layer is unresolved. The most common failure mod
 
 ## Decision rules
 
-> **Disclaimer:** Thresholds used in these rules are indicative portfolio-level heuristics informed by publicly available industry benchmarks and the author's experience across Asia Pacific, Middle East, and European payment markets. They serve as triage indicators — specific market conditions, regulatory regimes, and portfolio maturity will shift applicable ranges.
+> **Evidence boundary:** This is a personal portfolio artifact. The scenarios are illustrative and synthetic, not client cases. Unless a source is linked, numeric thresholds are author-defined triage heuristics—not market standards. Nothing here claims client deployment, adoption, or realised results.
 
 ### Layer A — Scale & Timeline
 
@@ -218,6 +218,6 @@ The tool operationalizes a decision that most issuers make through committee con
 
 ---
 
-*Sources: Industry conversion readiness frameworks, publicly available case study patterns, author experience across Asia Pacific, Middle East, and European payment markets.*
+*Evidence note: Personal synthesis of conversion-readiness concepts. Uncited thresholds and scenarios are illustrative, not client evidence or market benchmarks.*
 
-*Nick Chang · Strategy consultant · Payments & financial services*
+*Nick Chang · Financial-services consultant · Strategy & decision systems*

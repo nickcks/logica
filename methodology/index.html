@@ -50,8 +50,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   --surface-alt:#F5F4F0;
   --text:#1A1A18;
   --text-secondary:#5C5C56;
-  --text-tertiary:#787870;
-  --text-muted:#8E8E86;
+  --text-tertiary:#6F6F68;
+  --text-muted:#73736D;
   --accent:#6B6B5E;
   --border:#E2E1DC;
   --border-light:#EEEDE9;
@@ -64,6 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 body.zh{font-family:'DM Sans','Noto Sans TC',system-ui,sans-serif}
 a{color:inherit}
+button{min-height:44px}
 .container{max-width:1080px;margin:0 auto;padding:0 28px}
 
 /* ── Header ── */
@@ -73,15 +74,23 @@ header{padding:20px 0 0}
 .header-right{display:flex;align-items:center;margin-left:auto}
 nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-left:28px;letter-spacing:.2px;transition:color .15s}nav a:hover{color:var(--text)}
 .lang-toggle{display:inline-flex;align-items:center;margin-left:24px;border-left:1px solid var(--border);padding-left:20px}
-.lang-btn{font-size:12px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:6px 10px;font-family:var(--mono);letter-spacing:.5px;transition:color .15s}.lang-btn:hover{color:var(--text-secondary)}.lang-btn.active{color:var(--text);font-weight:500}
+.lang-btn{font-size:12px;color:var(--text-muted);background:none;border:none;cursor:pointer;padding:6px 10px;min-width:44px;font-family:var(--mono);letter-spacing:.5px;transition:color .15s}.lang-btn:hover{color:var(--text-secondary)}.lang-btn.active{color:var(--text);font-weight:500}
 .lang-sep{font-size:12px;color:var(--border);margin:0 2px}
-.menu-toggle{display:none;background:none;border:none;font-size:22px;line-height:1;color:var(--text-secondary);cursor:pointer;padding:8px 4px}
+.menu-toggle{display:none;background:none;border:none;font-size:22px;line-height:1;color:var(--text-secondary);cursor:pointer;padding:8px 4px;min-width:44px}
 
 /* ── Hero ── */
 .hero{padding-top:80px;padding-bottom:64px;max-width:640px}
 .hero-super{font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
 .hero h1{font-size:44px;font-weight:700;line-height:1.1;letter-spacing:-1.2px;margin-bottom:24px}
 .hero p{font-size:17px;color:var(--text-secondary);line-height:1.7;max-width:560px}
+
+/* ── Evidence boundary ── */
+.boundary-section{padding-bottom:64px}
+.boundary-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:28px}
+.boundary-label{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.boundary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.boundary-item strong{display:block;font-size:14px;margin-bottom:6px}
+.boundary-item p{font-size:13px;color:var(--text-secondary);line-height:1.65}
 
 /* ── Section shared ── */
 .section-rule{border:none;border-top:1px solid var(--border);margin-bottom:16px}
@@ -140,6 +149,7 @@ footer{border-top:1px solid var(--border);padding:40px 0}
   .hero{padding-top:56px;padding-bottom:48px}
   .hero h1{font-size:34px;letter-spacing:-1px}
   .process-grid{grid-template-columns:1fr}
+  .boundary-grid{grid-template-columns:1fr;gap:18px}
   .cluster-grid{grid-template-columns:1fr}
   .cluster-card.featured{grid-template-columns:1fr}
   .footer-inner{flex-direction:column;gap:12px;align-items:flex-start}
@@ -161,7 +171,7 @@ footer{border-top:1px solid var(--border);padding:40px 0}
   .header-right{display:none;width:100%;flex-direction:column;align-items:flex-start;padding-top:16px;margin-top:12px;border-top:1px solid var(--border-light);order:10}
   .header-right.open{display:flex}
   .header-right nav{display:flex;flex-direction:column;width:100%}
-  .header-right nav a{margin-left:0;padding:10px 0;font-size:14px;border-bottom:1px solid var(--border-light)}
+  .header-right nav a{margin-left:0;padding:12px 0;min-height:44px;font-size:14px;border-bottom:1px solid var(--border-light)}
   .lang-toggle{margin-left:auto;border-left:none;padding-left:0}
   .header-inner{flex-wrap:wrap}
 }
@@ -170,6 +180,7 @@ footer{border-top:1px solid var(--border);padding:40px 0}
   .hero h1{font-size:24px}
 }
 a:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:2px}button:focus-visible{outline:2px solid var(--text);outline-offset:2px;border-radius:4px}select:focus-visible{outline:2px solid var(--text);outline-offset:1px}input[type=range]:focus-visible{outline:2px solid var(--text);outline-offset:4px;border-radius:4px}.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:999;font-size:14px;padding:12px 24px;background:var(--text);color:var(--bg);text-decoration:none;border-radius:0 0 var(--radius) 0}.skip-link:focus{position:fixed;left:0;top:0;width:auto;height:auto;overflow:visible}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -192,9 +203,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </nav>
 </div>
 <div class="lang-toggle">
-<button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+<button class="lang-btn active" id="btn-en" aria-pressed="true" onclick="setLang('en')">EN</button>
 <span class="lang-sep">|</span>
-<button class="lang-btn" id="btn-zh" onclick="setLang('zh')">中文</button>
+<button class="lang-btn" id="btn-zh" aria-pressed="false" onclick="setLang('zh')">中文</button>
 </div>
 <button class="menu-toggle" aria-label="Menu" aria-expanded="false" onclick="var h=document.querySelector('.header-right');h.classList.toggle('open');var o=h.classList.contains('open');this.textContent=o?'✕':'☰';this.setAttribute('aria-expanded',o);this.setAttribute('aria-label',o?'Close menu':'Menu')">☰</button>
 </div>
@@ -206,6 +217,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="hero-super" data-i="hero_super">Method</div>
 <h1 data-i="hero_title">How expert judgment becomes operational</h1>
 <p data-i="hero_text">Most strategic analysis is trapped in decks, frameworks, and expert judgment — hard to reuse, hard to operate, and slow to turn into action. The tools in this portfolio take a different approach: decompose the problem, formalize the judgment into testable rules, and ship something someone can actually operate.</p>
+</div>
+
+<div class="container boundary-section">
+<div class="boundary-box">
+<div class="boundary-label" data-i="boundary_label">Evidence and provenance</div>
+<div class="boundary-grid">
+<div class="boundary-item"><strong data-i="boundary_inspect_title">Inspectable</strong><p data-i="boundary_inspect_body">The portfolio lets you inspect the inputs, rules, outputs, and interaction design. That is the capability evidence.</p></div>
+<div class="boundary-item"><strong data-i="boundary_scenario_title">Illustrative</strong><p data-i="boundary_scenario_body">Presets and worked examples are synthetic operating profiles. Uncited numeric thresholds are author-defined heuristics, not market standards.</p></div>
+<div class="boundary-item"><strong data-i="boundary_limit_title">Not claimed</strong><p data-i="boundary_limit_body">These personal tools do not represent client data, employer deployment, user adoption, or realised business results.</p></div>
+</div>
+</div>
 </div>
 
 <!-- ═══════ 2. THE PROCESS ═══════ -->
@@ -234,16 +256,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="process-step">
 <div class="step-num">03</div>
 <div class="step-name" data-i="s3_name">Calibrate</div>
-<div class="step-what" data-i="s3_what">Ground each rule in real industry conditions. Set thresholds using public benchmarks, adjust for regional variation, and stress-test edge cases with preset scenarios.</div>
-<div class="step-output" data-i="s3_output"><strong>Output:</strong> Thresholds and scenarios tuned to how the market actually behaves — not textbook assumptions.</div>
+<div class="step-what" data-i="s3_what">Separate cited facts from author judgment. Link a public source when a specific benchmark is used; otherwise label the threshold as a heuristic and stress-test it with illustrative scenarios.</div>
+<div class="step-output" data-i="s3_output"><strong>Output:</strong> Traceable assumptions, explicit thresholds, and scenarios that make sensitivity visible.</div>
 <a class="step-proof" href="../payments/portfolio-conversion/" data-i="s3_proof">See it → Conversion</a>
 </div>
 
 <div class="process-step">
 <div class="step-num">04</div>
 <div class="step-name" data-i="s4_name">Ship</div>
-<div class="step-what" data-i="s4_what">Build the system into an interface someone can operate without context. Inputs they can adjust, rules they can trace, outputs they can act on — all legible in under three minutes.</div>
-<div class="step-output" data-i="s4_output"><strong>Output:</strong> An interactive tool that compresses weeks of analytical work into something you run in minutes.</div>
+<div class="step-what" data-i="s4_what">Build the system into an interface designed for quick orientation. Inputs can be adjusted, rules can be traced, and outputs can be reviewed in one place.</div>
+<div class="step-output" data-i="s4_output"><strong>Output:</strong> An interactive tool with inspectable inputs, rules, and outputs.</div>
 <a class="step-proof" href="../payments/sme-payments/" data-i="s4_proof">See it → SME Payments</a>
 </div>
 
@@ -256,7 +278,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="section-label" data-i="sec_perspectives">Analytical perspectives behind the tools</span>
 
 <p class="perspectives-intro" data-i="persp_intro">Every domain has structural forces that shape outcomes. The question is whether you see them systematically or catch them ad hoc. Each Logica tool is built on a structured set of analytical perspectives — ways of looking at a domain that surface different kinds of insight.</p>
-<p class="perspectives-internal" data-i="persp_internal">Internally, this analytical operating system is organized as Meta Logic OS — a set of structured perspectives used to decompose complexity into usable decision systems.</p>
+<p class="perspectives-internal" data-i="persp_internal">The analytical operating system uses a set of structured perspectives to decompose complexity into usable decision systems.</p>
 
 <div class="cluster-grid">
 
@@ -297,7 +319,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- Compact: Product-market architecture -->
 <div class="cluster-card">
 <div class="cluster-label" data-i="c4_label">Product-market architecture</div>
-<div class="cluster-question" data-i="c4_q">Does the product architecture match how the market actually behaves?</div>
+<div class="cluster-question" data-i="c4_q">Does the product architecture match observable customer and operating behaviour?</div>
 <div class="cluster-desc" data-i="c4_desc">A product can have every feature and still miss the market. Architecture analysis tests whether the product's structure — what it bundles, how it engages, what makes it stick — aligns with the buyer's actual workflow and decision patterns. In SME payments, the gap between "payment card" and "operating system" is the gap between commodity and defensibility.</div>
 <a class="cluster-tool" href="../payments/sme-payments/" data-i="c4_tool">Tool 05 → SME Payments</a>
 </div>
@@ -333,13 +355,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="principle">
 <div class="principle-num">04</div>
 <div class="principle-text" data-i="p4_text">Proxies are acknowledged, not hidden</div>
-<div class="principle-detail" data-i="p4_detail">Where direct measurement isn't possible, tools use proxy indicators — and say so. All thresholds carry hedging language and are informed by publicly available industry benchmarks.</div>
+<div class="principle-detail" data-i="p4_detail">Sources, proxies, and author judgment stay separate. A number without a linked source is treated as an illustrative heuristic, not an industry benchmark.</div>
 </div>
 
 <div class="principle">
 <div class="principle-num">05</div>
-<div class="principle-text" data-i="p5_text">Legible in three minutes</div>
-<div class="principle-detail" data-i="p5_detail">Someone who has never seen the tool before should understand what it does, what it asks, and what it tells them within a single sitting. If it requires a training session, the design has failed.</div>
+<div class="principle-text" data-i="p5_text">Designed for quick orientation</div>
+<div class="principle-detail" data-i="p5_detail">A first-time visitor should be able to find the purpose, inputs, rules, and outputs in one interface, with deeper assumptions available for inspection.</div>
 </div>
 
 </div>
@@ -350,7 +372,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <hr class="section-rule">
 <span class="section-label" data-i="sec_transfer">Beyond payments</span>
 
-<p class="transfer-text" data-i="transfer_text">Payments was the starting point — it's where the density of real commercial problems and available evidence made the approach provable. The marketplace diagnostic was the first test beyond payments. More domains will follow where the same conditions hold: high complexity, consequential decisions, and expertise trapped in people's heads.</p>
+<p class="transfer-text" data-i="transfer_text">Payments was the starting point: six tools apply the same diagnostic architecture within one domain. The marketplace diagnostic is a seventh, cross-domain example. This repetition demonstrates how the structure transfers; it does not claim client validation or adoption.</p>
 <a class="transfer-back" href="../#tools" data-i="transfer_back">← Browse the tools</a>
 </div>
 
@@ -358,7 +380,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <footer>
 <div class="container footer-inner">
-<span class="footer-author">Nick Chang · Strategy consultant · Payments &amp; financial services</span>
+<span class="footer-author">Nick Chang · Financial-services consultant · Strategy &amp; decision systems</span>
 <div class="footer-links">
 <a href="https://www.linkedin.com/in/nick-kaihsiangchang/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 <a href="https://btmbynickchangkhs.substack.com/?utm_source=logica&amp;utm_medium=portfolio&amp;utm_campaign=footer_link" target="_blank" rel="noopener noreferrer">Substack</a>
@@ -372,6 +394,13 @@ const T={
 hero_super:{en:'Method',zh:'方法'},
 hero_title:{en:'How expert judgment becomes operational',zh:'專家判斷如何變得可操作'},
 hero_text:{en:'Most strategic analysis is trapped in decks, frameworks, and expert judgment — hard to reuse, hard to operate, and slow to turn into action. The tools in this portfolio take a different approach: decompose the problem, formalize the judgment into testable rules, and ship something someone can actually operate.',zh:'多數策略分析困在簡報、框架和專家判斷裡——難以複用、難以操作、從洞見到行動的路太長。這個作品集裡的工具採取不同方法：解構問題、將判斷形式化為可測試的規則、交付一個任何人都能操作的東西。'},
+boundary_label:{en:'Evidence and provenance',zh:'證據與來源邊界'},
+boundary_inspect_title:{en:'Inspectable',zh:'可檢視'},
+boundary_inspect_body:{en:'The portfolio lets you inspect the inputs, rules, outputs, and interaction design. That is the capability evidence.',zh:'作品集讓你直接檢視輸入、規則、產出與互動設計；這些才是能力證據。'},
+boundary_scenario_title:{en:'Illustrative',zh:'示意情境'},
+boundary_scenario_body:{en:'Presets and worked examples are synthetic operating profiles. Uncited numeric thresholds are author-defined heuristics, not market standards.',zh:'預設與案例是合成的營運輪廓。未附來源的數值門檻屬作者設定的啟發式規則，不是市場標準。'},
+boundary_limit_title:{en:'Not claimed',zh:'不主張'},
+boundary_limit_body:{en:'These personal tools do not represent client data, employer deployment, user adoption, or realised business results.',zh:'這些個人作品不代表客戶資料、雇主部署、使用者採用或已實現的商業成果。'},
 sec_process:{en:'The process',zh:'流程'},
 s1_name:{en:'Decompose',zh:'解構'},
 s1_what:{en:'Break the domain into its core variables, actors, and failure modes. Map how value flows, where it leaks, and which forces shape outcomes.',zh:'將領域拆解為核心變數、行為者與失敗模式。繪製價值的流向、滲漏點，以及塑造結果的力量。'},
@@ -382,16 +411,16 @@ s2_what:{en:'Convert structural patterns into explicit decision rules. Each rule
 s2_output:{en:'<strong>Output:</strong> A rule set that turns qualitative judgment into testable, repeatable logic.',zh:'<strong>產出：</strong>一組規則，將定性判斷轉化為可測試、可重複的邏輯。'},
 s2_proof:{en:'See it → Co-Brand',zh:'實例 → 聯名卡'},
 s3_name:{en:'Calibrate',zh:'校準'},
-s3_what:{en:'Ground each rule in real industry conditions. Set thresholds using public benchmarks, adjust for regional variation, and stress-test edge cases with preset scenarios.',zh:'用真實行業條件校準每條規則。以公開基準設定閾值，調整區域差異，並以預設場景壓力測試邊界。'},
-s3_output:{en:'<strong>Output:</strong> Thresholds and scenarios tuned to how the market actually behaves — not textbook assumptions.',zh:'<strong>產出：</strong>根據市場實際表現校準的閾值與場景——而非教科書假設。'},
+s3_what:{en:'Separate cited facts from author judgment. Link a public source when a specific benchmark is used; otherwise label the threshold as a heuristic and stress-test it with illustrative scenarios.',zh:'把有來源的事實與作者判斷分開。使用具體基準時附上公開來源；若無來源，則明示為啟發式門檻，並以示意情境進行壓力測試。'},
+s3_output:{en:'<strong>Output:</strong> Traceable assumptions, explicit thresholds, and scenarios that make sensitivity visible.',zh:'<strong>產出：</strong>可追溯的假設、明確門檻，以及能呈現敏感度的情境。'},
 s3_proof:{en:'See it → Conversion',zh:'實例 → 轉換'},
 s4_name:{en:'Ship',zh:'交付'},
-s4_what:{en:'Build the system into an interface someone can operate without context. Inputs they can adjust, rules they can trace, outputs they can act on — all legible in under three minutes.',zh:'將系統建構為無需背景知識即可操作的介面。可調整的輸入、可追溯的規則、可行動的產出——三分鐘內全部讀懂。'},
-s4_output:{en:'<strong>Output:</strong> An interactive tool that compresses weeks of analytical work into something you run in minutes.',zh:'<strong>產出：</strong>互動式工具，將數週分析工作壓縮為幾分鐘就能執行的系統。'},
+s4_what:{en:'Build the system into an interface designed for quick orientation. Inputs can be adjusted, rules can be traced, and outputs can be reviewed in one place.',zh:'將系統建構為便於快速掌握的介面：輸入可調整、規則可追溯、輸出可在同一處檢視。'},
+s4_output:{en:'<strong>Output:</strong> An interactive tool with inspectable inputs, rules, and outputs.',zh:'<strong>產出：</strong>一套輸入、規則與輸出皆可檢視的互動式工具。'},
 s4_proof:{en:'See it → SME Payments',zh:'實例 → 中小企業支付'},
 sec_perspectives:{en:'Analytical perspectives behind the tools',zh:'工具背後的分析視角'},
 persp_intro:{en:'Every domain has structural forces that shape outcomes. The question is whether you see them systematically or catch them ad hoc. Each Logica tool is built on a structured set of analytical perspectives — ways of looking at a domain that surface different kinds of insight.',zh:'每個領域都有塑造結果的結構性力量。問題在於你是系統性地辨識它們，還是碰巧才注意到。每個 Logica 工具都建立在一組結構化的分析視角上——對領域的不同切入方式，揭示不同類型的洞見。'},
-persp_internal:{en:'Internally, this analytical operating system is organized as Meta Logic OS — a set of structured perspectives used to decompose complexity into usable decision systems.',zh:'在內部，這套分析作業系統被組織為 Meta Logic OS——一組用於將複雜性分解為可用決策系統的結構化視角。'},
+persp_internal:{en:'The analytical operating system uses a set of structured perspectives to decompose complexity into usable decision systems.',zh:'這套分析作業系統透過一組結構化視角，把複雜問題拆成可用的決策系統。'},
 c1_label:{en:'Structure',zh:'結構'},
 c1_q:{en:'What are the core components, and where does value leak?',zh:'核心組件是什麼？價值從哪裡流失？'},
 c1_desc:{en:'Before you can diagnose anything, you need to see the machine. Structural analysis decomposes a domain into its fundamental components — revenue lines, cost drivers, flow paths — and maps how they interact. Most strategic errors start here: people optimize a component without seeing how it connects to the rest of the system.',zh:'在診斷任何問題之前，你需要先看清這台機器。結構分析將領域拆解為基本組件——收入線、成本驅動因素、流動路徑——並繪製它們的互動方式。多數策略錯誤始於此處：人們優化單一組件，卻沒看到它如何與系統其他部分相連。'},
@@ -407,7 +436,7 @@ c3_q:{en:'Who captures value, and how does control shift across the system?',zh:
 c3_desc:{en:'In any multi-player system, margins don\'t just compress — they migrate. Power analysis tracks where value concentrates, which players have leverage, and what structural shifts are redistributing economics. In acquiring, the question isn\'t whether margins are thin — it\'s whether the business controls enough of the value chain to survive when they get thinner.',zh:'在任何多方博弈的系統中，利潤不只是壓縮——而是遷移。權力分析追蹤價值集中在哪裡、哪些玩家有槓桿、什麼結構性變化正在重新分配經濟。在收單中，問題不是利潤薄不薄——而是當利潤更薄時，這個業務是否控制了足夠多的價值鏈以存活。'},
 c3_tool:{en:'Tool 04 → Acquiring',zh:'工具 04 → 收單'},
 c4_label:{en:'Product-market architecture',zh:'產品-市場架構'},
-c4_q:{en:'Does the product architecture match how the market actually behaves?',zh:'產品架構是否與市場的實際運作方式匹配？'},
+c4_q:{en:'Does the product architecture match observable customer and operating behaviour?',zh:'產品架構是否與可觀察的客戶行為和營運方式匹配？'},
 c4_desc:{en:'A product can have every feature and still miss the market. Architecture analysis tests whether the product\'s structure — what it bundles, how it engages, what makes it stick — aligns with the buyer\'s actual workflow and decision patterns. In SME payments, the gap between "payment card" and "operating system" is the gap between commodity and defensibility.',zh:'一個產品可以功能齊全卻仍然錯失市場。架構分析檢驗產品的結構——綁了什麼、如何互動、靠什麼黏住——是否與買方的實際工作流和決策模式吻合。在中小企業支付中，「支付卡」和「營運系統」之間的差距，就是大宗商品與可防禦性之間的差距。'},
 c4_tool:{en:'Tool 05 → SME Payments',zh:'工具 05 → 中小企業支付'},
 sec_principles:{en:'Design principles',zh:'設計原則'},
@@ -418,11 +447,11 @@ p2_detail:{en:'Each tool uses named decision rules with clear thresholds — not
 p3_text:{en:'Every input must change an output',zh:'每個輸入都必須改變輸出'},
 p3_detail:{en:'No decorative parameters. If an input exists, it must affect at least one decision rule. If it doesn\'t change the diagnosis, it doesn\'t belong in the tool.',zh:'沒有裝飾性參數。如果一個輸入存在，它必須影響至少一條決策規則。如果它不改變診斷結果，它就不該出現在工具中。'},
 p4_text:{en:'Proxies are acknowledged, not hidden',zh:'代理指標被揭露，而非隱藏'},
-p4_detail:{en:'Where direct measurement isn\'t possible, tools use proxy indicators — and say so. All thresholds carry hedging language and are informed by publicly available industry benchmarks.',zh:'當直接衡量不可行時，工具使用代理指標——並明確說明。所有閾值都帶有緩衝語言，並以公開的行業基準為依據。'},
-p5_text:{en:'Legible in three minutes',zh:'三分鐘讀懂'},
-p5_detail:{en:'Someone who has never seen the tool before should understand what it does, what it asks, and what it tells them within a single sitting. If it requires a training session, the design has failed.',zh:'從未見過這個工具的人，應該在一次使用中就能理解它做什麼、問什麼、告訴你什麼。如果需要培訓課程，就是設計失敗。'},
+p4_detail:{en:'Sources, proxies, and author judgment stay separate. A number without a linked source is treated as an illustrative heuristic, not an industry benchmark.',zh:'來源、代理指標與作者判斷分開呈現。沒有附上來源的數值一律視為示意用啟發式門檻，而不是行業基準。'},
+p5_text:{en:'Designed for quick orientation',zh:'便於快速掌握'},
+p5_detail:{en:'A first-time visitor should be able to find the purpose, inputs, rules, and outputs in one interface, with deeper assumptions available for inspection.',zh:'第一次使用者應能在同一介面找到用途、輸入、規則與輸出，並可進一步檢視底層假設。'},
 sec_transfer:{en:'Beyond payments',zh:'不止於支付'},
-transfer_text:{en:'Payments was the starting point — it\'s where the density of real commercial problems and available evidence made the approach provable. The marketplace diagnostic was the first test beyond payments. More domains will follow where the same conditions hold: high complexity, consequential decisions, and expertise trapped in people\'s heads.',zh:'支付是起點——這是真實商業問題的密度和可用證據使方法可驗證的領域。市場進入診斷是支付之外的第一次測試。更多領域將在相同條件下跟進：高複雜度、關鍵決策、以及困在人腦中的專業知識。'},
+transfer_text:{en:'Payments was the starting point: six tools apply the same diagnostic architecture within one domain. The marketplace diagnostic is a seventh, cross-domain example. This repetition demonstrates how the structure transfers; it does not claim client validation or adoption.',zh:'支付是起點：六個工具在同一領域中反覆應用相同診斷架構；市場平台診斷則是第七個跨領域示例。這種重複應用呈現架構如何遷移，不代表客戶驗證或採用。'},
 transfer_back:{en:'← Browse the tools',zh:'← 瀏覽工具'}
 };
 let lang='en';
@@ -431,6 +460,8 @@ function setLang(l){document.documentElement.lang=l==='zh'?'zh-Hant':'en';
   document.body.classList.toggle('zh',l==='zh');
   document.getElementById('btn-en').classList.toggle('active',l==='en');
   document.getElementById('btn-zh').classList.toggle('active',l==='zh');
+  document.getElementById('btn-en').setAttribute('aria-pressed',l==='en');
+  document.getElementById('btn-zh').setAttribute('aria-pressed',l==='zh');
   document.querySelectorAll('[data-i]').forEach(el=>{
     const k=el.getAttribute('data-i');
     if(T[k]&&T[k][l]) el.innerHTML=T[k][l];
