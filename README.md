@@ -1,7 +1,7 @@
 ---
 Title: README
 Created: 2026-03-22
-Modified: 2026-03-25
+Modified: 2026-08-09
 ---
 # Logica
 
@@ -27,6 +27,8 @@ The proving ground. Six diagnostic tools covering the core economics of card pay
 | 06 | [Vertical Prioritization](https://nickchang.dev/payments/vertical-prioritization/) | Is this the right vertical to enter — or will competition and execution complexity burn the investment? |
 
 Each tool takes a problem that usually lives inside consulting decks and analyst models — and turns it into a system you can actually run. Explicit inputs, structured rules, clear outputs. Preset scenarios let you load real market archetypes and compare how structural context changes the strategy.
+
+The Vertical Prioritization tool puts the selected quadrant's strategic action first, then fills the remaining recommendations with failed diagnostic rules—or warnings when no failures exist—deduplicated to a maximum of three actions.
 
 All tools are bilingual (English + 中文) and self-contained single-file HTML.
 

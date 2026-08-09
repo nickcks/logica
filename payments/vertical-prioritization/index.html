@@ -582,10 +582,14 @@ const dt=diagT[dk][lang];
 const diagObj=typeof dt==='function'?dt(fc):dt;
 const statusClass=dk==='quick_win'||dk==='potential'||dk==='healthy_watch'?'status-healthy':dk.startsWith('time_sink')||dk==='caution_fail'?'status-critical':'status-caution';
 document.getElementById('diagnosis-block').innerHTML=`<div class="diagnosis-block ${statusClass}"><div class="diagnosis-label">${T.diag_label[lang]}</div><div class="diagnosis-title">${diagObj.title}</div><div class="diagnosis-detail">${diagObj.detail}</div></div>`;
-/* Top actions — fail first, fallback to warn */
+/* Top actions — selected classification first, then diagnostic fixes */
 const fa=[],wa=[];
-results.forEach(r=>{if(r.status==='fail'){const rt=ruleT[r.id];if(rt&&rt.action)fa.push({action:rt.action[lang],watch:rt.watch?rt.watch[lang]:null,status:'fail'});}if(r.status==='warn'){const rt=ruleT[r.id];if(rt&&rt.action)wa.push({action:rt.action[lang],watch:rt.watch?rt.watch[lang]:null,status:'warn'});}});
-const topActs=(fa.length>0?fa:wa).slice(0,3);
+layer12.forEach(r=>{if(r.status==='fail'){const rt=ruleT[r.id];if(rt&&rt.action)fa.push({action:rt.action[lang],watch:rt.watch?rt.watch[lang]:null,status:'fail'});}if(r.status==='warn'){const rt=ruleT[r.id];if(rt&&rt.action)wa.push({action:rt.action[lang],watch:rt.watch?rt.watch[lang]:null,status:'warn'});}});
+const selectedRuleId={quick_win:8,strategic_bet:9,time_sink:10,time_sink_fortress:10}[dk];
+const selectedActions=[];
+if(selectedRuleId){const rt=ruleT[selectedRuleId];selectedActions.push({action:rt.action[lang],watch:rt.watch?rt.watch[lang]:null,status:'selected'});}
+const diagnosticActions=fa.length>0?fa:wa;
+const topActs=[...selectedActions,...diagnosticActions].filter((a,i,arr)=>arr.findIndex(x=>x.action===a.action)===i).slice(0,3);
 if(topActs.length>0){let html=`<h4>${T.actions_label[lang]}</h4><ol>`;topActs.forEach(a=>{html+=`<li>${a.action}`;if(a.watch&&a.status==='warn')html+=`<div class="rule-watch">△ ${a.watch}</div>`;html+=`</li>`;});html+=`</ol>`;document.getElementById('top-actions').innerHTML=`<div class="top-actions">${html}</div>`;}else{document.getElementById('top-actions').innerHTML='';}
 /* Rule cards — R1-7 diagnostic rules */
 let rhtml='';
