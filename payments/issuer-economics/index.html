@@ -116,10 +116,10 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
 .input-group{margin-bottom:12px}
 .input-group label{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--text-secondary);margin-bottom:6px}
 .input-group .value{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--text);min-width:48px;text-align:right}
-input[type=range]{-webkit-appearance:none;width:100%;height:44px;background:transparent;outline:none;touch-action:manipulation}
+input[type=range]{-webkit-appearance:none;display:block;width:100%;height:44px;margin:-6px 0 -12px;background:transparent;outline:none;touch-action:manipulation}
 input[type=range]::-webkit-slider-runnable-track{height:6px;background:var(--border);border-radius:3px}
 input[type=range]::-moz-range-track{height:6px;background:var(--border);border-radius:3px}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:var(--text);border-radius:50%;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-8px;background:var(--text);border-radius:50%;cursor:pointer}
 input[type=range]::-moz-range-thumb{width:22px;height:22px;background:var(--text);border-radius:50%;cursor:pointer;border:0}
 .presets{display:flex;gap:6px;margin:16px 0 18px;flex-wrap:wrap}
 .preset-btn{font-family:inherit;font-size:12px;font-weight:500;padding:8px 16px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--text-secondary);cursor:pointer;transition:all .15s}.preset-btn:hover{border-color:var(--text);color:var(--text)}.preset-btn.active{background:var(--text);color:var(--bg);border-color:var(--text)}
@@ -241,16 +241,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="tool-panel" id="diagnostic">
 <h2 data-i="tp_title">Portfolio parameters</h2>
 <div class="input-section-label" data-i="sec_revenue">Revenue</div>
-<div class="input-group"><label><span data-i="l_interchange">Interchange yield</span><span class="value" id="o-interchange">1.5%</span></label><input type="range" id="interchange" aria-label="Interchange yield"></div>
-<div class="input-group"><label><span data-i="l_rewards">Rewards cost</span><span class="value" id="o-rewards">2.0%</span></label><input type="range" id="rewards" aria-label="Rewards cost"></div>
-<div class="input-group"><label><span data-i="l_waiver">Fee waiver rate</span><span class="value" id="o-waiver">55%</span></label><input type="range" id="waiver" aria-label="Fee waiver rate"></div>
+<div class="input-group"><label><span data-i="l_interchange">Interchange yield</span><span class="value" id="o-interchange">1.5%</span></label><input type="range" id="interchange" min="0.5" max="3" step="0.1" value="1.5" aria-label="Interchange yield"></div>
+<div class="input-group"><label><span data-i="l_rewards">Rewards cost</span><span class="value" id="o-rewards">2.0%</span></label><input type="range" id="rewards" min="0.5" max="4" step="0.1" value="2" aria-label="Rewards cost"></div>
+<div class="input-group"><label><span data-i="l_waiver">Fee waiver rate</span><span class="value" id="o-waiver">55%</span></label><input type="range" id="waiver" min="0" max="90" step="5" value="55" aria-label="Fee waiver rate"></div>
 <div class="input-section-label" data-i="sec_behavior">Portfolio behavior</div>
-<div class="input-group"><label><span data-i="l_revolve">Revolve rate</span><span class="value" id="o-revolve">18%</span></label><input type="range" id="revolve" aria-label="Revolve rate"></div>
-<div class="input-group"><label><span data-i="l_spend">Spend growth YoY</span><span class="value" id="o-spendgrowth">12%</span></label><input type="range" id="spendgrowth" aria-label="Spend growth year over year"></div>
-<div class="input-group"><label><span data-i="l_activation">90-day activation</span><span class="value" id="o-activation">55%</span></label><input type="range" id="activation" aria-label="90-day activation rate"></div>
+<div class="input-group"><label><span data-i="l_revolve">Revolve rate</span><span class="value" id="o-revolve">18%</span></label><input type="range" id="revolve" min="5" max="60" step="1" value="18" aria-label="Revolve rate"></div>
+<div class="input-group"><label><span data-i="l_spend">Spend growth YoY</span><span class="value" id="o-spendgrowth">12%</span></label><input type="range" id="spendgrowth" min="-5" max="30" step="1" value="12" aria-label="Spend growth year over year"></div>
+<div class="input-group"><label><span data-i="l_activation">90-day activation</span><span class="value" id="o-activation">55%</span></label><input type="range" id="activation" min="30" max="95" step="1" value="55" aria-label="90-day activation rate"></div>
 <div class="input-section-label" data-i="sec_risk">Risk & capital</div>
-<div class="input-group"><label><span data-i="l_chargeoff">Chargeoff rate (latest vintage)</span><span class="value" id="o-chargeoff">2.5%</span></label><input type="range" id="chargeoff" aria-label="Chargeoff rate for latest vintage"></div>
-<div class="input-group"><label><span data-i="l_roic">ROIC spread vs. cost of capital</span><span class="value" id="o-roic">+2.0%</span></label><input type="range" id="roic" aria-label="ROIC spread versus cost of capital"></div>
+<div class="input-group"><label><span data-i="l_chargeoff">Chargeoff rate (latest vintage)</span><span class="value" id="o-chargeoff">2.5%</span></label><input type="range" id="chargeoff" min="0.5" max="8" step="0.1" value="2.5" aria-label="Chargeoff rate for latest vintage"></div>
+<div class="input-group"><label><span data-i="l_roic">ROIC spread vs. cost of capital</span><span class="value" id="o-roic">+2.0%</span></label><input type="range" id="roic" min="-5" max="15" step="0.5" value="2" aria-label="ROIC spread versus cost of capital"></div>
 <div class="presets"><button class="preset-btn" id="p-taiwan" data-i="p_taiwan">Taiwan — capped interchange</button><button class="preset-btn" id="p-brazil" data-i="p_brazil">Brazil — high revolve / CoF</button><button class="preset-btn" id="p-healthy" data-i="p_healthy">Healthy portfolio</button><button class="preset-btn" id="p-reset" data-i="p_reset">Reset</button></div>
 <div class="summary-row"><div class="stat-card"><div class="label" data-i="s_margin">Txn margin</div><div class="number" id="s-margin">-50 bps</div></div><div class="stat-card"><div class="label" data-i="s_fail">Rules failed</div><div class="number" id="s-fails" style="color:var(--fail)">0</div></div><div class="stat-card"><div class="label" data-i="s_pass">Rules passed</div><div class="number" id="s-pass" style="color:var(--pass)">0</div></div><div class="stat-card"><div class="label" data-i="s_warn">Warnings</div><div class="number" id="s-warn" style="color:var(--warn)">0</div></div></div>
 <div id="diagnosis-block"></div>
