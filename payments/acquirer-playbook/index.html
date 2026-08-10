@@ -116,10 +116,10 @@ nav a{font-size:13px;color:var(--text-secondary);text-decoration:none;margin-lef
 .input-group{margin-bottom:12px}
 .input-group label{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;color:var(--text-secondary);margin-bottom:6px}
 .input-group .value{font-family:'DM Mono',monospace;font-size:13px;font-weight:500;color:var(--text);min-width:48px;text-align:right}
-input[type=range]{-webkit-appearance:none;width:100%;height:44px;background:transparent;outline:none;touch-action:manipulation}
+input[type=range]{-webkit-appearance:none;display:block;width:100%;height:44px;margin:-6px 0 -12px;background:transparent;outline:none;touch-action:manipulation}
 input[type=range]::-webkit-slider-runnable-track{height:6px;background:var(--border);border-radius:3px}
 input[type=range]::-moz-range-track{height:6px;background:var(--border);border-radius:3px}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:var(--text);border-radius:50%;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;margin-top:-8px;background:var(--text);border-radius:50%;cursor:pointer}
 input[type=range]::-moz-range-thumb{width:22px;height:22px;background:var(--text);border-radius:50%;cursor:pointer;border:0}
 .presets{display:flex;gap:6px;margin:16px 0 18px;flex-wrap:wrap}
 .preset-btn{font-family:inherit;font-size:12px;font-weight:500;padding:8px 16px;border:1px solid var(--border);border-radius:20px;background:var(--surface);color:var(--text-secondary);cursor:pointer;transition:all .15s}.preset-btn:hover{border-color:var(--text);color:var(--text)}.preset-btn.active{background:var(--text);color:var(--bg);border-color:var(--text)}
@@ -208,18 +208,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="tool-panel" id="diagnostic">
 <h2 data-i="tp_title">Acquirer parameters</h2>
 <div class="input-section-label" data-i="sec_econ">Economics</div>
-<div class="input-group"><label><span data-i="l_msc">MSC rate</span><span class="value" id="o-msc">150 bps</span></label><input type="range" id="msc_rate" aria-label="MSC rate"></div>
-<div class="input-group"><label><span data-i="l_ic">Interchange rate</span><span class="value" id="o-ic">95 bps</span></label><input type="range" id="interchange_rate" aria-label="Interchange rate"></div>
-<div class="input-group"><label><span data-i="l_sf">Scheme fee rate</span><span class="value" id="o-sf">12 bps</span></label><input type="range" id="scheme_fee" aria-label="Scheme fee rate"></div>
-<div class="input-group"><label><span data-i="l_proc">Processing + overhead</span><span class="value" id="o-proc">18 bps</span></label><input type="range" id="processing_cost" aria-label="Processing and overhead cost"></div>
+<div class="input-group"><label><span data-i="l_msc">MSC rate</span><span class="value" id="o-msc">150 bps</span></label><input type="range" id="msc_rate" min="50" max="300" step="5" value="150" aria-label="MSC rate"></div>
+<div class="input-group"><label><span data-i="l_ic">Interchange rate</span><span class="value" id="o-ic">95 bps</span></label><input type="range" id="interchange_rate" min="20" max="200" step="5" value="95" aria-label="Interchange rate"></div>
+<div class="input-group"><label><span data-i="l_sf">Scheme fee rate</span><span class="value" id="o-sf">12 bps</span></label><input type="range" id="scheme_fee" min="3" max="30" step="1" value="12" aria-label="Scheme fee rate"></div>
+<div class="input-group"><label><span data-i="l_proc">Processing + overhead</span><span class="value" id="o-proc">18 bps</span></label><input type="range" id="processing_cost" min="3" max="40" step="1" value="18" aria-label="Processing and overhead cost"></div>
 <div class="input-section-label" data-i="sec_dist">Distribution</div>
-<div class="input-group"><label><span data-i="l_sme">SME revenue share</span><span class="value" id="o-sme">45%</span></label><input type="range" id="sme_share" aria-label="SME revenue share"></div>
-<div class="input-group"><label><span data-i="l_conc">Top-2 partner share</span><span class="value" id="o-conc">35%</span></label><input type="range" id="partner_concentration" aria-label="Top two partner share"></div>
-<div class="input-group"><label><span data-i="l_chan">Partner channel (new merchants)</span><span class="value" id="o-chan">40%</span></label><input type="range" id="partner_channel" aria-label="Partner channel share of new merchants"></div>
+<div class="input-group"><label><span data-i="l_sme">SME revenue share</span><span class="value" id="o-sme">45%</span></label><input type="range" id="sme_share" min="10" max="90" step="5" value="45" aria-label="SME revenue share"></div>
+<div class="input-group"><label><span data-i="l_conc">Top-2 partner share</span><span class="value" id="o-conc">35%</span></label><input type="range" id="partner_concentration" min="5" max="80" step="5" value="35" aria-label="Top two partner share"></div>
+<div class="input-group"><label><span data-i="l_chan">Partner channel (new merchants)</span><span class="value" id="o-chan">40%</span></label><input type="range" id="partner_channel" min="5" max="85" step="5" value="40" aria-label="Partner channel share of new merchants"></div>
 <div class="input-section-label" data-i="sec_strat">Strategic position</div>
-<div class="input-group"><label><span data-i="l_vas">VAS revenue share</span><span class="value" id="o-vas">8%</span></label><input type="range" id="vas_share" aria-label="Value-added services revenue share"></div>
-<div class="input-group"><label><span data-i="l_ecom">E-commerce share</span><span class="value" id="o-ecom">30%</span></label><input type="range" id="ecom_share" aria-label="E-commerce transaction share"></div>
-<div class="input-group"><label><span data-i="l_fraud">Fraud + chargeback rate</span><span class="value" id="o-fraud">8 bps</span></label><input type="range" id="fraud_rate" aria-label="Fraud and chargeback rate"></div>
+<div class="input-group"><label><span data-i="l_vas">VAS revenue share</span><span class="value" id="o-vas">8%</span></label><input type="range" id="vas_share" min="0" max="40" step="1" value="8" aria-label="Value-added services revenue share"></div>
+<div class="input-group"><label><span data-i="l_ecom">E-commerce share</span><span class="value" id="o-ecom">30%</span></label><input type="range" id="ecom_share" min="5" max="85" step="5" value="30" aria-label="E-commerce transaction share"></div>
+<div class="input-group"><label><span data-i="l_fraud">Fraud + chargeback rate</span><span class="value" id="o-fraud">8 bps</span></label><input type="range" id="fraud_rate" min="1" max="50" step="1" value="8" aria-label="Fraud and chargeback rate"></div>
 <div class="presets"><button class="preset-btn" id="p-bank" data-i="p_bank">Bank acquirer — enterprise-heavy</button><button class="preset-btn" id="p-fintech" data-i="p_fintech">Fintech — SME embedded</button><button class="preset-btn" id="p-emerging" data-i="p_emerging">Emerging market entrant</button><button class="preset-btn" id="p-custom" data-i="p_custom" style="display:none">Custom</button><button class="preset-btn" id="p-reset" data-i="p_reset">Reset</button></div>
 <div class="summary-row"><div class="stat-card"><div class="label" data-i="s_residual">Residual</div><div class="number" id="s-residual">43 bps</div></div><div class="stat-card"><div class="label" data-i="s_net">Net margin</div><div class="number" id="s-net">25 bps</div></div><div class="stat-card"><div class="label" data-i="s_fail">Failed</div><div class="number" id="s-fails" style="color:var(--fail)">0</div></div><div class="stat-card"><div class="label" data-i="s_warn">Warnings</div><div class="number" id="s-warn" style="color:var(--warn)">0</div></div></div>
 <div id="diagnosis-block"></div>
